@@ -1,0 +1,327 @@
+[
+    {
+        "id": 1,
+        "lieu": "Lapan’ny Tanana",
+        "photo360": "Lapan'ny tanana.jpg",
+        "photo": "Lapan_ny Tanana 1.JPG",
+        "galery": ["Lapan_ny Tanana 2.jpg","Lapan_ny Tanana 3.JPG","Lapan_ny Tanana 5.JPG","Lapan_ny Tanana 6.JPG"],
+        "descriptions": [
+            "Située au cœur de Fianarantsoa, dans le quartier animé de Tsianolondroa et à proximité du marché du zoma, la place appelée Lapan’ny Tanana est bien plus qu'un simple point de repère. Son appellation, Mairie, révèle sa fonction centrale en tant que lieu abritant la mairie de la ville, le bâtiment de la région, les banques, le siège de la Jirama et divers monuments historiques.",
+            "Récemment réaménagée, cette place a été agrémentée d'un jardin et d'espaces verts, offrant ainsi un espace de détente prisé par les habitants de Fianarantsoa. Le caractère dynamique de cet endroit se révèle particulièrement en soirée, lorsque plusieurs établissements de divertissement et de détente environnants attirent une foule animée. La grande étendue de la place permet également d'organiser aisément des événements festifs et des célébrations, faisant ainsi de Lapan’ny Tanana le lieu privilégié pour de nombreuses occasions spéciales au sein de la communauté de Fianarantsoa. Son ambiance vibrante et son importance sociale en font un lieu emblématique, reflétant l'essence même de la vie urbaine dans cette ville malgache. Au fil des années, Lapan’ny Tanana est devenu bien plus qu'un simple lieu administratif ; c'est un véritable symbole de la vie et de la culture locale, un point de rencontre incontournable où se mêlent histoire, divertissement et convivialité."
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "001.wav"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "002.wav"
+            }
+        ],
+        "audio": "lapany 2.mp3",
+        "x": 0.3,
+        "y": -0.3,
+        "z": 0.2
+    },
+    {
+        "id": 2,
+        "lieu": "Rova",
+        "photo360": "Rova.jpg",
+        "photo": "rova 1.JPG",
+        "galery": ["rova 2.JPG","rova 3.jpg", "rova 4.jpg", "rova 5.jpg", "rova 6.jpg", "rova 7.JPG", "rova 8.JPG", "rova 9.jpg", "rova 10.JPG", "rova 11.JPG", "rova 12.JPG", "rova 13.JPG"],
+        "descriptions": [
+            "Le Rova de Fianarantsoa, perché sur les hauteurs où la vieille ville s'accroche, rappelle fortement la colline d'Analamanga à Antananarivo, avec ses rues en lacets et ses ruelles étroites bordées de maisons anciennes. Les constructions roses à colonnes et à balustres, parsemées au hasard parmi les jardins en terrasse, ajoutent à son charme pittoresque, tandis qu'un bouquet d'arbres verts couronne son sommet. Contrairement au Rova d'Antananarivo, où les monuments de l'ancienne dynastie merina subsistent, celui de Fianarantsoa a été effacé par le temps, ne laissant que des vestiges de la prédominance passée des Merina sur les Betsileo. ",
+            "La vue panoramique depuis le sommet offre un paysage paisible de collines boisées et de vallées ombragées, avec le petit lac Anosy au pied du Rova, ajoutant une touche de sérénité au parc naturel environnant, qui abrite également l'hippodrome de la ville. À l'ouest, un embranchement de la route régionale conduit vers le pic imposant de Midongy-Ouest, une masse de granite surplombant la campagne environnante, témoignant des événements tragiques du XIXe siècle. Etant un lieu calme et apaisant, qui offre une magnifique vue de la partie Sud et Ouest de la ville, le Rova est également un lieu de rendez-vous des amoureux. "
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "002.mp3"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "003.mp3"
+            }
+        ],
+        "audio": "rova.mp3",
+        "x": -4,
+        "y": 0,
+        "z": 1.5
+    },
+    {
+        "id": 3,
+        "lieu": "Cathédrale",
+        "photo360": "cathedrale.jpg",
+        "photo": "cathedrale 4.JPG",
+        "galery": ["cathedrale 1.JPG","cathedrale 2.JPG", "cathedrale 3.JPG", "cathedrale 4.JPG", "cathedrale 5.JPG", "cathedrale 6.JPG", "cathedrale 7.JPG", "cathedrale 8.JPG"],
+        "descriptions": [
+            "La majestueuse cathédrale du Saint-Nom-de-Jésus de Fianarantsoa trône avec grâce sur les hauteurs de la ville éponyme. Sa présence imposante et élégante en fait un repère incontournable, symbolisant la foi chrétienne et l'histoire religieuse de la région. Située spécifiquement sur la rue du Rova, au sein de la vieille ville, cette cathédrale revêt une importance particulière en tant que siège de l'archidiocèse de Fianarantsoa, représentant ainsi le centre spirituel et administratif de la région.",
+            "Les fidèles et les visiteurs affluent régulièrement vers ce lieu sacré pour y trouver inspiration, réconfort et solennité dans ses murs majestueux. Son architecture remarquable, mêlant influences européennes et touches locales, témoigne du mariage harmonieux entre la foi catholique et la culture malgache. La cathédrale est non seulement un lieu de culte, mais aussi un véritable joyau architectural, orné de détails exquis et de symboles religieux, qui captivent l'imagination de tous ceux qui la contemplent. Sa construction imposante et sa silhouette élancée se dressent comme un hommage tangible à la grandeur divine, élevant les esprits et rappelant la présence bienveillante de la spiritualité dans la vie quotidienne des habitants de Fianarantsoa. Au fil des siècles, elle a été le témoin silencieux de nombreuses célébrations, de moments de prière intenses et de rassemblements communautaires, inscrivant ainsi son histoire dans le tissu même de la ville. La cathédrale du Saint-Nom-de-Jésus demeure ainsi bien plus qu'un simple édifice religieux ; elle est le symbole vivant de la foi et de la tradition, un sanctuaire de paix et de réflexion au cœur de Fianarantsoa."
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "005.mp3"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "006.mp3"
+            }
+        ],
+        "audio": "Cathedrale 1.mp3",
+        "x": -4,
+        "y": -0.2,
+        "z": 0.7
+    },
+    {
+        "id": 4,
+        "lieu": "Gare FCE",
+        "photo360": "Gare.jpg",
+        "photo": "Gare FCE 1.JPG",
+        "galery": ["Gare FCE 1.JPG","Gare FCE 2.JPG", "Gare FCE 3.JPG", "Gare FCE 4.JPG", "Gare FCE 5.JPG", "Gare FCE 6.JPG"],
+        "descriptions": [
+            "La gare FCE de Fianarantsoa, nichée au cœur de la ville, incarne un pan essentiel de l'histoire locale, témoin silencieux des échanges économiques passés. ",
+            "Son atmosphère tranquille contraste avec l'animation du mini marché de fruits qui l'entoure, tandis que son cadre verdoyant offre un refuge paisible au milieu de l'agitation urbaine. Malgré son activité modérée, cette gare demeure un pilier symbolique de Fianarantsoa, imprégnée de mémoire et de caractère, chère aux habitants qui lui accordent une place centrale dans leur histoire collective. "
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "007.mp3"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "008.mp3"
+            }
+        ],
+        "audio": "Gare FCE.mp3",
+        "x": 2.4,
+        "y": -0.6,
+        "z": -4
+    },
+    {
+        "id": 5,
+        "lieu": "Anosy",
+        "photo360": "Anosy1.jpg",
+        "photo": "anosy 1.JPG",
+        "galery": ["anosy 1.JPG","anosy 2.JPG", "anosy 3.JPG", "anosy 4.JPG", "anosy 5.JPG", "anosy 6.JPG", "anosy 7.JPG", "anosy 8.JPG", "anosy 9.JPG", "anosy 10.JPG", "anosy 11.JPG", "anosy 12.JPG", "anosy 13.JPG", "anosy 14.JPG", "anosy 15.JPG", "anosy 16.JPG", "anosy 17.JPG", "anosy 18.JPG"],
+        "descriptions": [
+            "Anosy, située en périphérie de la ville, offre un éventail d'activités pour se détendre et se ressourcer loin du tumulte urbain.",
+            "Que ce soit pour une journée de loisirs, un pique-nique en plein air ou simplement pour se ressourcer, Anosy est le lieu parfait pour créer des souvenirs mémorables et partager des moments privilégiés avec ces proches. Nichée dans un cadre paisible et verdoyant, les vastes jardins botaniques émerveillent avec leur biodiversité luxuriante, sans oublier l'espace dédié aux enfants, où les plus jeunes peuvent jouer en toute sécurité et s'amuser dans un environnement adapté à leurs besoins."
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "009.mp3"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "010.mp3"
+            }
+        ],
+        "audio": "Gare FCE.mp3",
+        "x": -6.5,
+        "y": -0.7,
+        "z": 2
+    },
+    {
+        "id": 6,
+        "lieu": "Porte d’entrée de la vieille ville",
+        "photo360": "porte de la vieille ville.jpg",
+        "photo": "Porte Vieille Ville 1.JPG",
+        "galery": ["Porte Vieille Ville 2.JPG","Porte Vieille Ville 3.JPG", "Porte Vieille Ville 4.JPG", "Porte Vieille Ville 5.JPG", "Porte Vieille Ville 6.JPG"],
+        "descriptions": [
+            "L'entrée de la grande ville agit tel un portail, délimitant la ville urbaine de la ville mère de Fianarantsoa. ",
+            "C'est un endroit chargé de l'histoire ancestrale de la région, où les récits du passé demeurent vivants et brûlants. Ce lieu symbolique invite les visiteurs à franchir un seuil entre le présent et le passé, offrant un aperçu fascinant de l'histoire et de l'évolution de Fianarantsoa, tout en conservant son aura de mystère et de tradition."
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "011.mp3"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "012.mp3"
+            }
+        ],
+        "audio": "Gare FCE.mp3",
+        "x": -3.6,
+        "y": -0.2,
+        "z": 0.2
+    },
+    {
+        "id": 7,
+        "lieu": "Escalier mort-homme",
+        "photo360": "mort-homme.jpg",
+        "photo": "Escalier mort-homme 1.JPG",
+        "galery": ["Escalier mort-homme 2.JPG", "Escalier mort-homme 3.JPG", "Escalier mort-homme 4.JPG"],
+        "descriptions": [
+            "Également connu sous le nom d'Ampitsenambahiny, traduit par « là où l’on accueille les visiteurs », c’est un lieu historique pour la ville de Fianarantsoa. D’une longueur d'environ 290 mètres, l’escalier commence dans le quartier d’Ambatolahikosoa et se termine à Kianjasoa. ",
+            "Bien que l’histoire le définisse, comme son nom en malgache l’indique, comme un lieu d’observation des étrangers ou des messagers des rois venant d’Analamanga avant de leur permettre d’accéder au Rova ou au palais à l’époque de la royauté, d'autres légendes circulent à son sujet de bouche à oreille. L'origine du nom Mort-homme pose un problème majeur. Certains l'expliquent par le fait que lors de sa construction, de nombreux hommes ont perdu la vie. D’autres évoquent une statue présente sur les lieux, où les pelotons exécutaient les personnes condamnées sous l'ordre des colons pendant la période de la colonisation de l’île. On le relie même au Cumière-Mort-Hommes, commune française du département de la Meuse lors de la Première Guerre mondiale."
+
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "013.mp3"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "014.mp3"
+            }
+        ],
+        "audio": "Gare FCE.mp3",
+        "x": -2.9,
+        "y": -0.4,
+        "z": -1.1
+    },
+    {
+        "id": 8,
+        "lieu": "Escalier de téléphone",
+        "photo360": "Escalier de téléphone.jpg",
+        "photo": "Escalier des téléphones 1.JPG",
+        "galery": ["Escalier des téléphones 2.JPG","Escalier des téléphones 3.JPG", "Escalier des téléphones 5.JPG"],
+        "descriptions": [
+            "Niché au cœur du quartier d’Ampasambazaha, l’escalier des téléphones s’étend majestueusement, reliant les deux côtés de la rue dans une harmonie parfaite. Jadis un simple escalier de passage, il a été transformé en un vibrant marché, devenu l’épicentre incontournable de la vente de téléphones et d’accessoires. Au milieu de cette ruche d’activités, une fontaine autrefois ornait l'espace, apportant une touche de fraîcheur et de verdure, comme une oasis au milieu de la jungle urbaine.",
+            "À cette époque révolue, cet endroit était bien plus qu'un simple lieu de transit. C'était un refuge, un havre de paix au sein du tumulte incessant de la ville. Cependant, le temps a façonné sa destinée, laissant derrière lui les vestiges de la fontaine, désormais remplacée par une multitude de parasols colorés et de tables de vente, où les commerçants rivalisent d'ingéniosité pour attirer les clients avides de technologie. Ainsi, l'escalier des téléphones, témoin silencieux de l'évolution urbaine, demeure un symbole vivant de l'adaptabilité et de la transformation perpétuelle des espaces citadins.Marché du zoma"
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "015.mp3"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "016.mp3"
+            }
+        ],
+        "audio": "Gare FCE.mp3",
+        "x": 1.3,
+        "y": -0.6,
+        "z": -4.2
+    },
+    {
+        "id": 9,
+        "lieu": "Monuments du centre-ville",
+        "photo360": "Lettre Fianarantsoa.jpg",
+        "photo": "Monuments centre ville 2.JPG",
+        "galery": ["Monuments centre ville 1.JPG","Monuments centre ville 3.JPG", "Monuments centre ville 4.JPG", "Monuments centre ville 5.JPG", "Monuments centre ville 6.JPG", "Monuments centre ville 7.JPG"],
+        "descriptions": [
+            "Des histoires captivantes sont représentées par des monuments emblématiques situés aux alentours de Tsianolondroa. Parmi eux, les majestueuses lettres Fianarantsoa, qui constituent un symbole vibrant de l'identité locale et de l'histoire de la ville. ",
+            "Également évoqués sont les monuments aux morts, des témoignages émouvants dédiés aux héros de la région. En parcourant cette section, vous rencontrerez également la statue de Jean Ralaimongo, une figure respectée et honorée pour sa grande guerre pour l'indépendance de Madagascar. Chacun de ces monuments raconte une part essentielle de l'histoire et de la culture de cette ville envoûtante"
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "001.mp3"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "002.mp3"
+            }
+        ],
+        "audio": "Gare FCE.mp3",
+        "x": -0.8,
+        "y": -0.2,
+        "z": -0.1
+    },
+    {
+        "id": 10,
+        "lieu": "Point de vue",
+        "photo360": "Piont de vue.jpg",
+        "photo": "Point de Vue + paysage de rizière 1.jpg",
+        "galery": ["Point de Vue + paysage de rizière 2.jpg","Point de Vue + paysage de rizière 3.jpg", "Point de Vue + paysage de rizière 4.jpg", "Point de Vue + paysage de rizière 5.jpg", "Point de Vue + paysage de rizière 6.jpg"],
+        "descriptions": [
+            "Le Kianjasoa, également connu sous le nom de la cour d'Isoa, était une place forte historique occupée par le roi et entourée de fosses pour des raisons de sécurité. Rabolobolo fut le dernier roi à régner sur ce lieu emblématique. Ce circuit touristique inclut la visite du célèbre point de vue de Fianarantsoa, accessible en voiture. ",
+            "Au sommet, une imposante statue de la Sainte Vierge, érigée au milieu du 20ème siècle, domine majestueusement la ville, offrant une vue panoramique inoubliable. En offrant une vue panoramique sur l'ensemble de la ville de Fianarantsoa, le point de vue est devenu un lieu touristique très apprécié non seulement par les visiteurs mais aussi par les habitants."
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "003.mp3"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "004.mp3"
+            }
+        ],
+        "audio": "Gare FCE.mp3",
+        "x": -2.9,
+        "y": 0.2,
+        "z": -4.9
+    },
+    {
+        "id": 11,
+        "lieu": "Stationnement",
+        "photo360": "Stationnement.jpg",
+        "photo": "Gare routière 1.JPG",
+        "galery": ["Gare routière 2.JPG","Gare routière 3.JPG", "Gare routière 4.JPG"],
+        "descriptions": [
+            "À Ankazondrano, le stationnement de Fianarantsoa offre un point névralgique où convergent plusieurs coopératives reliant les routes nationales. ",
+            "Dans ce carrefour animé, l'agitation règne en maître, avec une foule incessante de véhicules et de passants. Le flux incessant de voitures et de piétons crée une ambiance électrique et mouvementée, faisant de cet endroit un véritable centre d'activité et de dynamisme"
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "005.mp3"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "006.mp3"
+            }
+        ],
+        "audio": "Gare FCE.mp3",
+        "x": 2.5,
+        "y": -0.6,
+        "z": -1.9
+    },
+    {
+        "id": 12,
+        "lieu": "Statue de la Vierge",
+        "photo360": "Masina maria.jpg",
+        "photo": "Statue de la Vierge 1.JPG",
+        "galery": ["Statue de la Vierge 2.JPG","Statue de la Vierge 3.JPG"],
+        "descriptions": [
+            "La statue imposante de Notre Dame de Kianjasoa se dresse majestueusement au sommet du point de vue le plus célèbre de Fianarantsoa, dominant la ville depuis ses 1374 mètres d'altitude. Frère Baldazar, l'un des fondateurs de la Sainte Vierge, a révélé que sa construction a duré environ un an, sous la direction de l'architecte Frère RUYANT.",
+            "L'idée de cette construction émanait de Monseigneur Xavier Thoyer, alors archevêque de Fianarantsoa. Mesurant 9 mètres de haut et pesant environ 2 tonnes de béton armé, cette magnifique statue a été inaugurée le 8 décembre 1957. Son érection symbolisait le besoin de protection de la ville et de son peuple contre le mal. Ainsi, la Sainte Vierge demeure et demeurera toujours un symbole de réconfort et de sécurité pour les habitants de Fianarantsoa"
+        ],
+        "feo" : [
+            {
+                "name": "Mahera",
+                "comment": "c'est un des plus beaux endroits de la ville!",
+                "audio": "007.mp3"
+            },
+            {
+                "name": "Tokiarivelo",
+                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
+                "audio": "008.mp3"
+            }
+        ],
+        "audio": "Gare FCE.mp3",
+        "x": -3.4,
+        "y": 0.1,
+        "z": -2.9
+    }
+]

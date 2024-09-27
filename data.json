@@ -1,0 +1,762 @@
+[
+  {
+    "x": 0,
+    "y": 1.3,
+    "z": 100,
+    "id_lieu": "anosy",
+    "nom_lieu_menu": "Anosy",
+    "nom_lieu": "Anosy",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "HH4A0166.JPG",
+    "texte_alt_photo_principale": "Vue d'ensemble sur le parc et le lac d'Anosy",
+    "description_lieu": "Anosy, située en périphérie de la ville, offre un éventail d'activités pour se détendre et se ressourcer loin du tumulte urbain. Que ce soit pour une journée de loisirs, un pique-nique en plein air ou simplement pour se ressourcer, Anosy est le lieu parfait pour créer des souvenirs mémorables et partager des moments privilégiés avec ces proches. Nichée dans un cadre paisible et verdoyant, les vastes jardins botaniques émerveillent avec leur biodiversité luxuriante, sans oublier l'espace dédié aux enfants, où les plus jeunes peuvent jouer en toute sécurité et s'amuser dans un environnement adapté à leurs besoins.",
+    "description_bis": "",
+    "photos_carousel": [
+      "HH4A9010.JPG",
+      "DSC_0406.JPG",
+      "DSC_0419.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Lettres 'HELLO' posées dans l'herbe du parc",
+      "Lettres 'LOVE' posées dans l'herbe du parc",
+      "Cadre à travers duquel est visible le parc."
+    ],
+    "question": "A quel endroit de la ville aimez-vous vous rendre ?",
+    "nom_personnes": [
+      "Otlasprie",
+      "Juliana"
+    ],
+    "citations_ecrites": [
+      "C'est l'endroit que les touristes aimeraient visiter.",
+      "Tout le monde peut y aller."
+    ],
+    "citations_sonores": [
+      "anosy-otlasprie.mp3",
+      "anosy-juliana.mp3"
+    ],
+    "photo_parallax": "DSC_0408.JPG",
+    "texte_alt_photo_parallax": "Panneau 'love you' devant le paysage d'Anosy",
+    "textes": "",
+    "compilation_sonore": [
+      "anosy-lovasoa.mp3"
+    ],
+    "defilement_parallax": [
+      "DSC_0405.JPG",
+      "DSC_1082.JPG",
+      "HH4A8983.JPG",
+      "HH4A9050.JPG",
+      "DSC_0580.JPG",
+      "HH4A9062.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Sapin en bois",
+      "Lac d'Anosy",
+      "Allée pavée",
+      "Jeux pour les enfants",
+      "Vue de haut sur le parc",
+      "Vue sur le parc d'Anosy"
+    ]
+  },
+  {
+    "x": -0.85, "y": 1.3, "z": 0.92,
+    "id_lieu": "campus",
+    "nom_lieu_menu": "Campus universitaire",
+    "nom_lieu": "Campus universitaire",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "DSC_1136.JPG",
+    "texte_alt_photo_principale": "Logements étudiants",
+    "description_lieu": "La vie estudiantine, l'âme battant de l'université, avec un environnement vibrant où les étudiants s'investissent pleinement dans leurs études et leurs activités extra-scolaires. Les campus regorgent de bâtiments dédiés à leurs besoins, offrant des installations sportives pour maintenir un équilibre sain, des bibliothèques fournissant une mine de ressources pour l'apprentissage et la recherche, ainsi qu'une connectivité sans faille pour faciliter les études en ligne et la collaboration. C'est un monde où l'apprentissage va au-delà des salles de classe, où les jeunes esprits s'épanouissent dans un environnement propice à l'épanouissement personnel et intellectuel.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_1105.JPG",
+      "DSC_1109.JPG",
+      "DSC_1126.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Terrain de tennis",
+      "Terrain de basket",
+      "Terrain de foot"
+    ],
+    "question": "Quel élément de votre quartier appréciez-vous particulièrement ?",
+    "nom_personnes": [
+      "Samoela",
+      "Otlasprie"
+    ],
+    "citations_ecrites": [
+      "C'est un peu comme mon 3e chez-moi.",
+      "Les bâtiments ne sont pas suffisants."
+    ],
+    "citations_sonores": [
+      "campus-samoela.mp3",
+      "campus-otlasprie.mp3"
+    ],
+    "photo_parallax": "DSC_1128.JPG",
+    "texte_alt_photo_parallax": "Terrain de foot",
+    "textes": "",
+    "compilation_sonore": [
+      "campus-clarck.mp3",
+      "campus-mirielle.mp3",
+      "campus-ledoux.mp3"
+    ],
+    "defilement_parallax": [
+      "DSC_1138.JPG",
+      "DSC_1121.JPG",
+      "DSC_1137.JPG",
+      "DSC_1134.JPG",
+      "DSC_1107.JPG",
+      "DSC_1123.JPG"
+    ],
+    "texte_alt_defilement_parallax": "[\"Logements étudiants\",\"Terrain de foot\",\"KSLMD\",\"Logements étudiants\",\"Terrain de volley\",Terrain de foot\"]"
+  },
+  {
+    "x": 0.47, "y": 1.79, "z": 0.21,
+    "id_lieu": "cathedrale",
+    "nom_lieu_menu": "Cathédrale Saint Nom de Jésus",
+    "nom_lieu": "Cathédrale Saint Nom de Jésus",
+    "photo_360": "Cathedrale-min.jpg",
+    "son_ambiance": "",
+    "photo_principale": "Pierrot Men_4_Cathedrale.jpg",
+    "texte_alt_photo_principale": "Cathédrale Saint Nom de Jésus",
+    "description_lieu": "La majestueuse cathédrale du Saint-Nom-de-Jésus de Fianarantsoa trône avec grâce sur les hauteurs de la ville éponyme. Sa présence imposante et élégante en fait un repère incontournable, symbolisant la foi chrétienne et l'histoire religieuse de la région. Située spécifiquement sur la rue du Rova, au sein de la vieille ville, cette cathédrale revêt une importance particulière en tant que siège de l'archidiocèse de Fianarantsoa, représentant ainsi le centre spirituel et administratif de la région. Les fidèles et les visiteurs affluent régulièrement vers ce lieu sacré pour y trouver inspiration, réconfort et solennité dans ses murs majestueux. Son architecture remarquable, mêlant influences européennes et touches locales, témoigne du mariage harmonieux entre la foi catholique et la culture malgache. La cathédrale est non seulement un lieu de culte, mais aussi un véritable joyau architectural, orné de détails exquis et de symboles religieux, qui captivent l'imagination de tous ceux qui la contemplent. Sa construction imposante et sa silhouette élancée se dressent comme un hommage tangible à la grandeur divine, élevant les esprits et rappelant la présence bienveillante de la spiritualité dans la vie quotidienne des habitants de Fianarantsoa. Au fil des siècles, elle a été le témoin silencieux de nombreuses célébrations, de moments de prière intenses et de rassemblements communautaires, inscrivant ainsi son histoire dans le tissu même de la ville. La cathédrale du Saint-Nom-de-Jésus demeure ainsi bien plus qu'un simple édifice religieux ; elle est le symbole vivant de la foi et de la tradition, un sanctuaire de paix et de réflexion au cœur de Fianarantsoa.",
+    "description_bis": "",
+    "photos_carousel": [
+      "HH4A9478.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Plan large de la cathédrale"
+    ],
+    "question": "Quel élément incarne le plus la ville ?",
+    "nom_personnes": [
+      "Samoela",
+      "Soso"
+    ],
+    "citations_ecrites": [
+      "C’est un peu le Vatican de Fianarantsoa.",
+      "J’aime beaucoup son architecture."
+    ],
+    "citations_sonores": [
+      "cathedrale-samoela.mp3",
+      "cathedrale-soso.mp3"
+    ],
+    "photo_parallax": "HH4A0186.JPG",
+    "texte_alt_photo_parallax": "Cathédrale",
+    "textes": "",
+    "compilation_sonore": "",
+    "defilement_parallax": [
+      "DSC_0376.JPG",
+      "DSC_0369.JPG",
+      "DSC_0373.JPG",
+      "HH4A9087.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "La cathédrale et son parvis",
+      "Tour de la cathédrale",
+      "Cathédrale vue de face",
+      "Place devant la cathédrale"
+    ]
+  },
+  {
+    "x": 0.61, "y": 1.3, "z": -0.73,
+    "id_lieu": "escalier_mort_homme",
+    "nom_lieu_menu": "Escalier Mort-Homme",
+    "nom_lieu": "Escalier Mort-Homme",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "HH4A9382.JPG",
+    "texte_alt_photo_principale": "Vue de loin sur l'escalier et paysage alentour",
+    "description_lieu": "L’escalier Mort-Homme est le plus long de Fianarantsoa. Malgré cela, il ne décourage pas les dizaines d’enfants qui l’empruntent chaque jour pour se rendre à l’école « La Colline ». Situé non loin de Lapan’ny Tananà, il permet de rejoindre la colline Kianjasoa.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_10231.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Plan sur les marches"
+    ],
+    "question": "Quel élément de votre quartier appréciez-vous particulièrement ?",
+    "nom_personnes": [
+      "Tsiafoy",
+      "Lovasoa"
+    ],
+    "citations_ecrites": [
+      "Cet escalier me rappelle mon enfance.",
+      "C’est l’escalier le plus long de Fianarantsoa."
+    ],
+    "citations_sonores": [
+      "escalier-tsiafoy.mp3",
+      "escalier-lovasoa.mp3"
+    ],
+    "photo_parallax": "DSC_05281.JPG",
+    "texte_alt_photo_parallax": "Premières marches de l'escalier",
+    "textes": "",
+    "compilation_sonore": "",
+    "defilement_parallax": [
+      "DSC_0463.JPG",
+      "DSC_1023.JPG",
+      "DSC_0528.JPG",
+      "HH4A93821.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "L'escalier depuis son sommet",
+      "L'escalier Mort-Homme",
+      "L'escalier Mort-Homme",
+      "Vue sur l'escalier"
+    ]
+  },
+  {
+    "x": -0.33, "y": 1.3, "z": 0.56,
+    "id_lieu": "escalier_telephones",
+    "nom_lieu_menu": "Escalier des téléphones",
+    "nom_lieu": "Escalier des téléphones",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "DSC_1099.JPG",
+    "texte_alt_photo_principale": "Escalier des téléphones",
+    "description_lieu": "L’escalier des téléphones fourmille de visiteurs. Ce marché pas comme les autres a choisi un escalier pour y ouvrir ses stands. Sous de larges parasols colorés, divers téléphones portables et accessoires de téléphonie sont proposés à la vente.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_1100.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Allée principale du marché des téléphones"
+    ],
+    "question": "A quel endroit de la ville aimez-vous vous rendre ?",
+    "nom_personnes": [
+      "Bonnia",
+      "Nicolas"
+    ],
+    "citations_ecrites": [
+      "Il y a beaucoup de monde, là-bas.",
+      "C’est fabuleux de voir ces jeunes travailler."
+    ],
+    "citations_sonores": [
+      "telephones-bonnia.mp3",
+      "telephones-nicolas.mp3"
+    ],
+    "photo_parallax": "DSC_1101.JPG",
+    "texte_alt_photo_parallax": "Etalage de téléphones portables",
+    "textes": "",
+    "compilation_sonore": "",
+    "defilement_parallax": [
+      "DSC_1103.JPG",
+      "DSC_10991.JPG",
+      "DSC_11021.JPG",
+      "DSC_11001.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Stands du marché",
+      "Allée entre les stands",
+      "Téléphones en vente",
+      "Vendeuse de téléphones"
+    ]
+  },
+  {
+    "x": -0.92, "y": 1.36, "z": -0.18,
+    "id_lieu": "gare_fce",
+    "nom_lieu_menu": "Gare FCE",
+    "nom_lieu": "Gare FCE",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "DSC_0837.JPG",
+    "texte_alt_photo_principale": "Gare FCE",
+    "description_lieu": "La gare FCE de Fianarantsoa, nichée au cœur de la ville, incarne un pan essentiel de l'histoire locale, témoin silencieux des échanges économiques passés. Son atmosphère tranquille contraste avec l'animation du mini marché de fruits qui l'entoure, tandis que son cadre verdoyant offre un refuge paisible au milieu de l'agitation urbaine. Malgré son activité modérée, cette gare demeure un pilier symbolique de Fianarantsoa, imprégnée de mémoire et de caractère, chère aux habitants qui lui accordent une place centrale dans leur histoire collective.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_0845.JPG",
+      "DSC_0850.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Bâtiment de la gare",
+      "Train désaffecté"
+    ],
+    "question": "Quelle est la plus belle chose de la ville ?",
+    "nom_personnes": [
+      "Clarck",
+      "Nicolas"
+    ],
+    "citations_ecrites": [
+      "C’est un point de rencontre.",
+      "C’est un héritage qui mérite d’être rénové."
+    ],
+    "citations_sonores": [
+      "gare-clarck.mp3",
+      "gare-nicolas.mp3"
+    ],
+    "photo_parallax": "DSC_0846.JPG",
+    "texte_alt_photo_parallax": "Vue depuis le quai de la gare",
+    "textes": "",
+    "compilation_sonore": "",
+    "defilement_parallax": [
+      "DSC_0839.JPG",
+      "DSC_0844.JPG",
+      "DSC_0843.JPG",
+      "DSC_08461.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Bâtiment de la gare",
+      "Nom de la ville sur le bâtiment",
+      "Train désaffecté",
+      "Vue depuis les quais"
+    ]
+  },
+  {
+    "x": 0.79, "y": 1.55, "z": 0.04,
+    "id_lieu": "lapanny_tanana",
+    "nom_lieu_menu": "Lapan'ny Tanana",
+    "nom_lieu": "Lapan'ny Tanana",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "DSC_1044.JPG",
+    "texte_alt_photo_principale": "Hôtel de ville de Fianarantsoa",
+    "description_lieu": "Située au cœur de Fianarantsoa, dans le quartier animé de Tsianolondroa et à proximité du marché du zoma, la place appelée Lapan’ny Tanana est bien plus qu'un simple point de repère. Son appellation, \"Mairie\", révèle sa fonction centrale en tant que lieu abritant la mairie de la ville, le bâtiment de la région, les banques, le siège de la Jirama et divers monuments historiques. Récemment réaménagée, cette place a été agrémentée d'un jardin et d'espaces verts, offrant ainsi un espace de détente prisé par les habitants de Fianarantsoa. Le caractère dynamique de cet endroit se révèle particulièrement en soirée, lorsque plusieurs établissements de divertissement et de détente environnants attirent une foule animée. La grande étendue de la place permet également d'organiser aisément des événements festifs et000 des célébrations, faisant ainsi de Lapan’ny Tanana le lieu privilégié pour de nombreuses occasions spéciales au sein de la communauté de Fianarantsoa. Son ambiance vibrante et son importance sociale en font un lieu emblématique, reflétant l'essence même de la vie urbaine dans cette ville malgache. Au fil des années, Lapan’ny Tanana est devenu bien plus qu'un simple lieu administratif ; c'est un véritable symbole de la vie et de la culture locale, un point de rencontre incontournable où se mêlent histoire, divertissement et convivialité.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_1025.JPG",
+      "HH4A9767.CR2",
+      "DSC_1028.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Jardin devant Lapan'ny Tanana",
+      "Lapan'ny Tanana de nuit",
+      "Jardin devant Lapan'ny Tanana"
+    ],
+    "question": "Quel élément incarne le plus la ville ?",
+    "nom_personnes": [
+      "Mossa",
+      "Mihasina"
+    ],
+    "citations_ecrites": [
+      "C’est un symbole de la ville.",
+      "C'est un lieu qui rassemble."
+    ],
+    "citations_sonores": [
+      "lapannytanana-mossa.mp3",
+      "lapannytanana-mihasina.mp3"
+    ],
+    "photo_parallax": "DSC_1024.JPG",
+    "texte_alt_photo_parallax": "Avenue devant Lapan'ny Tanana",
+    "textes": "",
+    "compilation_sonore": "",
+    "defilement_parallax": [
+      "_H4A9307.CR2",
+      "HH4A9393.CR2",
+      "HH4A9790.CR2",
+      "DSC_0319.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Lapan'ny Tanana",
+      "Jardin devant Lapan'ny Tanana",
+      "Avenue de nuit",
+      "Lapan'ny Tanana"
+    ]
+  },
+  {
+    "id_lieu": "marche_zoma",
+    "nom_lieu_menu": "Marché du zoma",
+    "nom_lieu": "Marché du zoma",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "Pierrot Men_2_Zoma.jpg",
+    "texte_alt_photo_principale": "Parasols du marché",
+    "description_lieu": "Le marché Anjoma se situe dans le centre-ville de Fianarantsoa, au sud de la place du Zoma. Dès l’entrée, c’est une explosion d’odeurs et de couleurs. Sur des stands en bois, ou à même le sol, les vendeurs proposent fruits et légumes, épices, légumineuses, viandes, vêtements et autres produits de tous genres. Les visiteurs sont nombreux, arborant autant de couleurs que les étals grâce à leurs tenues traditionnelles. Les paniers, portés à la main ou sur la tête, se remplissent rapidement.",
+    "description_bis": "",
+    "photos_carousel": [
+      "_H4A9295.CR2",
+      "DSC_0905.JPG",
+      "DSC_0912.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Stand de fruits",
+      "Stand de légumineuses",
+      "Stand de gingembre, ail et oignons"
+    ],
+    "question": "Quel élément de votre quartier appréciez-vous particulièrement ?",
+    "nom_personnes": [
+      "Pierrot Men",
+      "Mickael"
+    ],
+    "citations_ecrites": [
+      "Les parasols donnent beaucoup de cachet.",
+      "Il faudrait améliorer l'infrastructure."
+    ],
+    "citations_sonores": [
+      "marche-pierrotmen.mp3",
+      "marche-mickael.mp3"
+    ],
+    "photo_parallax": "_H4A9299.JPG",
+    "texte_alt_photo_parallax": "Sous les parasols du marché",
+    "textes": "",
+    "compilation_sonore": [
+      "marche-tsiafoy.mp3",
+      "marche-nicolas.mp3"
+    ],
+    "defilement_parallax": [
+      "_H4A9282.JPG",
+      "TB_Zoma_1B7A7820.jpg",
+      "DSC_0910.JPG",
+      "DSC_0908.JPG",
+      "_H4A9213.JPG",
+      "DSC_0904.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Vendeuse d'ananas",
+      "Allée du marché",
+      "Personne portant un panier sur la tête",
+      "Sandales suspendues",
+      "Stand de chemises sur bustes",
+      "Melons"
+    ]
+  },
+  {
+    "id_lieu": "monuments_centre_ville",
+    "nom_lieu_menu": "Monuments du centre-ville",
+    "nom_lieu": "Monuments du centre-ville",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "DSC_1031.JPG",
+    "texte_alt_photo_principale": "Petite scène et graffitis devant le siège de la région",
+    "description_lieu": "Le centre-ville de Fianarantsoa grouille de monuments historiques et touristiques. Sur l’avenue devant Lapan’ny Tananà, le Monument aux morts rend hommage aux victimes des guerres mondiales. La statue érigée en l’honneur de Jean Ralaimongo honore le combat de ce personnage en faveur de l’indépendance de Madagascar. Les lettres de Fianarantsoa sont fièrement exposées sur un mur fleuri, devant un plan d’eau. Finalement, le siège de la région Haute Matsiatra est mis en valeur par une petite scène de rue aux graffitis colorés.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_0919.JPG",
+      "HH4A9401.JPG",
+      "DSC_0317.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Statue de Jean Ralaimongo",
+      "Monument aux morts",
+      "Lettres de Fianarantsoa"
+    ],
+    "question": "A quel endroit prendriez-vous une photo ?",
+    "nom_personnes": [
+      "Nico",
+      "Nicolas"
+    ],
+    "citations_ecrites": [
+      "Les lettres de Fianarantsoa, c'est comme à Hollywood.",
+      "La statue de Ralaimongo raconte l'histoire de Madagascar."
+    ],
+    "citations_sonores": [
+      "monuments-nico.mp3",
+      "monuments-nicolas.mp3"
+    ],
+    "photo_parallax": "HH4A9379.JPG",
+    "texte_alt_photo_parallax": "Plan d'eau devant les lettres et le siège de la région",
+    "textes": "",
+    "compilation_sonore": "",
+    "defilement_parallax": [
+      "HH4A9423.JPG",
+      "DSC_1026.JPG",
+      "HH4A9758.JPG",
+      "DSC_0313.JPG",
+      "Pierrot Men_6_Ancienne Poste.jpg"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Statue de Jean Ralaimongo et paysage",
+      "Monument aux morts",
+      "Lettres de nuit",
+      "Siège de la région",
+      "Rue devant le bâtiment de la poste"
+    ]
+  },
+  {
+    "id_lieu": "point_de_vue",
+    "nom_lieu_menu": "Point de vue",
+    "nom_lieu": "Point de vue",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "Pierrot Men_3_Point de Vue (1).jpg",
+    "texte_alt_photo_principale": "Arbre et banc au point de vue",
+    "description_lieu": "Le paysage urbain de Fianarantsoa se singularise par des espaces agricoles, parfois spectaculaires. Les seules rizières occupent plus de 10 % de la superficie de la ville. On contemple, depuis les hauteurs, des vallons de rizières et de cultures légumières en plein cœur de ville, certains récemment valorisés par des circuits touristiques. Dans les quartiers périphériques s’étendent de vastes vallées rizicoles dans les quartiers périphériques, et partout, dans les interstices du bâti, de petites parcelles cultivées, ou des plantations arborées, ou des vignes. Si certains vallons ont été aménagés en pour accueillir des circuits piétons ces espaces agricoles sont appréciés pour leur calme, comme lieu de sortie et de détente. Cette physionomie très particulière de Fianarantsoa, traduit l’hybridation de la ruralité et de la citadinité, y compris dans les activités des populations.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_0354.JPG",
+      "TB_Rizieres_1B7A7972.jpg"
+    ],
+    "texte_alt_carousel": [
+      "Paysage de rizières",
+      "Rizière"
+    ],
+    "question": "A quel endroit de la ville aimez-vous vous rendre ?",
+    "nom_personnes": [
+      "Mickael",
+      "Pierrot Men"
+    ],
+    "citations_ecrites": [
+      "On y voit toute la nature de la ville.",
+      "J'aime bien m'y promener."
+    ],
+    "citations_sonores": [
+      "pointdevue-mickael.mp3",
+      "pointdevue-pierrotmen.mp3"
+    ],
+    "photo_parallax": "DSC_0602.JPG",
+    "texte_alt_photo_parallax": "Vue depuis le point de vue",
+    "textes": "Une légende raconte que toutes les personnes qui s'y sont rendus en couple se sont séparés après.",
+    "compilation_sonore": "",
+    "defilement_parallax": [
+      "DSC_0570.JPG",
+      "DSC_0481.JPG",
+      "DSC_0482.JPG",
+      "DSC_0571.JPG",
+      "TB_Vue-depuis-ville-haute_1B7A8132.jpg"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Rizière",
+      "Vue sur Fianarantsoa",
+      "Vue sur Fianarantsoa",
+      "Vue sur Fianarantsoa",
+      "Vue depuis la Ville Haute"
+    ]
+  },
+  {
+    "id_lieu": "porte_vieille_ville",
+    "nom_lieu_menu": "Porte de la Vieille Ville",
+    "nom_lieu": "Porte de la Vieille Ville",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "DSC_0536.JPG",
+    "texte_alt_photo_principale": "Porte de la Vieille Ville",
+    "description_lieu": "L'entrée de la vieille ville agit tel un portail, délimitant la ville urbaine de la ville mère de Fianarantsoa. C'est un endroit chargé de l'histoire ancestrale de la région, où les récits du passé demeurent vivants et brûlants. Ce lieu symbolique invite les visiteurs à franchir un seuil entre le présent et le passé, offrant un aperçu fascinant de l'histoire et de l'évolution de Fianarantsoa, tout en conservant son aura de mystère et de tradition.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_0537.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Porte de la Vieille Ville"
+    ],
+    "question": "Quelle est la plus belle chose de la ville ?",
+    "nom_personnes": [
+      "Mossa",
+      "Tsiafoy"
+    ],
+    "citations_ecrites": [
+      "C’est une construction neuve mais authentique.",
+      "C’est un endroit touristique."
+    ],
+    "citations_sonores": [
+      "porte-mossa.mp3",
+      "porte-tsiafoy.mp3"
+    ],
+    "photo_parallax": "HH4A9093.CR2",
+    "texte_alt_photo_parallax": "Porte de la Vieille Ville",
+    "textes": "",
+    "compilation_sonore": "",
+    "defilement_parallax": [
+      "HH4A9094.JPG",
+      "DSC_1048.JPG",
+      "DSC_0538.JPG",
+      "HH4A9096.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Porte de la Vieille Ville",
+      "Porte de la Vieille Ville",
+      "Porte de la Vieille Ville",
+      "Porte de la Vieille Ville"
+    ]
+  },
+  {
+    "id_lieu": "rova",
+    "nom_lieu_menu": "Rova",
+    "nom_lieu": "Rova",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "TB_Rova_1B7A7941.jpg",
+    "texte_alt_photo_principale": "Vue sur Rova",
+    "description_lieu": "Le Rova de Fianarantsoa, perché sur les hauteurs où la vieille ville s'accroche, rappelle fortement la colline d'Analamanga à Antananarivo, avec ses rues en lacets et ses ruelles étroites bordées de maisons anciennes. Les constructions roses à colonnes et à balustres, parsemées au hasard parmi les jardins en terrasse, ajoutent à son charme pittoresque, tandis qu'un bouquet d'arbres verts couronne son sommet. Contrairement au Rova d'Antananarivo, où les monuments de l'ancienne dynastie merina subsistent, celui de Fianarantsoa a été effacé par le temps, ne laissant que des vestiges de la prédominance passée des Merina sur les Betsileo. La vue panoramique depuis le sommet offre un paysage paisible de collines boisées et de vallées ombragées, avec le petit lac Anosy au pied du Rova, ajoutant une touche de sérénité au parc naturel environnant, qui abrite également l'hippodrome de la ville. À l'ouest, un embranchement de la route régionale conduit vers le pic imposant de Midongy-Ouest, une masse de granite surplombant la campagne environnante, témoignant des événements tragiques du XIXe siècle. Etant un lieu calme et apaisant, qui offre une magnifique vue de la partie Sud et Ouest de la ville, le Rova est également un lieu de rendez-vous des amoureux.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_0368.JPG",
+      "DSC_0323.JPG",
+      "TB_Rova_1B7A8223.jpg"
+    ],
+    "texte_alt_carousel": [
+      "Ruelle pavée",
+      "Maisons",
+      "Maison"
+    ],
+    "question": "Quelle est la plus belle chose de la ville ?",
+    "nom_personnes": [
+      "Mickael",
+      "Nania"
+    ],
+    "citations_ecrites": [
+      "C’est un quartier unique à Fianarantsoa.",
+      "C’est un vrai bonheur d’architecture."
+    ],
+    "citations_sonores": [
+      "rova-mickael.mp3",
+      "rova-nania.mp3"
+    ],
+    "photo_parallax": "DSC_0330.JPG",
+    "texte_alt_photo_parallax": "Place dans le quartier du Rova",
+    "textes": "C'est la reine Ranavalona I qui a fondé le Rova. Elle y a habité pendant son reigne.\nIl s'agit d'une zone protégée, aujourd'hui classée parmi les 100 sites les plus menacés au monde. Les habitants qui souhaiteraient y faire construire une maison doivent respecter certaines conditions pour respecter l'architecture du quartier.",
+    "compilation_sonore": [
+      "rova-lovasoa.mp3",
+      "rova-tsiafoy.mp3",
+      "rova-mihasina.mp3"
+    ],
+    "defilement_parallax": [
+      "DSC_0332.JPG",
+      "TB_Rova_1B7A8232.jpg",
+      "DSC_0326.JPG",
+      "TB_Rova-marche_1B7A8037.jpg",
+      "DSC_0344.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Ruelle pavée dans le Rova",
+      "Maisons dans le Rova",
+      "Tour d'une église du Rova",
+      "Marché du Rova",
+      "Eglise du Rova"
+    ]
+  },
+  {
+    "id_lieu": "stationnement",
+    "nom_lieu_menu": "Stationnement",
+    "nom_lieu": "Stationnement",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "DSC_1094.JPG",
+    "texte_alt_photo_principale": "Bus stationnés",
+    "description_lieu": "Située sur la RN7 reliant Tananarive à Tuléar, la gare routière de Fianarantsoa rassemble les taxis-brousse. Les voyageurs se pressent, bagages à la main. Le son des klaxons résonne. Les véhicules bouchonnent à la sortie de la gare. Entre les effluves des autobus, c’est tout de même le doux parfum du voyage qui embaume l’air.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_1098.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Entrée de la gare routière"
+    ],
+    "question": "Quel projet de rénovation imaginez-vous ?",
+    "nom_personnes": [
+      "Mahera",
+      "Mossa"
+    ],
+    "citations_ecrites": [
+      "Il faut faire aménager cette gare routière ou en construire une nouvelle.",
+      "J’aimerais que toutes les routes de Fianarantsoa soient goudronnées."
+    ],
+    "citations_sonores": [
+      "circulation-mahera.mp3",
+      "circulation-mossa.mp3"
+    ],
+    "photo_parallax": "DSC_1093.JPG",
+    "texte_alt_photo_parallax": "Bus stationnés",
+    "textes": "",
+    "compilation_sonore": "",
+    "defilement_parallax": [
+      "DSC_1097.JPG",
+      "TB_Route_1B7A8368.jpg",
+      "DSC_10931.JPG",
+      "DSC_10941.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Bus en préparation pour le départ",
+      "Route dans Fianarantsoa",
+      "Bus stationnés",
+      "Piétons dans la gare routière"
+    ]
+  },
+  {
+    "id_lieu": "statue_vierge",
+    "nom_lieu_menu": "Statue de la Vierge",
+    "nom_lieu": "Statue de la Vierge",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "DSC_04941",
+    "texte_alt_photo_principale": "Statue de la Vierge",
+    "description_lieu": "Depuis les hauteurs des collines, la statue de la Vierge Marie, « Notre-Dame de Kianjasoa», protège la ville de Fianarantsoa. Implantée sur de gros rochers, la Vierge Marie tient dans ses bras l’enfant Jésus. L’œuvre d’art diocèse a été construite en 1957. D’une valeur religieuse importante, l'endroit est devenu actuellement un lieu de pèlerinage où les catholiques du diocèse se rendent une fois tous les mois de mai. La balade pour y accéder est agréable, quoiqu’un peu sportive, et la vue en vaut définitivement le coup.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_04911.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Pied de la statue et paysage"
+    ],
+    "question": "Quel élément incarne le plus la ville ?",
+    "nom_personnes": [
+      "Lovasoa",
+      "Pierrot Men"
+    ],
+    "citations_ecrites": [
+      "Cette statue reflète la ville.",
+      "C'est la première chose que j'ai vue."
+    ],
+    "citations_sonores": [
+      "vierge-lovasoa.mp3",
+      "vierge-pierrotmen.mp3"
+    ],
+    "photo_parallax": "DSC_0499.JPG",
+    "texte_alt_photo_parallax": "Vue depuis l'emplacement de la Vierge",
+    "textes": "Pourquoi la Vierge a-t-elle été construite ici ? Au XIXe siècle, un gros rocher s'est détaché de la montagne et menaçait de détruire la ville en roulant jusqu'en bas. Mais il s'est arrêté à l'emplacement actuel de la Vierge, d'où le choix des catholiques.",
+    "compilation_sonore": "",
+    "defilement_parallax": [
+      "Pierrot Men_1_Vierge (1).jpg",
+      "DSC_0491.JPG",
+      "vierge.JPG",
+      "DSC_04942.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Statue vue de dos",
+      "Statue vue de dos",
+      "Vierge tenant Jésus",
+      "Vierge vue de face"
+    ]
+  },
+  {
+    "id_lieu": "universite",
+    "nom_lieu_menu": "Université de Fianarantsoa",
+    "nom_lieu": "Université de Fianarantsoa",
+    "photo_360": "",
+    "son_ambiance": "",
+    "photo_principale": "DSC_1117.JPG",
+    "texte_alt_photo_principale": "Logo de l'université",
+    "description_lieu": "L'université de Fianarantsoa a été fondée en 1977 en tant que centre universitaire régional de Fianarantsoa. Les cours ont commencé au lycée RAHERIVELO Ramamonjy avec une filière mathématique et 126 étudiants, avant l'ouverture du campus universitaire d’Andrainjato en 1980. L'excellence de l'enseignement est une priorité absolue. Dotée d'une équipe de spécialistes dans chaque domaine, l’université offre un environnement où les enseignants sont à l'écoute des besoins individuels des élèves. L'approche pédagogique est résolument innovante, encourageant la créativité, la curiosité et l'exploration. Grâce à des méthodes d'enseignement modernes et adaptées, l’université prépare ses étudiants à relever les défis du monde en constante évolution, tout en cultivant leur passion pour l'apprentissage et en favorisant leur développement individuel.",
+    "description_bis": "",
+    "photos_carousel": [
+      "DSC_0798.JPG",
+      "DSC_0507.JPG",
+      "DSC_1106.JPG"
+    ],
+    "texte_alt_carousel": [
+      "Faculté de sciences",
+      "EMIT",
+      "Auditorium"
+    ],
+    "question": "A quel endroit de la ville aimez-vous vous rendre ?",
+    "nom_personnes": [
+      "Samoela",
+      "Juliana"
+    ],
+    "citations_ecrites": [
+      "La vue depuis l'université est magnifique.",
+      "Je préfère le centre de recherche."
+    ],
+    "citations_sonores": [
+      "universite-samoela.mp3",
+      "universite-juliana.mp3"
+    ],
+    "photo_parallax": "DSC_0791.JPG",
+    "texte_alt_photo_parallax": "Pont vers E-Atiala",
+    "textes": "",
+    "compilation_sonore": [
+      "universite-mahera.mp3",
+      "universite-mirielle.mp3"
+    ],
+    "defilement_parallax": [
+      "DSC_0785.JPG",
+      "DSC_0786.JPG",
+      "DSC_0799.JPG",
+      "DSC_0512.JPG",
+      "DSC_0783.JPG"
+    ],
+    "texte_alt_defilement_parallax": [
+      "Ecole Normale Supérieure",
+      "Faculté des lettres et sciences humaines",
+      "Faculté de médecine",
+      "Development Hub",
+      "Fontaine devant l'EMIT"
+    ]
+  }
+]

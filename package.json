@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "deck.gl": "^8.9.33",
+    "geojson": "^0.5.0",
+    "geolib": "^3.3.4",
+    "geotiff": "^2.1.1",
+    "gsap": "^3.12.4",
+    "lil-gui": "^0.19.1",
+    "mercator-projection": "^0.0.2",
+    "srtm-elevation": "^2.1.2",
+    "three": "^0.159.0",
+    "three-orbit-controls": "^82.1.0",
+    "three-sky": "^1.1.3",
+    "three-text2d": "^0.6.0",
+    "troika-three-text": "^0.49.0"
+  },
+  "devDependencies": {
+    "raw-loader": "^4.0.2",
+    "vite": "^5.4.7"
+  }
+}
