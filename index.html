@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Feo'ny Fianarantsoa</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/description.css">
+    <link rel="stylesheet" href="/assets/css/descriptionStyle.css">
+  </head>
+  <body>
+    <!-- <div class="cursor cursorNone"></div>
+    <div class="cursorDot cursorNone"></div> -->
+
+    <!-- Structure de la modale -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <!-- Ajouter votre contenu modal ici -->
+    
+    <!-- Insérez ici vos listes de lieux -->
+    <div class="list-container">
+      <h2>Listes des lieux</h2>
+      <ul id="jsonList"></ul>
+    </div>
+    
+  </div>
+</div>
+
+
+    <div>
+      <button id="submit-btn" class="button_lieux">
+          <div class="icon_container">
+            <img src="./img/recherche-de-carte-blanc.png" class="icon_white" alt="Icon">
+          </div>
+          <div class="icon_container">
+            <img src="./img/recherche-de-carte-noir.png" class="icon_black" alt="Icon" >
+          </div >
+          Tous les lieux
+      </button>
+  </div>
+
+    <div class="navbar" id="navbar">
+      <div class="navbar-logo">
+        <h2>Feon'i Fianarantsoa</h2>
+      </div>
+      <div class="navbar-icons">
+        <img id="soundIcon" src="./img/music.png" alt="Musique" />
+        <img
+          id="darkModeIcon"
+          src="./img/day-mode.png"
+          alt="Mode Dark"
+        />
+        <img src="./img/map.png" alt="Maps" id="buttonMap"/>
+      </div>
+      <div class="hamburger" id="hamburger">
+      </div>
+    </div>
+
+    <section class="progress-bar-container">
+      <label for="progress-bar">Loading...</label>
+      <progress id="progress-bar" value="0" max="100"></progress>
+    </section>
+
+    <section class="header">
+      <h1>Feon'i Fianarantsoa</h1>
+      <button class="btn btn1" id="explorer_bt">Explorer</button>
+    </section>
+    <div id="progress-container">
+      <!-- Barre de progression -->
+    </div>
+
+    <div id="titre_lieu">
+        Andrainjato
+    </div>
+
+    <div id="list"></div>
+
+    <!-- <div id="container"></div> -->
+    <div id="cont" class="dark-mode"></div>
+    <div id="container" class="dark-mode"></div>
+
+    <div class="backgroundExplorer" id="backgroundExplorer"></div>
+
+    <!-- Description du lieu (START)-->
+   
+    <button id="show_description" class="show_description">
+      <div class="show_icon">
+        <img src="./img/info_blanc.png" class="show_icon_white" alt="Icon">
+      </div>
+      <div class="show_icon">
+        <img src="./img/info_noir.png" class="show_icon_black" alt="Icon" >
+      </div >
+     <div class="info_titre"> Plus d'infos sur ce lieu</div>
+    </button>
+
+    <div id="desc-main" class="desc-main">
+      <!-- <button id="quiter_description">Quiter Description</button> -->
+                        <!----------------------------MENU------------------------>
+                        <div class="menu">
+
+                          <div id="nom-lieu" class="menu_gauche">Marché du Zoma</div>
+
+                          <div class="menu_droite">
+                            <div id="sound"><img class="sound" src="img/sound.png"></div>
+                            <div id="circulaire">Vue 360</div>
+                            <div id="rideau"><span class="nav-toggler">Changer de lieu</span></div>
+                            <!--<div><span class="nav-toggler2 inactive">Fermer</span></div>-->
+                            <div id="quiter_description"><img class="croix" src="img/croix.png"></div>
+                          </div>
+
+                        </div>
+
+                          <!----------------------------RIDEAU------------------------>
+
+                          <nav id="conteneur_menu">
+                            <div class="block">
+
+                              <div class="ligne1">
+                                <div class="element"><img src="img/galery/sary1.jpg">
+                                  <p>Anosy</p>
+                                </div>
+                                <div class="element"><img src="img/galery/sary2.jpg">
+                                  <p>Cathédrale</p>
+                                </div>
+                                <div class="element"><img src="img/galery/sary3.jpg">
+                                  <p>Circulation</p>
+                                </div>
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Enseignement</p>
+                                </div>
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Escalier des téléphones</p>
+                                </div>
+                              </div>
+
+                              <div class="ligne2">
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Escalier mort-homme</p>
+                                </div>
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Gare FCE</p>
+                                </div>
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Lapan'ny Tanana</p>
+                                </div>
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Marché du Zoma</p>
+                                </div>
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Monuments de la ville</p>
+                                </div>
+                              </div>
+
+                              <div class="ligne3">
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Point de vue et rizières</p>
+                                </div>
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Porte d’entrée de la Vieille Ville</p>
+                                </div>
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Rova</p>
+                                </div>
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Statue de la Vierge</p>
+                                </div>
+                                <div class="element"><img src="Pierrot Men_2_Zoma.jpg">
+                                  <p>Vie estudiantine</p>
+                                </div>
+                              </div>
+                            </div>
+
+                          </nav>
+
+
+                          <script type="text/javascript">
+
+                            const toggler = document.querySelector('.nav-toggler');
+                            const navigation = document.querySelector("nav");
+
+                            toggler.addEventListener("click", toggleNav);
+
+                            function toggleNav() {
+                              toggler.classList.toggle("active");
+                              navigation.classList.toggle("active");
+                            }
+
+                            toggler.addEventListener("click", function () {
+                              if (toggler.textContent === "Changer de lieu") {
+                                toggler.textContent = "Fermer";
+                              } else {
+                                toggler.textContent = "Changer de lieu";
+                              }
+                            });
+
+                          </script>
+
+                          
+                          <!----------------------------FILTRE------------------------>
+
+                          <div id="myScroll" style="overflow-y: scroll; width: 100%; height: 100%; position: relative; background-color: #191919;">
+                              <!----------------------------FILTRE------------------------>
+
+                              <div class="conteneur_haut">
+
+                                <div id="filtre"></div>
+                                <div class="conteneur_nom">
+                                  <h1 id="nom">Marché du Zoma</h1>
+                                </div>
+
+                                <img id="image_principale" class="img img_fixed" src="" alt="Image">
+
+                                <div class="texte_filtre">
+                                  <p id="desc1">Lorem ipsum dolor sit amet. Nam dolores maiores et cumque impedit vel dolor blanditiis cum
+                                    nihil magni et dolorem debitis. Qui excepturi expedita aut fuga repellat qui expedita dolor. Aut dolor autem nam
+                                    nulla fuga aut odit dolore. Ut facilis iusto ut perspiciatis iste qui sunt dolores et quaerat rerum?
+                                    Eos nisi natus sed consequuntur voluptas eos quisquam neque in quam pariatur sed quia eveniet aut suscipit nihil
+                                    qui iusto praesentium. Ab galisum voluptatibus eos omnis sunt et numquam amet. Aut blanditiis doloribus et sequi
+                                    perferendis eos aperiam expedita.<br><br>
+                                    Lorem ipsum dolor sit amet. Nam dolores maiores et cumque impedit vel dolor blanditiis cum
+                                    nihil magni et dolorem debitis. Qui excepturi expedita aut fuga repellat qui expedita dolor. Aut dolor autem nam
+                                    nulla fuga aut odit dolore. Ut facilis iusto ut perspiciatis iste qui sunt dolores et quaerat rerum?
+                                    Eos nisi natus sed consequuntur voluptas eos quisquam neque in quam pariatur sed quia eveniet aut suscipit nihil
+                                    qui iusto praesentium.</p>
+
+                                </div>
+
+                              </div>
+
+                              <script type="text/javascript">
+
+                                const img = document.querySelector('.img');
+
+                                  deScrol = 0; //1300
+                                  var divScrollable = document.getElementById('myScroll');
+
+                                  divScrollable.addEventListener('scroll', function(e) {
+                                      const apparitionQuestion = document.querySelector('.img');
+                                      var scrollTop = divScrollable.scrollTop;
+
+                                    if (scrollTop > 3000-deScrol) {
+                                      img.classList.remove('img_fixed');
+                                      img.classList.add('img_absolute');
+                                      img.style.opacity = 0;
+                                    }
+                                    else {
+                                      img.classList.add('img_fixed');
+                                      img.classList.remove('img_absolute');
+                                      img.style.opacity = 1;
+                                    }
+                                  });
+
+                              </script>
+
+                              <!----------------------------CONTENEUR PAGE------------------------>
+
+                              <div class="conteneur_bas">
+
+                                <!----------------------------CONTENU------------------------>
+
+                                <div class="center">
+                                  <p id="description" class="apparition invisible">Eos nisi natus sed consequuntur voluptas eos quisquam neque in
+                                    quam pariatur
+                                    sed quia eveniet aut suscipit nihil
+                                    qui iusto praesentium. Ab galisum voluptatibus eos omnis sunt et numquam amet. Aut blanditiis doloribus et sequi
+                                    perferendis eos aperiam expedita.<br><br>
+                                    Ab galisum voluptatibus eos omnis sunt et numquam amet. Aut blanditiis doloribus et sequi
+                                    perferendis eos aperiam expedita.</p>
+                                </div>
+
+
+                                <script type="text/javascript">
+
+                                  const apparition = document.querySelector('.apparition');
+
+                            
+                                  divScrollable = document.getElementById('myScroll');
+
+                                  divScrollable.addEventListener('scroll', function(e) {
+                                      var scrollTop = divScrollable.scrollTop;
+
+                                    if (scrollTop > 3500-deScrol) {
+                                      apparition.classList.remove('invisible');
+                                      apparition.classList.add('visible');
+                                      
+                                    }
+                                    else {
+                                      apparition.classList.add('invisible');
+                                      apparition.classList.remove('visible');
+                                    }
+                                  });
+
+                                </script>
+
+
+
+                                  <!----------------------------CAROUSEL------------------------>
+
+                                <div class="carousel">
+                                  <button  id="prev">&#10096;</button>
+                                  <button  id="next">&#10097;</button>
+                                  <ul id="carousel-list">
+                                    <li class="slide">
+                                      <img  class="image-cliquable" alt="image carousel">
+                                    </li>
+                                    <li class="slide active">
+                                      <img  class="image-cliquable" alt="image carousel">
+                                    </li>
+                                    <li class="slide">
+                                      <img  class="image-cliquable" alt="image carousel">
+                                    </li>
+                                  </ul>
+                                </div>
+
+                                <script type="text/javascript">
+
+                                  const buttons = document.querySelectorAll(".btn");
+                                  const slides = document.querySelectorAll(".slide");
+                                  buttons.forEach((button) => {
+                                    button.addEventListener("click", (e) => {
+                                      const calcNextSlide = e.target.id === "next" ? 1 : -1;
+                                      const slideActive = document.querySelector(".activ");
+
+                                      newIndex = calcNextSlide + [...slides].indexOf(slideActive);
+
+                                      if (newIndex < 0) newIndex = [...slides].length - 1;
+                                      if (newIndex >= [...slides].length) newIndex = 0;
+                                      slides[newIndex].classList.add("activ");
+
+                                      slideActive.classList.remove("activ");
+                                    });
+                                  });
+
+                                </script>
+                                  
+
+                               <!----------------------------POPUP IMAGE------------------------>
+                                <div class="popup-image">
+                                  <span>&times;</span>
+                                  <img src="Pierrot Men_2_Zoma.jpg" alt="">
+                                </div>
+
+
+                                <!-- <script type="text/javascript">
+
+                                  document.querySelectorAll('.carousel img').forEach(image => {
+                                    image.onclick = () => {
+                                      document.querySelector('.popup-image').style.display = 'block';
+                                      document.querySelector('popup-image img').src = image.getAttribute('src');
+                                    }
+                                  })
+
+                                  document.querySelector('.popup-image span').onclick = () => {
+                                    document.querySelector('.popup-image').style.display = 'none';
+                                  }
+
+                                </script>        -->
+
+
+                              
+                                <!----------------------------QUESTION REPONSES------------------------>
+
+                                <div class="center question">
+                                  <p id="question" class="apparitionQuestion questionInvisible">Quelle est la plus belle chose de Fianarantsoa selon
+                                    vous ?</p>
+                                </div>
+
+                                <div class="ligne1_bis">
+                                  <div class="audio1 invisible4" id="playButton1"><img class="play1" src="img/play.png" alt="play music"></div>
+                                  <div class="texte1">
+                                    <h2 id="nom1" class="apparition2 invisible2">Mahera</h2>
+                                    <p id="comment1" class="apparition3 invisible3">&laquo; C'est un des plus beaux endroits de la ville ! &raquo;</p>
+                                  </div>
+                                </div>
+
+                                <div class="ligne2_bis">
+                                  <div class="texte2">
+                                    <h2 id="nom2" class="apparition5 invisible5">Tokiarivelo</h2>
+                                    <p id="comment2" class="apparition7 invisible7">&laquo; J'aime cet endroit car il représente bien Fianarantsoa &raquo;</p>
+                                  </div>
+                                  <div class="audio2 invisible6" id="playButton2"><img class="play2" src="img/play.png" alt="play music"></div>
+                                </div>
+
+                                <script type="text/javascript">
+                                  divScrollable = document.getElementById('myScroll');
+
+                                  /***********************APPARITION QUESTION*************************/
+                                  divScrollable.addEventListener('scroll', function(e) {
+                                      const apparitionQuestion = document.querySelector('.apparitionQuestion');
+                                      var scrollTop = divScrollable.scrollTop;
+
+                                      if (scrollTop > 4900-deScrol) {
+                                      apparitionQuestion.classList.remove('questionInvisible');
+                                      apparitionQuestion.classList.add('questionVisible');
+                                    }
+                                    else {
+                                      apparitionQuestion.classList.add('questionInvisible');
+                                      apparitionQuestion.classList.remove('questionVisible');
+                                    }
+                                  });
+
+                                  
+                                
+
+
+                                  /***********************APPARITION PERSONNE 1*************************/
+
+                                  const apparition2 = document.querySelector('.apparition2');
+                                  const apparitionAudio1 = document.querySelector('.audio1');
+
+                                  divScrollable.addEventListener('scroll', function(e) {
+                                      var scrollTop = divScrollable.scrollTop;
+
+                                      if (scrollTop > 5300-deScrol) {
+                                        apparition2.classList.remove('invisible2');
+                                        apparition2.classList.add('visible2');
+                                        apparitionAudio1.classList.remove('invisible4');
+                                        apparitionAudio1.classList.add('visible4');
+                                      }
+                                      else {
+                                        apparition2.classList.add('invisible2');
+                                        apparition2.classList.remove('visible2');
+                                        apparitionAudio1.classList.add('invisible4');
+                                        apparitionAudio1.classList.remove('visible4');
+                                      }
+                                  });
+
+                                  const apparition3 = document.querySelector('.apparition3');
+
+                                  divScrollable.addEventListener('scroll', function(e) {
+                                      var scrollTop = divScrollable.scrollTop;
+
+                                      if (scrollTop > 5350-deScrol) {
+                                        apparition3.classList.remove('invisible3');
+                                      apparition3.classList.add('visible3');
+                                      }
+                                      else {
+                                        apparition3.classList.add('invisible3');
+                                      apparition3.classList.remove('visible3');
+                                      }
+                                  });
+
+
+                                  /***********************APPARITION PERSONNE 2*************************/
+
+                                  const apparition5 = document.querySelector('.apparition5');
+                                  const apparitionAudio2 = document.querySelector('.audio2');
+
+                                  divScrollable.addEventListener('scroll', function(e) {
+                                      var scrollTop = divScrollable.scrollTop;
+
+                                      if (scrollTop > 5400-deScrol) {
+                                        apparition5.classList.remove('invisible5');
+                                        apparition5.classList.add('visible5');
+                                        apparitionAudio2.classList.remove('invisible6');
+                                        apparitionAudio2.classList.add('visible6');
+                                      }
+                                      else {
+                                        apparition5.classList.add('invisible5');
+                                        apparition5.classList.remove('visible5');
+                                        apparitionAudio2.classList.add('invisible6');
+                                        apparitionAudio2.classList.remove('visible6');
+                                      }
+                                  });
+
+                                  const apparition7 = document.querySelector('.apparition7');
+
+                                  divScrollable.addEventListener('scroll', function(e) {
+                                      var scrollTop = divScrollable.scrollTop;
+
+                                      if (scrollTop > 5400-deScrol) {
+                                        apparition7.classList.remove('invisible7');
+                                        apparition7.classList.add('visible7');
+                                      }
+                                      else {
+                                        apparition7.classList.add('invisible7');
+                                        apparition7.classList.remove('visible7');
+                                      }
+                                  });
+
+                                  /***********************FONCTION AUDIO*************************/
+
+                                  const playButton1 = document.getElementById('playButton1');
+                                  const playButton2 = document.getElementById('playButton2');
+                                  const soundImage1 = document.querySelector('.play1');
+                                  const soundImage2 = document.querySelector('.play2');
+
+                                  audioElement1 = new Audio("./music/audio/feo1.mp3");
+                                  audioElement2 = new Audio("./music/audio/feo2.mp3");
+
+                                  let isPlaying = false;
+
+                                  playButton1.addEventListener('click', function () {
+                                    if (!isPlaying) {
+                                      audioElement1.play();
+                                      isPlaying = true;
+                                      soundImage1.src = "img/pause.png";
+                                      audioElement2.pause();
+                                      sound.pause();
+                                      soundImage2.src = "img/play.png";
+                                    } else {
+                                      audioElement1.pause();
+                                      isPlaying = false;
+                                      soundImage1.src = "img/play.png";
+                                    }
+                                  });
+
+                                  playButton2.addEventListener('click', function () {
+                                    if (!isPlaying) {
+                                      audioElement2.play();
+                                      isPlaying = true;
+                                      soundImage2.src = "img/pause.png";
+                                      audioElement1.pause();
+                                      sound.pause();
+                                      soundImage1.src = "img/play.png";
+                                    } else {
+                                      audioElement2.pause();
+                                      isPlaying = false;
+                                      soundImage2.src = "img/play.png";
+                                    }
+                                  });
+
+                                </script>
+
+
+
+
+                          </div>
+     
+    </div>
+    <!-- Description du lieu (END) -->
+
+
+    <input type="hidden" id="testStart" value=true>
+    <input type="hidden" id="isDark" value=true>
+    <input type="hidden" id="ls360" value="">
+  
+    <div class=""><script type="module" src="main.js"></script></div>
+
+    <audio loop id="audioPlayer" src="./stream.mp3"></audio>
+    <audio loop id="audioPlayer2" src="./night.mp3"></audio>
+    
+    
+
+    <script>
+        dark = false;
+        darkness = 2;
+      document.addEventListener("DOMContentLoaded", function () {
+        var isMuted = false;
+        var isDark = document.getElementById("isDark");
+        
+        // alert(document.getElementById("testStart").value);
+
+        var audioPlayer = document.getElementById("audioPlayer");
+        var audioPlayer2 = document.getElementById("audioPlayer2");
+        var soundIcon = document.getElementById("soundIcon");
+        var explorer_bt = document.getElementById("explorer_bt");
+        var show_description = document.getElementById("show_description");
+        var quiter_description = document.getElementById("quiter_description");
+
+        function toggleMute() {
+          isMuted = !isMuted;
+
+          if (isMuted) {
+            audioPlayer.pause();
+            //audioPlayer2.pause();
+            soundIcon.src = "./img/mute.png";
+            // console.log("Sound muted");
+          } else {
+            audioPlayer.play().catch((error) => {
+              console.error("Failed to play audio: ", error);
+            });
+            /*audioPlayer2.play().catch((error) => {
+              console.error("Failed to play audio: ", error);
+            });*/
+            soundIcon.src = "./img/music.png";
+            // console.log("Sound unmuted");
+          }
+        }
+
+        function playSound(){
+         
+          document.getElementById("testStart").value = false;
+          audioPlayer.play();
+          audioPlayer2.play();
+          audioPlayer.volume = 0.5;
+          audioPlayer2.volume = 1;
+          
+        }
+
+        function toggleDarkMode() {
+          // Obtenez le corps du document
+          var body = document.body;
+
+          // Basculez l'état du mode sombre
+          var isDarkMode = body.classList.toggle("dark-mode");
+          isDark.value = !isDark.value
+
+          // Mettez en œuvre la logique du mode sombre
+          if (isDarkMode) {
+            // Styles pour le mode sombre
+            // console.log("Dark Mode activated");
+
+            // Changez l'icône en mode sombre
+            document.getElementById("darkModeIcon").src =
+              "./img/night-mode.png";
+
+            darkness = 2;
+          } else {
+            // Styles pour le mode clair
+            // console.log("Dark Mode deactivated");
+
+            // Changez l'icône en mode clair
+            document.getElementById("darkModeIcon").src = "./img/day-mode.png";
+            darkness = 90;
+          }
+        }
+
+        function changeCameraView() {
+          // Mettez votre logique pour changer la vue de la caméra dans three.js
+          console.log("Change Camera View");
+        }
+
+        function toggleMenu() {
+          var navbarMenu = document.querySelector(".navbar-menu");
+          navbarMenu.classList.toggle("show");
+        }
+
+        // Ajout d'identifiants aux autres icônes
+        var darkModeIcon = document.querySelector(
+          ".navbar-icons img:nth-child(2)"
+        );
+        var mapIcon = document.querySelector(".navbar-icons img:nth-child(3)");
+        var hamburger = document.getElementById("hamburger");
+
+        // Ajout des événements aux autres icônes
+        darkModeIcon.addEventListener("click", toggleDarkMode);
+        mapIcon.addEventListener("click", changeCameraView);
+        hamburger.addEventListener("click", toggleMenu);
+
+        // Change la couleur de fond de la barre de navigation lors du défilement
+        window.onscroll = function () {
+          var navbar = document.getElementById("navbar");
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            navbar.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+          } else {
+            navbar.style.backgroundColor = "transparent";
+          }
+        };
+
+        function showDescription(){
+          var main = document.getElementById("desc-main");
+          main.className = "desc-main is_displayed";
+        }
+
+        function quitDescription(){
+          var main = document.getElementById("desc-main");
+          main.className = "desc-main";
+        }
+
+        // Ajout de l'événement à l'icône Dark Mode
+        darkModeIcon.addEventListener("click", toggleDarkMode);
+
+        // Ajout de l'événement à l'icône Sound
+        soundIcon.addEventListener("click", toggleMute);
+        
+        //Ajout de l'événement explorer
+        explorer_bt.addEventListener("click", playSound);
+
+        //Ajout de l'événement voir description
+        show_description.addEventListener("click", showDescription);
+
+        //Ajout de l'événement quiter la description
+        quiter_description.addEventListener("click", quitDescription);
+      });
+
+        // Ajout de la liste des lieux
+        document.addEventListener("DOMContentLoaded", function() {
+
+          });
+
+    </script>
+  </body>
+</html>
