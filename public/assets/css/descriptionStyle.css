@@ -1,0 +1,677 @@
+/*************SETTINGS*****************/
+
+.desc-main * {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  list-style: none;
+}
+
+.desc-main body {
+  background-color: #191919;
+  width: 100%;
+  height: 8000px;
+}
+
+/*************MENU*****************/
+
+.menu {
+  width: 100%;
+  height: 50px;
+  background-color: #191919;
+  position: fixed;
+  z-index: 10000;
+  display: flex;
+}
+
+.menu_droite {
+  position: relative;
+  width: 35%;
+  height: 100%;
+  margin-right: 0;
+  justify-content: space-around;
+}
+
+.menu_gauche {
+  display: flex;
+  width: 40%;
+  height: 100%;
+  margin-left: 1%;
+  text-align: center;
+}
+
+.menu .menu_droite, .menu_gauche {
+  font-family: "Julius Sans One";
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#croix, #rideau, #circulaire, #sound{
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+#croix, #rideau, #circulaire{
+  border-left: 1px solid white;
+}
+
+#croix, #sound{
+  width: 14%;
+  height: 100%;
+}
+
+#rideau{
+  width: 46%;
+  height: 100%;
+}
+
+#circulaire{
+  width: 26%;
+  height: 100%;
+}
+
+.croix, .sound{
+  position: relative;
+  height: 20px;
+  width: 20px;
+}
+
+/*.inactive{
+  display: none;
+}*/
+
+/*.fermer{
+  display: none;
+}
+
+.ouvert{
+  font-family: "Julius Sans One";
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}*/
+
+/*************RIDEAU*****************/
+
+.desc-main nav {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #191919;
+  transform: translateY(-200%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.desc-main nav.active {
+  transform: translate(0);
+}
+
+#quiter_description{
+  cursor: pointer;
+}
+
+.block {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.block p {
+  margin-top: 3%;
+  font-size: 15px;
+  text-align: center;
+  font-family: "Julius Sans One";
+  /*font-weight: bolder;*/
+  color: white;
+}
+
+.block .ligne1,
+.ligne2,
+.ligne3 {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: calc(100% / 3);
+}
+
+.element {
+  position: relative;
+  width: 17%;
+  height: 80%;
+  background-color: white;
+}
+
+.block img {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: .2s linear;
+  box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 30%),
+    0.3em 0.3em 1em rgb(0 0 0 / 60%);
+}
+
+.block img:hover {
+  transform: scale(1.05);
+}
+
+.conteneur_haut {
+  position: relative;
+  width: 100%;
+  height: 3000px;
+  
+}
+
+/*************FILTRE*****************/
+.img{
+  transition: opacity 0.3s ease-in-out; /* Transition plus douce pour l'opacité */
+  transition-delay: 0.2s; /* Délai avant que la transition ne se déclenche */
+}
+.img_fixed {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.img_absolute {
+  position: absolute !important;
+  width: 100%;
+  height: 100vh;
+  margin-top: 3000px;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 30%),
+    0.3em 0.3em 1em rgb(0 0 0 / 60%);
+}
+
+.conteneur_nom {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#nom {
+  display: flex;
+  position: relative;
+  margin-top: 0vh;
+  text-align: center;
+  font-size: 70px;
+  color: white;
+  letter-spacing: 15px;
+  font-family: "Julius Sans One";
+  font-weight: bold;
+  z-index: 15;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.808);
+}
+
+#filtre {
+  position: absolute;
+  background-color: #19191972;
+  width: 100%;
+  height: 370vh;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.texte_filtre {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding-right: 15%;
+  padding-left: 15%;
+}
+
+.texte_filtre p {
+  margin-top: 350vh;
+  color: white;
+  z-index: 20;
+  font-size: 28px;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+  line-height: 35px;
+}
+
+/*************CONTENEUR*****************/
+
+.conteneur_bas {
+  position: relative;
+  width: 100%;
+  margin-top: 900px;
+  height: 1000px;
+}
+
+/*************CONTENU****************/
+
+.center {
+  position: relative;
+  display: flex;
+  width: 60%;
+  height: 200px;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.visible {
+  text-align: center;
+  display: flex;
+  align-self: center;
+  font-size: 20px;
+  color: white;
+  font-family: verdana;
+  line-height: 35px;
+  transition: 1.5s ease;
+  opacity: 1;
+}
+
+.invisible {
+  text-align: center;
+  display: flex;
+  align-self: center;
+  font-size: 20px;
+  color: white;
+  font-family: verdana;
+  line-height: 35px;
+  transition: 1.5s ease;
+  opacity: 0;
+}
+
+/*************CAROUSEL*****************/
+
+.carousel {
+  height: 80vh;
+  width: 70%;
+  position: relative;
+  margin-top: 300px;
+  box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 30%),
+    0.3em 0.3em 1em rgb(0 0 0 / 60%);
+}
+
+.carousel button {
+  position: absolute;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 2.6rem;
+  z-index: 2;
+  cursor: pointer;
+  color: white;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+#prev {
+  left: -40px;
+}
+
+#next {
+  right: -40px;
+}
+
+.slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out; /* Correction ici */
+}
+
+.slide.active { /* Correction du sélecteur */
+  opacity: 1;
+}
+
+.slide img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+/*************QUESTION*****************/
+
+.question {
+  margin-top: 130px;
+  height: 200px;
+}
+
+.questionInvisible {
+  text-align: center;
+  align-self: center;
+  font-size: 50px;
+  color: white;
+  font-family: "Julius Sans One";
+  font-weight: bolder;
+  opacity: 0;
+  transition: 1.5s ease;
+}
+
+.questionVisible {
+  text-align: center;
+  align-self: center;
+  font-size: 50px;
+  color: white;
+  font-family: "Julius Sans One";
+  font-weight: bolder;
+  opacity: 1;
+  transition: 1.5s ease;
+}
+
+.ligne1_bis,
+.ligne2_bis {
+  position: relative;
+  display: flex;
+  width: 70%;
+  height: 200px;
+}
+
+.ligne1_bis {
+  margin-top: 30px;
+}
+
+.ligne2_bis {
+  margin-top: 50px;
+}
+
+.texte1,
+.texte2 {
+  position: relative;
+  align-items: center;
+  height: 100%;
+  width: 85%;
+  padding-top: 45px;
+}
+
+.texte1 {
+  padding-left: 10px;
+}
+
+.texte2 {
+  text-align: end;
+  padding-right: 10px;
+}
+
+.play1,
+.play2 {
+  height: 100px;
+  width: 100px;
+  align-self: center;
+}
+
+.invisible4,
+.invisible6 {
+  position: relative;
+  display: flex;
+  width: 15%;
+  height: 200px;
+  opacity: 0;
+  transition: 1.5s ease;
+}
+
+.visible4,
+.visible6 {
+  position: relative;
+  display: flex;
+  width: 15%;
+  height: 200px;
+  opacity: 1;
+  transition: 1.5s ease;
+}
+
+.invisible2,
+.invisible5 {
+  font-size: 70px;
+  color: white;
+  font-family: "Julius Sans One";
+  font-weight: bolder;
+  opacity: 0;
+  transition: 1.5s ease;
+}
+
+.visible2,
+.visible5 {
+  font-size: 70px;
+  color: white;
+  font-family: "Julius Sans One";
+  font-weight: bolder;
+  opacity: 1;
+  transition: 1.5s ease;
+}
+
+.invisible3,
+.invisible7 {
+  font-family: "Julius Sans One";
+  font-size: 25px;
+  font-weight: bolder;
+  opacity: 0;
+  transition: 1.5s ease;
+}
+
+.visible3,
+.visible7 {
+  font-family: "Julius Sans One";
+  font-size: 25px;
+  font-weight: bolder;
+  opacity: 1;
+  transition: 1.5s ease;
+}
+
+/****************POPUP IMAGE*****************/
+
+.popup-image {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #191919e3;
+  z-index: 100;
+  display: none;
+}
+
+.popup-image img {
+  width: 80%;
+  height: 90%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.popup-image span {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  font-size: 40px;
+  font-weight: bolder;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+@media (max-width:768px) {
+  .popup-image img {
+    width: 95%;
+  }
+}
+
+
+/****************IMAGE SEULE*****************/
+
+.parallax_one {
+  margin-top: 200px;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  overflow: hidden;
+  position: relative;
+  width: 90%;
+  height: 80vh;
+  /* background-image: url(Pierrot\ Men_3_Point\ de\ Vue\ \(1\).jpg); */
+  background-attachment: fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+
+/****************TEXTES ADDITIONNELS*****************/
+
+.textes_additionnels {
+  position: relative;
+  width: 70%;
+  margin-top: 300px;
+}
+
+.droite {
+  text-align: end;
+}
+
+.paragraphe1 {
+  padding-right: 60px;
+  transform-origin: left;
+}
+
+.paragraphe2 {
+  margin-top: 100px;
+  padding-left: 60px;
+}
+
+.invisibleGauche, .invisibleDroite {
+  opacity: 0;
+  font-family: verdana;
+  font-size: 20px;
+  line-height: 35px;
+  transition: 1.5s ease;
+}
+
+.invisibleGauche {
+  transform: translateX(-100%);
+}
+
+.visibleGauche, .visibleDroite {
+  opacity: 1;
+  font-family: verdana;
+  font-size: 20px;
+  line-height: 35px;
+  transition: 1.5s ease;
+  transition: opacity 1.5s ease, transform 2s ease;
+}
+
+.visibleGauche {
+  transform: translateX(0);
+}
+
+.invisibleDroite {
+  transform: translateX(100%);
+}
+
+.visibleDroite {
+  transform: translateX(0);
+}
+
+/*************AUTRES TEMOIGNAGES*****************/
+
+.temoignage {
+  position: relative;
+  margin-top: 150px;
+}
+
+.temoignage p {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  font-family: "Julius Sans One";
+  font-weight: bolder;
+}
+
+
+/*************GALLERIE PARALLAX*****************/
+
+.conteneur_parallax {
+  width: 100%;
+  height: 3000px;
+  padding-top: 450px;
+}
+
+.conteneur_parallax .portrait {
+  width: 400px;
+  height: 700Px;
+  object-fit: cover;
+}
+
+.conteneur_parallax .paysage {
+  width: 700px;
+  height: 400Px;
+  object-fit: cover;
+}
+
+.conteneur_parallax img {
+  position: relative;
+  box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 30%),
+    0.3em 0.3em 1em rgb(0 0 0 / 60%);
+}
+
+#img1 {
+  position: relative;
+  margin-left: 40px;
+}
+
+#img2 {
+  position: relative;
+  margin-top: 150px;
+  margin-left: 900px;
+}
+
+#img3 {
+  position: relative;
+  margin-top: 700px;
+  margin-left: 250px;
+}
+
+#img4 {
+  position: relative;
+  margin-top: 1200px;
+  margin-left: 750px;
+}
+
+#img5 {
+  position: relative;
+  margin-top: 1700px;
+  margin-left: 150px;
+}
+
+#img6 {
+  position: relative;
+  margin-top: 2000px;
+  margin-left: 650px;
+}

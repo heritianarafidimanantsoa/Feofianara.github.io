@@ -1,0 +1,532 @@
+@font-face {
+  font-family: 'JuliusSansOne';
+  src: url('./fonts/JuliusSansOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-Regular.otf') format('truetype');
+}
+
+body {
+  background-color: #ccc;
+  color: #000;
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /* cursor: none; */
+  overflow: hidden;
+  
+}
+
+.cursor {
+  height: 50px;
+  width: 50px;
+  border: 2px solid   black;
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: border-box;
+  transition: opacity 0,25 ease;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.cursorDot {
+  height: 12px;
+  width: 12px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: opacity 0,25 ease;
+  pointer-events: none;
+  z-index: 999;
+
+}
+
+.cursorBlock{
+  opacity: 1;
+}
+
+.cursorNone{
+  opacity: 0;
+}
+
+#container {
+  width: 100vw;
+  /*height: 100vh;*/
+}
+
+#list {
+  position: fixed;
+  color: #000000;
+  top: 15%;
+  left: 0;
+  z-index: 100;
+  font-size: 24 px;
+}
+
+canvas {
+  display: block;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  backdrop-filter: blur(10px); /* Ajout du flou */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+.navbar-logo {
+  margin-right: 20px;
+}
+.navbar-icons {
+  display: flex;
+  align-items: center;
+}
+.navbar-icons img {
+  width: 30px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+.navbar-menu {
+  display: none; /* Le menu hamburger est initialement caché */
+}
+.navbar-menu select {
+  margin-right: 10px;
+}
+.navbar-menu input {
+  margin-right: 10px;
+  padding: 5px;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px 5px;
+  }
+  .navbar-logo {
+    margin-right: 10px;
+  }
+  .navbar-icons img {
+    width: 18px;
+    margin-right: 8px;
+  }
+  .navbar-menu {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  .navbar-menu.show {
+    display: flex;
+  }
+  .navbar-menu select,
+  .navbar-menu input {
+    margin: 5px 0;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Style supplémentaire pour le mode sombre */
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.progress-bar-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#progress-bar {
+  width: 30%;
+  height: 2%;
+  margin-top: 0.5%;
+}
+
+label {
+  color: white;
+  font-size: 2rem;
+}
+
+.header {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 100;
+}
+
+.header h1 {
+  font-family: "JuliusSansOne";
+  font-size: 3.5rem;
+}
+
+.btn {
+  border: 3px solid #00a041;
+  border-radius: 50px;
+  background: none;
+  padding: 10px 25px;
+  font-size: 20px;
+
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn1 {
+  color: #000000;
+}
+
+.header button:hover {
+  background-color: white;
+  color: black;
+  padding: 10px 30px;
+  font-size: 20px;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: #fff;
+  z-index: -1;
+  transition: 0.8s;
+}
+
+.btn1::before {
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+}
+
+.btn1:hover::before {
+  height: 180%;
+}
+
+.backgroundExplorer{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.308);
+  position: absolute;
+  transition: 0s;
+  
+}
+
+.icon_descri{
+  width: 23px;
+  height: 23px;
+}
+
+
+
+/* boutton quitter dans justine.js */
+.exitButton{
+  position: absolute;
+  top: 0px;
+  right: -39px;
+  display: block;
+  background-color: transparent;
+  border: 2px solid transparent;
+  padding: 10px 20px;
+  cursor: pointer;
+  transform: translateX(-50%);
+  transition: background-color 0.3s ease, right 1s ease;
+}
+.exitButton:hover{
+  background-color: #ffffff;
+}
+
+.exitButton.moveLeft {
+  right: -500px; /* Déplacer vers la gauche */
+}
+
+.button{
+  position: absolute;
+  top: 0px;
+  right: 40px;
+  display: block;
+  background-color: transparent;
+  border: 2px solid transparent;
+  padding: 10px 20px;
+  cursor: pointer;
+  transform: translateX(-50%);
+  transition: background-color 0.3s ease;
+}
+
+.button:hover{
+  background-color: #ffffff;
+}
+
+
+#submit-btn {
+  background-color: transparent;
+  border: 2px solid transparent;
+  color: #fff; /* Couleur du texte */
+  padding: 10px 20px; /* Espacement intérieur */
+  font-size: 16px; /* Taille du texte */
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px; /* Espace depuis le bas */
+  left: 50%; /* Centre horizontalement */
+  transform: translateX(-50%);
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center; /* Aligner verticalement le contenu */
+}
+
+.icon_container {
+  margin-right: 4px;
+  margin-top: 5px; /* Ajustez la valeur selon vos besoins */
+}
+
+#submit-btn:hover {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  
+}
+
+.icon_white {
+  width: 20px;
+  height: 20px;
+  top: 10PX;
+  margin-right: 5px;
+  display: flex;
+}
+
+.icon_black {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  display: none;
+}
+
+.button_lieux:hover .icon_white {
+  display: none;
+}
+
+.button_lieux:hover .icon_black {
+  display: inline-block;
+  display: flex;
+}
+
+.list-container {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+
+/* Styles pour la modale */
+.modal {
+  display: none; /* Masquer la modale par défaut */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  overflow: auto; /* Ajouter un défilement si nécessaire */
+}
+
+.modal-content {
+  background-color: #fefefecf;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px #333;
+    width: 80%;
+  max-height: 80%;
+    overflow-y: auto;
+    word-wrap: break-word; 
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styles pour le contenu spécifique de la modale */
+.modal-dialog {
+  max-width: 500px; /* Largeur maximale de la modale */
+}
+
+.modal-title {
+  margin-bottom: 1em; /* Marge inférieure pour le titre */
+}
+
+.modal-body {
+  padding-bottom: 1em; /* Espacement inférieur pour le contenu du corps */
+}
+
+.modal-footer {
+  justify-content: flex-end; /* Aligner les boutons vers la droite */
+}
+
+.list-container {
+  text-align: center; /* Centrer horizontalement le contenu */
+}
+
+ul {
+  list-style-type: none; /* Supprimer les puces */
+  padding: 0; /* Supprimer le remplissage par défaut */
+  display: flex; /* Utiliser un affichage flex pour la liste */
+  flex-wrap: wrap; /* Mettre les éléments à la ligne s'ils dépassent */
+  justify-content: center; /* Centrer horizontalement les éléments */
+}
+
+/* Style pour les éléments de la liste des lieux */
+li {
+  color: #666; /* Couleur du texte */
+  font-size: 1.2em; /* Taille de la police */
+  margin: 0 10px; /* Marge entre les éléments */
+  margin-bottom: 10px; /* Espacement inférieur entre les lignes */
+}
+
+/* Style pour les éléments de la liste des lieux au survol */
+li:hover {
+  color: #00a041; /* Couleur du texte au survol */
+  cursor: pointer; /* Curseur pointer au survol */
+}
+
+/*************FILTRE*****************/
+
+.img_fixed {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.img_absolute {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  margin-top: 3000px;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow:
+    inset 0 -3em 3em rgb(0 0 0 / 30%),
+    0.3em 0.3em 1em rgb(0 0 0 / 60%);
+}
+
+.conteneur_nom {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#nom {
+  display: flex;
+  position: relative;
+  margin-top: 74vh;
+  text-align: center;
+  font-size: 70px;
+  color: white;
+  letter-spacing: 15px;
+  font-family: "Julius Sans One";
+  font-weight: bold;
+  z-index: 15;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.808);
+}
+
+#filtre {
+  position: absolute;
+  background-color: #19191972;
+  width: 100%;
+  height: 370vh;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.texte_filtre {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding-right: 15%;
+  padding-left: 15%;
+}
+
+.texte_filtre p {
+  margin-top: 350vh;
+  color: white;
+  z-index: 20;
+  font-size: 28px;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+  line-height: 35px;
+}
+
+#titre_lieu{
+  /*width: 200px;
+  height: 200px;
+  background-color: red;*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.3s;
+
+  color: white;
+  font-family: "JuliusSansOne";
+  font-size: 3.5rem;
+}
