@@ -251,91 +251,105 @@ function setupLight() {
   dirLight.shadowDarkness = 0.35;
 }
 
-function loadModel(file,overideMaterial=null) {
-  loader1.load( file, async function ( gltf ) {
 
+
+function loadModel(file, overideMaterial=null) {
+
+  controls.maxPolarAngle = Math.PI / 2; // Empêche la caméra de passer sous la carte
+  controls.minPolarAngle = -2; // Empêche la caméra de tourner trop vers le bas
+  controls.maxAzimuthAngle = Math.PI / 4; // Limite la rotation horizontale
+  controls.minAzimuthAngle = -Math.PI / 1;
+  
+  controls.minDistance = 5; // Distance minimale (empêche de zoomer trop près)
+  controls.maxDistance = 15; // Distance maximale (empêche de zoomer trop loin)
+  
+  loader1.load(file, async function (gltf) {
     const model = gltf.scene;
-    model.scale.set(.004*model.scale.x, .004*model.scale.y, .004 * model.scale.z)
-    // wait until the model can be added to the scene without blocking due to shader compilation
+    model.scale.set(.004 * model.scale.x, .004 * model.scale.y, .004 * model.scale.z);
     model.position.y -= 6;
-    
 
-    await renderer.compileAsync( model, camera, scene );
-    if(overideMaterial != null)
-    {
-      model.traverse((object)=>{object.material = overideMaterial})
+    // Ajouter une rotation de 90 degrés sur l'axe Y
+    model.rotation.y = Math.PI / 6;
+
+    await renderer.compileAsync(model, camera, scene);
+    if (overideMaterial != null) {
+      model.traverse((object) => { object.material = overideMaterial });
     }
-    model.traverse((item)=>{console.log(item)});
-    scene.add( model );
-  } );
+    model.traverse((item) => { console.log(item); });
+    scene.add(model);
+  });
 }
 
+
+
 function init() {
-  // build map 
-  // TODO : build by chunk
   loadModel('half_ground.glb');
-  // ground chunks
-  for(let i=0;i<6;i++)
-  {
-    for(let j=0;j<6;j++)
-    {
+  
+  // Ground chunks
+  for (let i = 0; i < 6; i++) {
+    for (let j = 0; j < 6; j++) {
       try {
-        loader1.load( "grounds/ground_"+i+"_"+j+".glb", async function ( gltf ) {
-          let ground_chunk;
-          ground_chunk = gltf.scene;
-          ground_chunk.scale.set(.004*ground_chunk.scale.x, .004*ground_chunk.scale.y, .004 * ground_chunk.scale.z)
+        loader1.load("grounds/ground_" + i + "_" + j + ".glb", async function (gltf) {
+          let ground_chunk = gltf.scene;
+          ground_chunk.scale.set(.004 * ground_chunk.scale.x, .004 * ground_chunk.scale.y, .004 * ground_chunk.scale.z);
           ground_chunk.position.y -= 6;
-          // wait until the model can be added to the scene without blocking due to shader compilation
-          await renderer.compileAsync( ground_chunk, camera, scene );
-      
-          ground_chunk.name = "ground_"+i+"_"+j;
-          scene.add( ground_chunk );
+
+          // Ajouter une rotation sur l'axe Y
+          ground_chunk.rotation.y = Math.PI / 6;
+
+          await renderer.compileAsync(ground_chunk, camera, scene);
+          ground_chunk.name = "ground_" + i + "_" + j;
+          scene.add(ground_chunk);
           grounds.push(ground_chunk);
-        } );
+        });
       } catch (error) {
         console.log(error);
       }
-
     }
   }
 
-
-  // buildings
-  loader1.load( 'all_buildings.glb', async function ( gltf ) {
-  
-    buildings = gltf.scene;
-    buildings.scale.set(.004*buildings.scale.x, .004*buildings.scale.y, .004 * buildings.scale.z)
+  // Buildings
+  loader1.load('all_buildings.glb', async function (gltf) {
+    let buildings = gltf.scene;
+    buildings.scale.set(.004 * buildings.scale.x, .004 * buildings.scale.y, .004 * buildings.scale.z);
     buildings.position.y -= 6;
-    // wait until the model can be added to the scene without blocking due to shader compilation
-    await renderer.compileAsync( buildings, camera, scene );
 
+    // Ajouter une rotation sur l'axe Y
+    buildings.rotation.y = Math.PI / 6;
+
+    await renderer.compileAsync(buildings, camera, scene);
     buildings.name = "buildings";
-    scene.add( buildings );
-  } );
-  // roads 
-  loader1.load( 'roads.glb', async function ( gltf ) {
-  
-    roads = gltf.scene;
-    roads.scale.set(.004*roads.scale.x, .004*roads.scale.y, .004 * roads.scale.z)
+    scene.add(buildings);
+  });
+
+  // Roads
+  loader1.load('roads.glb', async function (gltf) {
+    let roads = gltf.scene;
+    roads.scale.set(.004 * roads.scale.x, .004 * roads.scale.y, .004 * roads.scale.z);
     roads.position.y -= 6;
-    // wait until the model can be added to the scene without blocking due to shader compilation
-    await renderer.compileAsync( roads, camera, scene );
 
+    // Ajouter une rotation sur l'axe Y
+    roads.rotation.y = Math.PI / 6;
+
+    await renderer.compileAsync(roads, camera, scene);
     roads.name = "roads";
-    scene.add( roads );
-  } );
-  // rivers
-  loader1.load( 'rivers.glb', async function ( gltf ) {
-  
-    rivers = gltf.scene;
-    rivers.scale.set(.004*rivers.scale.x, .004*rivers.scale.y, .004 * rivers.scale.z)
-    rivers.position.y -= 6;
-    // wait until the model can be added to the scene without blocking due to shader compilation
-    await renderer.compileAsync( rivers, camera, scene );
+    scene.add(roads);
+  });
 
+  // Rivers
+  loader1.load('rivers.glb', async function (gltf) {
+    let rivers = gltf.scene;
+    rivers.scale.set(.004 * rivers.scale.x, .004 * rivers.scale.y, .004 * rivers.scale.z);
+    rivers.position.y -= 6;
+
+    // Ajouter une rotation sur l'axe Y
+    rivers.rotation.y = Math.PI / 6;
+
+    await renderer.compileAsync(rivers, camera, scene);
     rivers.name = "rivers";
-    scene.add( rivers );
-  } );
+    scene.add(rivers);
+  });
+
 
 
   
@@ -361,6 +375,8 @@ function init() {
   controls.minAzimuthAngle  = THREE.MathUtils.degToRad(45)
   controls.maxPolarAngle    = THREE.MathUtils.degToRad(45)
   controls.minPolarAngle    = THREE.MathUtils.degToRad(45)
+
+ 
 
   initPostprocessing();
   loadPointOfInterest();

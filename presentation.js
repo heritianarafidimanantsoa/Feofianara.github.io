@@ -28,8 +28,8 @@ let points = [
   {
     title: "Lapan'ny Tanàna",
     coords: {
-      lat: -21.4553308,
-      lng: 47.0852686,
+      lat: -25.4553308,
+      lng: 55.0852686,
     },
     texture: sphere360,
     modelPath: "./assets/arendrinatsymirehatra.glb",
