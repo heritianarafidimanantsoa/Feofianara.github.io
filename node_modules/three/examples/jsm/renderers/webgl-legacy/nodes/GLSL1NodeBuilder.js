@@ -1,4 +1,4 @@
-import { MathNode, GLSLNodeParser, NodeBuilder, NodeMaterial } from '../../../nodes/Nodes.js';
+import { MathNode, GLSLNodeParser, NodeBuilder } from '../../../nodes/Nodes.js';
 
 const glslMethods = {
 	[ MathNode.ATAN2 ]: 'atan'
@@ -39,8 +39,6 @@ class GLSL1NodeBuilder extends NodeBuilder {
 	}
 
 	getTextureBias( texture, textureProperty, uvSnippet, biasSnippet ) {
-
-		if ( this.material.extensions !== undefined ) this.material.extensions.shaderTextureLOD = true;
 
 		return `textureLod( ${textureProperty}, ${uvSnippet}, ${biasSnippet} )`;
 
@@ -312,26 +310,6 @@ void main() {
 			//this.computeShader = this._getGLSLComputeCode( shadersData.compute );
 
 		}
-
-	}
-
-	build() {
-
-		// @TODO: Move this code to super.build()
-
-		const { object, material } = this;
-
-		if ( material !== null ) {
-
-			NodeMaterial.fromMaterial( material ).build( this );
-
-		} else {
-
-			this.addFlow( 'compute', object );
-
-		}
-
-		return super.build();
 
 	}
 
