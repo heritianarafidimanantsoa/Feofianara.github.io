@@ -35,10 +35,10 @@
   }
 
   /*!
-   * GSAP 3.12.4
+   * GSAP 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
@@ -980,9 +980,10 @@
       _quickTween,
       _registerPluginQueue = [],
       _createPlugin = function _createPlugin(config) {
-    if (_windowExists() && config) {
-      config = !config.name && config["default"] || config;
+    if (!config) return;
+    config = !config.name && config["default"] || config;
 
+    if (_windowExists() || config.headless) {
       var name = config.name,
           isFunc = _isFunction(config),
           Plugin = name && !isFunc && config.init ? function () {
@@ -1030,7 +1031,7 @@
 
       config.register && config.register(gsap, Plugin, PropTween);
     } else {
-      config && _registerPluginQueue.push(config);
+      _registerPluginQueue.push(config);
     }
   },
       _255 = 255,
@@ -1246,7 +1247,7 @@
           time,
           frame;
 
-      elapsed > _lagThreshold && (_startTime += elapsed - _adjustedLag);
+      (elapsed > _lagThreshold || elapsed < 0) && (_startTime += elapsed - _adjustedLag);
       _lastUpdate += elapsed;
       time = _lastUpdate - _startTime;
       overlap = time - _nextTime;
@@ -1287,11 +1288,10 @@
 
             _install(_installScope || _win.GreenSockGlobals || !_win.gsap && _win || {});
 
-            _raf = _win.requestAnimationFrame;
-
             _registerPluginQueue.forEach(_createPlugin);
           }
 
+          _raf = typeof requestAnimationFrame !== "undefined" && requestAnimationFrame;
           _id && _self.sleep();
 
           _req = _raf || function (f) {
@@ -1304,7 +1304,7 @@
         }
       },
       sleep: function sleep() {
-        (_raf ? _win.cancelAnimationFrame : clearTimeout)(_id);
+        (_raf ? cancelAnimationFrame : clearTimeout)(_id);
         _tickerActive = 0;
         _req = _emptyFunc;
       },
@@ -3176,7 +3176,7 @@
           if (iteration !== prevIteration) {
             timeline && this._yEase && _propagateYoyoEase(timeline, isYoyo);
 
-            if (this.vars.repeatRefresh && !isYoyo && !this._lock && this._time !== dur && this._initted) {
+            if (this.vars.repeatRefresh && !isYoyo && !this._lock && this._time !== cycleDuration && this._initted) {
               this._lock = force = 1;
               this.render(_roundPrecise(cycleDuration * iteration), true).invalidate()._lock = 0;
             }
@@ -3227,7 +3227,7 @@
           pt = pt._next;
         }
 
-        timeline && timeline.render(totalTime < 0 ? totalTime : !time && isYoyo ? -_tinyNum : timeline._dur * timeline._ease(time / this._dur), suppressEvents, force) || this._startAt && (this._zTime = totalTime);
+        timeline && timeline.render(totalTime < 0 ? totalTime : timeline._dur * timeline._ease(time / this._dur), suppressEvents, force) || this._startAt && (this._zTime = totalTime);
 
         if (this._onUpdate && !suppressEvents) {
           isNegative && _rewindStartAt(this, totalTime, suppressEvents, force);
@@ -3777,6 +3777,7 @@
     function MatchMedia(scope) {
       this.contexts = [];
       this.scope = scope;
+      _context && _context.data.push(this);
     }
 
     var _proto6 = MatchMedia.prototype;
@@ -4158,7 +4159,7 @@
       }
     }
   }, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap;
-  Tween.version = Timeline.version = gsap.version = "3.12.4";
+  Tween.version = Timeline.version = gsap.version = "3.12.5";
   _coreReady = 1;
   _windowExists() && _wake();
   var Power0 = _easeMap.Power0,
@@ -5635,7 +5636,7 @@
     var segment = rawPath[segIndex],
         shift = t === 1 ? 6 : subdivideSegment(segment, i, t);
 
-    if (shift && shift + i + 2 < segment.length) {
+    if ((shift || !t) && shift + i + 2 < segment.length) {
       rawPath.splice(segIndex, 0, segment.slice(0, i + shift + 2));
       segment.splice(0, i + shift);
       return 1;
@@ -6693,10 +6694,10 @@
   }
 
   /*!
-   * CustomEase 3.12.4
+   * CustomEase 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
@@ -7042,7 +7043,7 @@
     return CustomEase;
   }();
   _getGSAP() && gsap$1.registerPlugin(CustomEase);
-  CustomEase.version = "3.12.4";
+  CustomEase.version = "3.12.5";
 
   var _doc$2,
       _win$2,
@@ -8821,6 +8822,7 @@
           self.tween = tween = gsap$2.to(scrollProxy || target, {
             inertia: inertia,
             data: "_draggable",
+            inherit: false,
             onComplete: onThrowComplete,
             onInterrupt: onThrowInterrupt,
             onUpdate: vars.fastMode ? _dispatchEvent : syncXY,
@@ -9980,14 +9982,14 @@
   });
 
   Draggable.zIndex = 1000;
-  Draggable.version = "3.12.4";
+  Draggable.version = "3.12.5";
   _getGSAP$1() && gsap$2.registerPlugin(Draggable);
 
   /*!
-   * CSSRulePlugin 3.12.4
+   * CSSRulePlugin 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
@@ -10030,7 +10032,7 @@
   };
 
   var CSSRulePlugin = {
-    version: "3.12.4",
+    version: "3.12.5",
     name: "cssRule",
     init: function init(target, value, tween, index, targets) {
       if (!_checkRegister() || typeof target.cssText === "undefined") {
@@ -10112,10 +10114,10 @@
   _getGSAP$2() && gsap$3.registerPlugin(CSSRulePlugin);
 
   /*!
-   * EaselPlugin 3.12.4
+   * EaselPlugin 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
@@ -10381,7 +10383,7 @@
   };
 
   var EaselPlugin = {
-    version: "3.12.4",
+    version: "3.12.5",
     name: "easel",
     init: function init(target, value, tween, index, targets) {
       if (!_coreInitted$4) {
@@ -10451,10 +10453,10 @@
   _getGSAP$3() && gsap$4.registerPlugin(EaselPlugin);
 
   /*!
-   * EasePack 3.12.4
+   * EasePack 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
@@ -10647,16 +10649,16 @@
 
   for (var p in EasePack) {
     EasePack[p].register = _initCore$5;
-    EasePack[p].version = "3.12.4";
+    EasePack[p].version = "3.12.5";
   }
 
   _getGSAP$4() && gsap$5.registerPlugin(SlowMo);
 
   /*!
-   * Flip 3.12.4
+   * Flip 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
@@ -12101,14 +12103,14 @@
 
     return Flip;
   }();
-  Flip.version = "3.12.4";
+  Flip.version = "3.12.5";
   typeof window !== "undefined" && window.gsap && window.gsap.registerPlugin(Flip);
 
   /*!
-   * MotionPathPlugin 3.12.4
+   * MotionPathPlugin 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
@@ -12301,7 +12303,7 @@
   };
 
   var MotionPathPlugin = {
-    version: "3.12.4",
+    version: "3.12.5",
     name: "motionPath",
     register: function register(core, Plugin, propTween) {
       gsap$7 = core;
@@ -12447,10 +12449,10 @@
   _getGSAP$5() && gsap$7.registerPlugin(MotionPathPlugin);
 
   /*!
-   * Observer 3.12.4
+   * Observer 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
@@ -12500,9 +12502,9 @@
       _isViewport = function _isViewport(el) {
     return !!~_root.indexOf(el);
   },
-      _addListener$1 = function _addListener(element, type, func, nonPassive, capture) {
+      _addListener$1 = function _addListener(element, type, func, passive, capture) {
     return element.addEventListener(type, func, {
-      passive: !nonPassive,
+      passive: passive !== false,
       capture: !!capture
     });
   },
@@ -12738,6 +12740,7 @@
           self = this,
           prevDeltaX = 0,
           prevDeltaY = 0,
+          passive = vars.passive || !preventDefault,
           scrollFuncX = _getScrollFunc(target, _horizontal),
           scrollFuncY = _getScrollFunc(target, _vertical),
           scrollX = scrollFuncX(),
@@ -12876,7 +12879,7 @@
 
         self._vy.reset();
 
-        _addListener$1(isNormalizer ? target : ownerDoc, _eventTypes[1], _onDrag, preventDefault, true);
+        _addListener$1(isNormalizer ? target : ownerDoc, _eventTypes[1], _onDrag, passive, true);
 
         self.deltaX = self.deltaY = 0;
         onPress && onPress(self);
@@ -12988,17 +12991,17 @@
         if (!self.isEnabled) {
           _addListener$1(isViewport ? ownerDoc : target, "scroll", _onScroll);
 
-          type.indexOf("scroll") >= 0 && _addListener$1(isViewport ? ownerDoc : target, "scroll", onScroll, preventDefault, capture);
-          type.indexOf("wheel") >= 0 && _addListener$1(target, "wheel", _onWheel, preventDefault, capture);
+          type.indexOf("scroll") >= 0 && _addListener$1(isViewport ? ownerDoc : target, "scroll", onScroll, passive, capture);
+          type.indexOf("wheel") >= 0 && _addListener$1(target, "wheel", _onWheel, passive, capture);
 
           if (type.indexOf("touch") >= 0 && _isTouch || type.indexOf("pointer") >= 0) {
-            _addListener$1(target, _eventTypes[0], _onPress, preventDefault, capture);
+            _addListener$1(target, _eventTypes[0], _onPress, passive, capture);
 
             _addListener$1(ownerDoc, _eventTypes[2], _onRelease);
 
             _addListener$1(ownerDoc, _eventTypes[3], _onRelease);
 
-            allowClicks && _addListener$1(target, "click", clickCapture, false, true);
+            allowClicks && _addListener$1(target, "click", clickCapture, true, true);
             onClick && _addListener$1(target, "click", _onClick);
             onGestureStart && _addListener$1(ownerDoc, "gesturestart", _onGestureStart);
             onGestureEnd && _addListener$1(ownerDoc, "gestureend", _onGestureEnd);
@@ -13087,7 +13090,7 @@
 
     return Observer;
   }();
-  Observer.version = "3.12.4";
+  Observer.version = "3.12.5";
 
   Observer.create = function (vars) {
     return new Observer(vars);
@@ -13108,16 +13111,15 @@
   _getGSAP$6() && gsap$8.registerPlugin(Observer);
 
   /*!
-   * PixiPlugin 3.12.4
+   * PixiPlugin 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
   */
   var gsap$9,
-      _win$6,
       _splitColor,
       _coreInitted$6,
       _PIXI,
@@ -13456,10 +13458,9 @@
     return pt;
   },
       _initCore$7 = function _initCore() {
-    if (_windowExists$5()) {
-      _win$6 = window;
+    if (!_coreInitted$6) {
       gsap$9 = _getGSAP$7();
-      _PIXI = _coreInitted$6 = _PIXI || _win$6.PIXI;
+      _PIXI = _coreInitted$6 = _PIXI || _windowExists$5() && window.PIXI;
       _isV4 = _PIXI && _PIXI.VERSION && _PIXI.VERSION.charAt(0) === "4";
 
       _splitColor = function _splitColor(color) {
@@ -13477,7 +13478,7 @@
   }
 
   var PixiPlugin = {
-    version: "3.12.4",
+    version: "3.12.5",
     name: "pixi",
     register: function register(core, Plugin, propTween) {
       gsap$9 = core;
@@ -13486,14 +13487,15 @@
 
       _initCore$7();
     },
+    headless: true,
     registerPIXI: function registerPIXI(pixi) {
       _PIXI = pixi;
     },
     init: function init(target, values, tween, index, targets) {
       _PIXI || _initCore$7();
 
-      if (!_PIXI || !(target instanceof _PIXI.DisplayObject)) {
-        _warn$2(target);
+      if (!_PIXI) {
+        _warn$2("PIXI was not found. PixiPlugin.registerPIXI(PIXI);");
 
         return false;
       }
@@ -13560,10 +13562,10 @@
   _getGSAP$7() && gsap$9.registerPlugin(PixiPlugin);
 
   /*!
-   * ScrollToPlugin 3.12.4
+   * ScrollToPlugin 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
@@ -13683,7 +13685,7 @@
   };
 
   var ScrollToPlugin = {
-    version: "3.12.4",
+    version: "3.12.5",
     name: "scrollTo",
     rawVars: 1,
     register: function register(core) {
@@ -13825,10 +13827,10 @@
   _getGSAP$8() && gsap$a.registerPlugin(ScrollToPlugin);
 
   /*!
-   * ScrollTrigger 3.12.4
+   * ScrollTrigger 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
@@ -13836,7 +13838,7 @@
 
   var gsap$b,
       _coreInitted$8,
-      _win$7,
+      _win$6,
       _doc$6,
       _docEl$2,
       _body$5,
@@ -13906,11 +13908,11 @@
     return !!~_root$1.indexOf(e);
   },
       _getViewportDimension = function _getViewportDimension(dimensionProperty) {
-    return (dimensionProperty === "Height" ? _100vh : _win$7["inner" + dimensionProperty]) || _docEl$2["client" + dimensionProperty] || _body$5["client" + dimensionProperty];
+    return (dimensionProperty === "Height" ? _100vh : _win$6["inner" + dimensionProperty]) || _docEl$2["client" + dimensionProperty] || _body$5["client" + dimensionProperty];
   },
       _getBoundsFunc = function _getBoundsFunc(element) {
     return _getProxyProp(element, "getBoundingClientRect") || (_isViewport$1(element) ? function () {
-      _winOffsets.width = _win$7.innerWidth;
+      _winOffsets.width = _win$6.innerWidth;
       _winOffsets.height = _100vh;
       return _winOffsets;
     } : function () {
@@ -13984,7 +13986,7 @@
       _Height = "Height",
       _px = "px",
       _getComputedStyle$1 = function _getComputedStyle(element) {
-    return _win$7.getComputedStyle(element);
+    return _win$6.getComputedStyle(element);
   },
       _makePositionable = function _makePositionable(element) {
     var position = _getComputedStyle$1(element).position;
@@ -14207,12 +14209,12 @@
     }
   },
       _setBaseDimensions = function _setBaseDimensions() {
-    _baseScreenWidth = _win$7.innerWidth;
-    _baseScreenHeight = _win$7.innerHeight;
+    _baseScreenWidth = _win$6.innerWidth;
+    _baseScreenHeight = _win$6.innerHeight;
   },
       _onResize = function _onResize() {
     exports._scrollers.cache++;
-    !_refreshing && !_ignoreResize && !_doc$6.fullscreenElement && !_doc$6.webkitFullscreenElement && (!_ignoreMobileResize || _baseScreenWidth !== _win$7.innerWidth || Math.abs(_win$7.innerHeight - _baseScreenHeight) > _win$7.innerHeight * 0.25) && _resizeDelay.restart(true);
+    !_refreshing && !_ignoreResize && !_doc$6.fullscreenElement && !_doc$6.webkitFullscreenElement && (!_ignoreMobileResize || _baseScreenWidth !== _win$6.innerWidth || Math.abs(_win$6.innerHeight - _baseScreenHeight) > _win$6.innerHeight * 0.25) && _resizeDelay.restart(true);
   },
       _listeners$1 = {},
       _emptyArray$1 = [],
@@ -14258,7 +14260,7 @@
     (force || !_refreshingAll) && exports._scrollers.forEach(function (obj) {
       return _isFunction$4(obj) && obj.cacheID++ && (obj.rec = 0);
     });
-    _isString$4(scrollRestoration) && (_win$7.history.scrollRestoration = _scrollRestoration = scrollRestoration);
+    _isString$4(scrollRestoration) && (_win$6.history.scrollRestoration = _scrollRestoration = scrollRestoration);
   },
       _refreshingAll,
       _refreshID = 0,
@@ -14274,7 +14276,7 @@
       _refresh100vh = function _refresh100vh() {
     _body$5.appendChild(_div100vh);
 
-    _100vh = !_normalizer$1 && _div100vh.offsetHeight || _win$7.innerHeight;
+    _100vh = !_normalizer$1 && _div100vh.offsetHeight || _win$6.innerHeight;
 
     _body$5.removeChild(_div100vh);
   },
@@ -14662,6 +14664,7 @@
       change1 = change1 || scrollTo - initialValue;
       tween && tween.kill();
       vars[prop] = scrollTo;
+      vars.inherit = false;
       vars.modifiers = modifiers;
 
       modifiers[prop] = function () {
@@ -14741,7 +14744,7 @@
           preventOverlaps = _vars.preventOverlaps,
           direction = vars.horizontal || vars.containerAnimation && vars.horizontal !== false ? _horizontal : _vertical,
           isToggle = !scrub && scrub !== 0,
-          scroller = _getTarget(vars.scroller || _win$7),
+          scroller = _getTarget(vars.scroller || _win$6),
           scrollerCache = gsap$b.core.getCache(scroller),
           isViewport = _isViewport$1(scroller),
           useFixedPosition = ("pinType" in vars ? vars.pinType : _getProxyProp(scroller, "pinType") || isViewport && "fixed") === "fixed",
@@ -14829,6 +14832,7 @@
           scrubTween ? scrubTween.duration(value) : scrubTween = gsap$b.to(animation, {
             ease: "expo",
             totalProgress: "+=0",
+            inherit: false,
             duration: scrubSmooth,
             paused: true,
             onComplete: function onComplete() {
@@ -14882,12 +14886,15 @@
                 velocity = refreshedRecently ? 0 : (totalProgress - snap2) / (_getTime$2() - _time2) * 1000 || 0,
                 change1 = gsap$b.utils.clamp(-progress, 1 - progress, _abs$1(velocity / 2) * velocity / 0.185),
                 naturalEnd = progress + (snap.inertia === false ? 0 : change1),
-                endValue = _clamp$2(0, 1, snapFunc(naturalEnd, self)),
-                endScroll = Math.round(start + endValue * change),
+                endValue,
+                endScroll,
                 _snap = snap,
                 onStart = _snap.onStart,
                 _onInterrupt = _snap.onInterrupt,
                 _onComplete = _snap.onComplete;
+            endValue = snapFunc(naturalEnd, self);
+            _isNumber$2(endValue) || (endValue = naturalEnd);
+            endScroll = Math.round(start + endValue * change);
 
             if (scroll <= end && scroll >= start && endScroll !== scroll) {
               if (tween && !tween._initted && tween.data <= _abs$1(endScroll - scroll)) {
@@ -14908,7 +14915,11 @@
                 onComplete: function onComplete() {
                   self.update();
                   lastSnap = scrollFunc();
-                  scrubTween && animation && animation.progress(endValue);
+
+                  if (animation) {
+                    scrubTween ? scrubTween.resetTo("totalProgress", endValue, animation._tTime / animation._tDur) : animation.progress(endValue);
+                  }
+
                   snap1 = snap2 = animation && !isToggle ? animation.totalProgress() : self.progress;
                   onSnapComplete && onSnapComplete(self);
                   _onComplete && _onComplete(self);
@@ -15223,6 +15234,9 @@
             }
 
             useFixedPosition && scrollFunc(prevScroll);
+          } else {
+            i = _getSize(pin, direction);
+            i && spacer.style.flexBasis !== "auto" && (spacer.style.flexBasis = i + _px);
           }
 
           if (useFixedPosition) {
@@ -15299,7 +15313,7 @@
         _refreshing = 0;
         animation && isToggle && (animation._initted || prevAnimProgress) && animation.progress() !== prevAnimProgress && animation.progress(prevAnimProgress || 0, true).render(animation.time(), true, true);
 
-        if (isFirstRefresh || prevProgress !== self.progress || containerAnimation) {
+        if (isFirstRefresh || prevProgress !== self.progress || containerAnimation || invalidateOnRefresh) {
           animation && !isToggle && animation.totalProgress(containerAnimation && start < -0.001 && !prevProgress ? gsap$b.utils.normalize(start, end, 0) : prevProgress, true);
           self.progress = isFirstRefresh || (scroll1 - start) / change === prevProgress ? 0 : prevProgress;
         }
@@ -15384,7 +15398,13 @@
           }
         }
 
-        anticipatePin && !clipped && pin && !_refreshing && !_startup$1 && _lastScrollTime && start < scroll + (scroll - scroll2) / (_getTime$2() - _time2) * anticipatePin && (clipped = 0.0001);
+        if (anticipatePin && pin && !_refreshing && !_startup$1 && _lastScrollTime) {
+          if (!clipped && start < scroll + (scroll - scroll2) / (_getTime$2() - _time2) * anticipatePin) {
+            clipped = 0.0001;
+          } else if (clipped === 1 && end > scroll + (scroll - scroll2) / (_getTime$2() - _time2) * anticipatePin) {
+            clipped = 0.9999;
+          }
+        }
 
         if (clipped !== prevProgress && self.enabled) {
           isActive = self.isActive = !!clipped && clipped < 1;
@@ -15673,7 +15693,7 @@
         return trigger[kill ? "kill" : "disable"](reset);
       });
 
-      _removeListener$2(_win$7, "wheel", _onScroll$1);
+      _removeListener$2(_win$6, "wheel", _onScroll$1);
 
       _removeListener$2(_doc$6, "scroll", _onScroll$1);
 
@@ -15699,7 +15719,7 @@
     };
 
     ScrollTrigger.enable = function enable() {
-      _win$7 = window;
+      _win$6 = window;
       _doc$6 = document;
       _docEl$2 = _doc$6.documentElement;
       _body$5 = _doc$6.body;
@@ -15709,8 +15729,8 @@
         _clamp$2 = gsap$b.utils.clamp;
         _context$3 = gsap$b.core.context || _passThrough$1;
         _suppressOverwrites$1 = gsap$b.core.suppressOverwrites || _passThrough$1;
-        _scrollRestoration = _win$7.history.scrollRestoration || "auto";
-        _lastScroll = _win$7.pageYOffset;
+        _scrollRestoration = _win$6.history.scrollRestoration || "auto";
+        _lastScroll = _win$6.pageYOffset;
         gsap$b.core.globals("ScrollTrigger", ScrollTrigger);
 
         if (_body$5) {
@@ -15726,10 +15746,11 @@
           Observer.register(gsap$b);
           ScrollTrigger.isTouch = Observer.isTouch;
           _fixIOSBug = Observer.isTouch && /(iPad|iPhone|iPod|Mac)/g.test(navigator.userAgent);
+          _ignoreMobileResize = Observer.isTouch === 1;
 
-          _addListener$2(_win$7, "wheel", _onScroll$1);
+          _addListener$2(_win$6, "wheel", _onScroll$1);
 
-          _root$1 = [_win$7, _doc$6, _docEl$2, _body$5];
+          _root$1 = [_win$6, _doc$6, _docEl$2, _body$5];
 
           if (gsap$b.matchMedia) {
             ScrollTrigger.matchMedia = function (vars) {
@@ -15802,8 +15823,8 @@
           _coreInitted$8 = _getTime$2();
           _resizeDelay = gsap$b.delayedCall(0.2, _refreshAll).pause();
           _autoRefresh = [_doc$6, "visibilitychange", function () {
-            var w = _win$7.innerWidth,
-                h = _win$7.innerHeight;
+            var w = _win$6.innerWidth,
+                h = _win$6.innerHeight;
 
             if (_doc$6.hidden) {
               _prevWidth = w;
@@ -15811,7 +15832,7 @@
             } else if (_prevWidth !== w || _prevHeight !== h) {
               _onResize();
             }
-          }, _doc$6, "DOMContentLoaded", _refreshAll, _win$7, "load", _refreshAll, _win$7, "resize", _onResize];
+          }, _doc$6, "DOMContentLoaded", _refreshAll, _win$6, "load", _refreshAll, _win$6, "resize", _onResize];
 
           _iterateAutoRefresh(_addListener$2);
 
@@ -15850,7 +15871,7 @@
       }
 
       if (vars) {
-        isViewport ? exports._proxies.unshift(_win$7, vars, _body$5, vars, _docEl$2, vars) : exports._proxies.unshift(t, vars);
+        isViewport ? exports._proxies.unshift(_win$6, vars, _body$5, vars, _docEl$2, vars) : exports._proxies.unshift(t, vars);
       }
     };
 
@@ -15863,7 +15884,7 @@
     ScrollTrigger.isInViewport = function isInViewport(element, ratio, horizontal) {
       var bounds = (_isString$4(element) ? _getTarget(element) : element).getBoundingClientRect(),
           offset = bounds[horizontal ? _width : _height] * ratio || 0;
-      return horizontal ? bounds.right - offset > 0 && bounds.left + offset < _win$7.innerWidth : bounds.bottom - offset > 0 && bounds.top + offset < _win$7.innerHeight;
+      return horizontal ? bounds.right - offset > 0 && bounds.left + offset < _win$6.innerWidth : bounds.bottom - offset > 0 && bounds.top + offset < _win$6.innerHeight;
     };
 
     ScrollTrigger.positionInViewport = function positionInViewport(element, referencePoint, horizontal) {
@@ -15871,7 +15892,7 @@
       var bounds = element.getBoundingClientRect(),
           size = bounds[horizontal ? _width : _height],
           offset = referencePoint == null ? size / 2 : referencePoint in _keywords ? _keywords[referencePoint] * size : ~referencePoint.indexOf("%") ? parseFloat(referencePoint) * size / 100 : parseFloat(referencePoint) || 0;
-      return horizontal ? (bounds.left + offset) / _win$7.innerWidth : (bounds.top + offset) / _win$7.innerHeight;
+      return horizontal ? (bounds.left + offset) / _win$6.innerWidth : (bounds.top + offset) / _win$6.innerHeight;
     };
 
     ScrollTrigger.killAll = function killAll(allowListeners) {
@@ -15890,7 +15911,7 @@
 
     return ScrollTrigger;
   }();
-  ScrollTrigger$2.version = "3.12.4";
+  ScrollTrigger$2.version = "3.12.5";
 
   ScrollTrigger$2.saveStyles = function (targets) {
     return targets ? _toArray$4(targets).forEach(function (target) {
@@ -16096,7 +16117,7 @@
         scrollFuncY = _getScrollFunc(target, _vertical),
         scrollFuncX = _getScrollFunc(target, _horizontal),
         scale = 1,
-        initialScale = (Observer.isTouch && _win$7.visualViewport ? _win$7.visualViewport.scale * _win$7.visualViewport.width : _win$7.outerWidth) / _win$7.innerWidth,
+        initialScale = (Observer.isTouch && _win$6.visualViewport ? _win$6.visualViewport.scale * _win$6.visualViewport.width : _win$6.outerWidth) / _win$6.innerWidth,
         wheelRefresh = 0,
         resolveMomentumDuration = _isFunction$4(momentum) ? function () {
       return momentum(self);
@@ -16170,7 +16191,7 @@
     vars.onPress = function () {
       skipTouchMove = false;
       var prevScale = scale;
-      scale = _round$5((_win$7.visualViewport && _win$7.visualViewport.scale || 1) / initialScale);
+      scale = _round$5((_win$6.visualViewport && _win$6.visualViewport.scale || 1) / initialScale);
       tween.pause();
       prevScale !== scale && _allowNativePanning(target, scale > 1.01 ? true : normalizeScrollX ? false : "x");
       startScrollX = scrollFuncX();
@@ -16244,7 +16265,7 @@
 
       ScrollTrigger$2.addEventListener("refresh", onResize);
 
-      _addListener$2(_win$7, "resize", onResize);
+      _addListener$2(_win$6, "resize", onResize);
 
       if (scrollFuncY.smooth) {
         scrollFuncY.target.style.scrollBehavior = "auto";
@@ -16257,7 +16278,7 @@
     vars.onDisable = function () {
       _allowNativePanning(target, true);
 
-      _removeListener$2(_win$7, "resize", onResize);
+      _removeListener$2(_win$6, "resize", onResize);
 
       ScrollTrigger$2.removeEventListener("refresh", onResize);
       inputObserver.kill();
@@ -16272,6 +16293,7 @@
     tween = gsap$b.to(self, {
       ease: "power4",
       paused: true,
+      inherit: false,
       scrollX: normalizeScrollX ? "+=0.1" : "+=0",
       scrollY: "+=0.1",
       modifiers: {
@@ -16415,10 +16437,10 @@
   }
 
   /*!
-   * TextPlugin 3.12.4
+   * TextPlugin 3.12.5
    * https://gsap.com
    *
-   * @license Copyright 2008-2023, GreenSock. All rights reserved.
+   * @license Copyright 2008-2024, GreenSock. All rights reserved.
    * Subject to the terms at https://gsap.com/standard-license or for
    * Club GSAP members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
@@ -16431,7 +16453,7 @@
   };
 
   var TextPlugin = {
-    version: "3.12.4",
+    version: "3.12.5",
     name: "text",
     init: function init(target, value, tween) {
       typeof value !== "object" && (value = {

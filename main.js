@@ -1,18 +1,13 @@
-import * as THREE from "https://esm.sh/three";
-import { MapControls } from "https://esm.sh/three/addons/controls/MapControls.js";
-import { OrbitControls } from "https://esm.sh/three/examples/jsm/controls/OrbitControls.js";
-import { Text } from "https://esm.sh/troika-three-text";
-import { GLTFLoader } from "https://esm.sh/three/addons/loaders/GLTFLoader.js";
-import gsap from "https://esm.sh/gsap";
-import { Sky } from "https://esm.sh/three/examples/jsm/objects/Sky.js";
+import * as THREE from "three";
+import { MapControls } from "three/addons/controls/MapControls.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { Text } from "troika-three-text";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import gsap from "gsap";
+import { Sky } from "three/examples/jsm/objects/Sky.js";
 import locationsData from "./data.json";
-import sphere360 from "./img/vita360_stitch.jpg";
 import data from "./360.json";
-import { convertSpeed } from "https://esm.sh/geolib";
-import { EffectComposer } from "https://esm.sh/three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "https://esm.sh/three/examples/jsm/postprocessing/RenderPass.js";
-import { ShaderPass } from "https://esm.sh/three/examples/jsm/postprocessing/ShaderPass.js";
-import { ColorCorrectionShader } from "https://esm.sh/three/examples/jsm/shaders/ColorCorrectionShader.js";
+import { convertSpeed } from "geolib";
 
 // Récupérer la modale
 var modal = document.getElementById("myModal");
@@ -112,157 +107,22 @@ controls.enableDamping = true;
 controls.dampingFactor = 0.25;
 controls.screenSpacePanning = false;
 controls.maxPolarAngle = Math.PI / 2.2;
+controls.enableZoom = true;
 controls.minZoom = 2;
-controls.maxZoom = 5;
+controls.maxZoom = 2;
+
+// Limites pour le contrôle de la caméra
+controls.minDistance = 8;
+controls.maxDistance = 15;
+
 controls.maxAzimuthAngle = THREE.MathUtils.degToRad(45);
 controls.minAzimuthAngle = THREE.MathUtils.degToRad(45);
 controls.maxPolarAngle = THREE.MathUtils.degToRad(45);
 controls.minPolarAngle = THREE.MathUtils.degToRad(45);
 
-// Création de la scène 360
-var scene360 = new THREE.Scene();
-scene360.background = new THREE.Color(0xffffff);
-
-var camera360 = new THREE.PerspectiveCamera(
-  70,
-  window.innerWidth / window.innerHeight,
-  0.001,
-  1000
-);
-camera360.position.z = 3;
-
-// Ajout des contrôles de la caméra
-var controls360 = new OrbitControls(camera360, renderer.domElement);
-controls360.enableDamping = true;
-controls360.dampingFactor = 0.05;
-controls360.screenSpacePanning = false;
-
-// Ajoutez la déclaration de sky et sun
-let sky, sun;
-
-function lighting(el) {
-  const ambient = new THREE.AmbientLight(0xfafafa, 0.25);
-  scene.add(ambient);
-
-  const hemi = new THREE.HemisphereLight(0xffffff, 0x080820, 1);
-  scene.add(hemi);
-
-  const directionalLight = new THREE.DirectionalLight(0xfafafa, 0.5);
-  directionalLight.position.set(50, 50, -50);
-  scene.add(directionalLight);
-
-  var isDark = document.getElementById("isDark").value === "true"; // Convertir en booléen
-  if (isDark) {
-    console.log("maizina");
-  } else {
-    console.log("mazava");
-  }
-
-  // sky
-  sky = new Sky();
-  sky.scale.setScalar(450000);
-  scene.add(sky);
-
-  sky.material.uniforms.mieCoefficient.value = 0.005;
-  sky.material.uniforms.mieDirectionalG.value = 0.7;
-
-  sun = new THREE.Vector3();
-  let elevation = el;
-
-  if (!isDark) {
-    // Utiliser la bonne variable isDark
-    elevation = 2;
-  } else {
-    elevation = 90;
-  }
-
-  let azimuth = 180;
-
-  const phi = THREE.MathUtils.degToRad(90 - elevation);
-  const theta = THREE.MathUtils.degToRad(azimuth);
-
-  sun.setFromSphericalCoords(1, phi, theta);
-
-  sky.material.uniforms.sunPosition.value.copy(sun);
-}
-
-darkModeIcon.addEventListener("mousedown", function () {
-  lighting(darkness);
-});
-
-function setupLight() {
-  var hemiLight = new THREE.HemisphereLight(0x224488, 0xffffff, 0.1);
-  hemiLight.color.setHSL(10, 0.75, 10);
-  hemiLight.groundColor.setHSL(0.9, 0.5, 0.5);
-  hemiLight.position.set(0, 50, 0);
-  scene.add(hemiLight);
-
-  var dirLight = new THREE.DirectionalLight(0xffffff, 1);
-  dirLight.position.set(-1, 0.75, 1);
-  dirLight.position.multiplyScalar(50);
-  dirLight.name = "dirlight";
-  dirLight.shadowCameraVisible = true;
-
-  scene.add(dirLight);
-
-  dirLight.castShadow = true;
-  dirLight.shadowMapWidth = dirLight.shadowMapHeight = 1024 * 2;
-
-  var d = 300;
-
-  dirLight.shadowCameraLeft = -d;
-  dirLight.shadowCameraRight = d;
-  dirLight.shadowCameraTop = d;
-  dirLight.shadowCameraBottom = -d;
-
-  dirLight.shadowCameraFar = 1000;
-  dirLight.shadowBias = -0.1;
-  dirLight.shadowDarkness = 0.1;
-}
-
-
-
-function loadModel(file, overideMaterial = null) {
-  controls.maxPolarAngle = Math.PI / 4; // Empêche la caméra de passer sous la carte (90 degrés maximum)
-  controls.minPolarAngle = 0; // Empêche la caméra de regarder complètement vers le haut (0 degrés minimum)
-
-  controls.maxAzimuthAngle = Math.PI / -4; // Limite la rotation horizontale à droite
-  controls.minAzimuthAngle = -Math.PI / -4; // Limite la rotation horizontale à gauche
-
-  controls.minDistance = 5; // Distance minimale (empêche de zoomer trop près)
-  controls.maxDistance = 25; // Distance maximale (empêche de zoomer trop loin)
-
-  const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load("MAP.glb"); // Remplacez par le chemin de votre texture
-
-  // Définir les shaders
-  const vertexShader = `
-    varying vec2 vUv;
-    void main() {
-        vUv = uv;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-`;
-
-  const fragmentShader = `
-    uniform sampler2D texture;
-    uniform float saturation;
-    varying vec2 vUv;
-
-    void main() {
-        vec4 color = texture2D(texture, vUv);
-        
-        // Convertir la couleur en HSV
-        float avg = (color.r + color.g + color.b) / 10;
-        color.rgb = mix(avg, color.rgb, saturation);
-        
-        gl_FragColor = color;
-    }
-`;
-
 // Définit les limites de déplacement sur l'axe X et Y (gauche, droite, haut, bas)
-const minPan = new THREE.Vector3(-5, -5, -3); // Limite minimum de déplacement (gauche, bas)
-const maxPan = new THREE.Vector3(3, 3, 6); // Limite maximum de déplacement (droite, haut)
+const minPan = new THREE.Vector3(-7, -7, -7); // Limite minimum de déplacement (gauche, bas)
+const maxPan = new THREE.Vector3(7, 7, 7); // Limite maximum de déplacement (droite, haut)
 
 // Fonction pour limiter le mouvement sur le plan
 controls.addEventListener("change", () => {
@@ -284,48 +144,56 @@ controls.addEventListener("change", () => {
   controls.target.copy(newPan);
 });
 
-  // Créer le matériau avec les shaders
-  const material = new THREE.ShaderMaterial({
-    uniforms: {
-      texture: { value: texture },
-      saturation: { value: 500 } // Ajustez la saturation ici
-    },
-    vertexShader: vertexShader,
-    fragmentShader: fragmentShader
-  });
+// Création de la scène 360
+var scene360 = new THREE.Scene();
+scene360.background = new THREE.Color(0xffffff);
 
-  // Créer une géométrie et appliquer le matériau
-  const geometry = new THREE.BoxGeometry(1, 1, 1);
-  const cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
+var camera360 = new THREE.PerspectiveCamera(
+  70,
+  window.innerWidth / window.innerHeight,
+  0.001,
+  1000
+);
+camera360.position.z = 3;
 
-  // Ajouter une lumière
-  const light = new THREE.DirectionalLight(0xffffff, 1);
-  light.position.set(5, 5, 5);
-  scene.add(light);
+// Ajout des contrôles de la caméra
+var controls360 = new OrbitControls(camera360, renderer.domElement);
+controls360.enableDamping = true;
+controls360.dampingFactor = 0.05;
+controls360.enableZoom = false;
+controls360.screenSpacePanning = false;
 
-  // Fonction de rendu
-  function animate() {
-    requestAnimationFrame(animate);
+function setupLight() {
+  var hemiLight = new THREE.HemisphereLight(0x224488, 0xffffff, 0.1);
+  hemiLight.color.setHSL(0.6, 0.75, 0.5);
+  hemiLight.groundColor.setHSL(0.095, 0.5, 0.5);
+  hemiLight.position.set(0, 500, 0);
+  scene.add(hemiLight);
 
-    // Rotation du cube pour l'animation
-    cube.rotation.x += 2;
-    cube.rotation.y += 2;
+  var dirLight = new THREE.DirectionalLight(0xffffff, 1);
+  dirLight.position.set(-1, 0.75, 1);
+  dirLight.position.multiplyScalar(50);
+  dirLight.name = "dirlight";
+  dirLight.shadowCameraVisible = true;
 
-    // Rendu de la scène
-    renderer.render(scene, camera);
-  }
+  scene.add(dirLight);
 
-  // Démarrer l'animation
-  animate();
+  dirLight.castShadow = true;
+  dirLight.shadowMapWidth = dirLight.shadowMapHeight = 1024 * 2;
 
-  // Ajuster la taille du rendu lors du redimensionnement de la fenêtre
-  window.addEventListener("resize", () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
+  var d = 300;
 
+  dirLight.shadowCameraLeft = -d;
+  dirLight.shadowCameraRight = d;
+  dirLight.shadowCameraTop = d;
+  dirLight.shadowCameraBottom = -d;
+
+  dirLight.shadowCameraFar = 3500;
+  dirLight.shadowBias = -0.0001;
+  dirLight.shadowDarkness = 0.35;
+}
+
+function loadModel(file, overideMaterial = null) {
   loader1.load(file, async function (gltf) {
     const model = gltf.scene;
     model.scale.set(
@@ -333,10 +201,8 @@ controls.addEventListener("change", () => {
       0.004 * model.scale.y,
       0.004 * model.scale.z
     );
+    // wait until the model can be added to the scene without blocking due to shader compilation
     model.position.y -= 6;
-
-    // Ajouter une rotation de 90 degrés sur l'axe Y
-    model.rotation.y = Math.PI / 20;
 
     await renderer.compileAsync(model, camera, scene);
     if (overideMaterial != null) {
@@ -352,24 +218,82 @@ controls.addEventListener("change", () => {
 }
 
 function init() {
-  loadModel("SOL.glb");
+  // build map
+  // TODO : build by chunk
+  loadModel("half_ground.glb");
+  // ground chunks
+  for (let i = 0; i < 6; i++) {
+    for (let j = 0; j < 6; j++) {
+      try {
+        loader1.load(
+          "grounds/ground_" + i + "_" + j + ".glb",
+          async function (gltf) {
+            let ground_chunk;
+            ground_chunk = gltf.scene;
+            ground_chunk.scale.set(
+              0.004 * ground_chunk.scale.x,
+              0.004 * ground_chunk.scale.y,
+              0.004 * ground_chunk.scale.z
+            );
+            ground_chunk.position.y -= 6;
+            // wait until the model can be added to the scene without blocking due to shader compilation
+            await renderer.compileAsync(ground_chunk, camera, scene);
 
-  // Buildings
-  loader1.load("Batiment.glb", async function (gltf) {
-    let buildings = gltf.scene;
+            ground_chunk.name = "ground_" + i + "_" + j;
+            scene.add(ground_chunk);
+            grounds.push(ground_chunk);
+          }
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
+  // buildings
+  loader1.load("all_buildings.glb", async function (gltf) {
+    buildings = gltf.scene;
     buildings.scale.set(
       0.004 * buildings.scale.x,
       0.004 * buildings.scale.y,
       0.004 * buildings.scale.z
     );
     buildings.position.y -= 6;
-
-    // Ajouter une rotation sur l'axe Y
-    buildings.rotation.y = Math.PI / 20;
-
+    // wait until the model can be added to the scene without blocking due to shader compilation
     await renderer.compileAsync(buildings, camera, scene);
+
     buildings.name = "buildings";
     scene.add(buildings);
+  });
+  // roads
+  loader1.load("roads.glb", async function (gltf) {
+    roads = gltf.scene;
+    roads.scale.set(
+      0.004 * roads.scale.x,
+      0.004 * roads.scale.y,
+      0.004 * roads.scale.z
+    );
+    roads.position.y -= 6;
+    // wait until the model can be added to the scene without blocking due to shader compilation
+    await renderer.compileAsync(roads, camera, scene);
+
+    roads.name = "roads";
+    scene.add(roads);
+  });
+  // rivers
+  loader1.load("rivers.glb", async function (gltf) {
+    rivers = gltf.scene;
+    rivers.scale.set(
+      0.004 * rivers.scale.x,
+      0.004 * rivers.scale.y,
+      0.004 * rivers.scale.z
+    );
+    rivers.position.y -= 6;
+    // wait until the model can be added to the scene without blocking due to shader compilation
+    await renderer.compileAsync(rivers, camera, scene);
+
+    rivers.name = "rivers";
+    scene.add(rivers);
   });
 
   //console.log("Lanterns : ",lanterns);
@@ -382,16 +306,6 @@ function init() {
   materialDepth.uniforms["mFar"].value = 3;
 
   setupLight();
-
-  controls = new MapControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  //controls.enableZoom       = false;
-  controls.minZoom = 5;
-  controls.maxZoom = 10;
-  controls.maxAzimuthAngle = THREE.MathUtils.degToRad(45);
-  controls.minAzimuthAngle = THREE.MathUtils.degToRad(45);
-  controls.maxPolarAngle = THREE.MathUtils.degToRad(45);
-  controls.minPolarAngle = THREE.MathUtils.degToRad(45);
 
   initPostprocessing();
   loadPointOfInterest();
@@ -406,13 +320,10 @@ function init() {
 }
 
 // Chargez le fichier GLTF
-// Chargez le fichier GLTF
 const loader = new GLTFLoader(loadingManager);
 
 // Appel de la fonction pour charger le point d'intérêt
 loadPointOfInterest();
-
-function updateRadiusFromCamera() {}
 
 let exitButton; // Variable globale pour stocker une référence au bouton "Quitter"
 let audioPlayPauseButton; // Variable globale pour stocker une référence au bouton "Quitter"
@@ -539,7 +450,7 @@ function create360(data) {
   // Création du matériau
   const material = new THREE.MeshBasicMaterial({
     map: texture,
-    side: THREE.BackSide
+    side: THREE.BackSide,
   });
 
   // Création de la sphère
@@ -584,14 +495,24 @@ function create360(data) {
     // Ajout du bouton à la page
     document.body.appendChild(audioPlayPauseButton);
 
+    // Ajout des événements pour changer l'image au survol
+    audioPlayPauseButton.addEventListener("mouseover", () => {
+        audioIcon.src = "./img/music2.png"; // Image au survol
+    });
+
+    audioPlayPauseButton.addEventListener("mouseout", () => {
+        // Rétablir l'image en fonction de l'état du son
+        audioIcon.src = sound.paused ? "./img/music.png" : "./img/mute.png";
+    });
+
     function toggleAudioPlayPause() {
-      if (sound.paused) {
-        sound.play(); // Si l'audio est actuellement en pause, le reprendre
-        audioIcon.src = "./img/music.png"; // Mettre à jour l'icône en "pause"
-      } else {
-        sound.pause(); // Si l'audio est actuellement en lecture, le mettre en pause
-        audioIcon.src = "./img/mute.png"; // Mettre à jour l'icône en "play"
-      }
+        if (sound.paused) {
+            sound.play(); // Si l'audio est actuellement en pause, le reprendre
+            audioIcon.src = "./img/mute.png"; // Mettre à jour l'icône en "pause"
+        } else {
+            sound.pause(); // Si l'audio est actuellement en lecture, le mettre en pause
+            audioIcon.src = "./img/music.png"; // Mettre à jour l'icône en "play"
+        }
     }
 
     exitButton = document.createElement("button");
@@ -610,7 +531,8 @@ function create360(data) {
 
     // Ajout d'un gestionnaire d'événements clic au bouton "Quitter"
     exitButton.addEventListener("click", exit360Scene);
-  } else {
+}
+ else {
     // Afficher le bouton s'il existe déjà
     exitButton.style.display = "none";
     audioPlayPauseButton.style.display = "none";
@@ -643,13 +565,6 @@ function exit360Scene() {
   // Nettoyer la scène 360
   scene360.children = [];
 
-  // Réinitialiser la caméra principale
-  /*camera = new THREE.PerspectiveCamera(
-    45,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000000
-  );*/
   camera = cam;
 
   // Masquer le bouton "Quitter" s'il existe
@@ -718,7 +633,7 @@ function loadPointOfInterest(x, y, z, data) {
       x: x,
       y: y,
       z: z,
-      object: pointOfInterest // Stockez la référence à l'objet dans l'array lanternes
+      object: pointOfInterest, // Stockez la référence à l'objet dans l'array lanternes
     });
 
     scene.add(pointOfInterest);
@@ -757,7 +672,7 @@ function cercle(x, y, z) {
     const ringGeometry = new THREE.RingGeometry(20.5, 0.6, 32);
     const ringMaterial = new THREE.MeshBasicMaterial({
       color: 0xff0000,
-      side: THREE.DoubleSide
+      side: THREE.DoubleSide,
     });
     ringMesh = new THREE.Mesh(ringGeometry, ringMaterial);
 
@@ -768,7 +683,7 @@ function cercle(x, y, z) {
       x: x,
       y: y,
       z: z,
-      object: pointOfInterest // Stockez la référence à l'objet dans l'array lanternes
+      object: pointOfInterest, // Stockez la référence à l'objet dans l'array lanternes
     });
 
     // scene.add(pointOfInterest);
@@ -900,13 +815,6 @@ function removeFirstScene() {
     1000
   );
   camera.position.set(0, 20, 0);
-
-  // Réinitialiser les contrôles
-  controls = new MapControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.25;
-  controls.screenSpacePanning = false;
-  controls.maxPolarAngle = Math.PI / 2.2;
 }
 
 loadingManager.onProgress = function (url, loaded, total) {
@@ -932,14 +840,14 @@ startbutton.addEventListener("mousedown", function () {
   tl.to(startbutton, {
     autoAlpha: 0,
     y: "-=20",
-    duration: 0.5
+    duration: 0.5,
   })
     .to(
       title,
       {
         autoAlpha: 0,
         y: "-=20",
-        duration: 1
+        duration: 1,
       },
       0
     )
@@ -948,7 +856,7 @@ startbutton.addEventListener("mousedown", function () {
       {
         y: 2,
         z: 6,
-        duration: 2
+        duration: 2,
       },
       0
     )
@@ -957,7 +865,7 @@ startbutton.addEventListener("mousedown", function () {
       {
         z: -0.4,
         y: 44,
-        duration: 4
+        duration: 4,
       },
       0
     );
@@ -979,14 +887,14 @@ buttonMap.addEventListener("mousedown", function () {
     tl.to(startbutton, {
       autoAlpha: 0,
       y: "-=20",
-      duration: 0.5
+      duration: 0.5,
     })
       .to(
         title,
         {
           autoAlpha: 0,
           y: "-=20",
-          duration: 1
+          duration: 1,
         },
         0
       )
@@ -996,7 +904,7 @@ buttonMap.addEventListener("mousedown", function () {
           x: 0,
           y: 20,
           z: 0,
-          duration: 2
+          duration: 2,
         },
         0
       )
@@ -1006,7 +914,7 @@ buttonMap.addEventListener("mousedown", function () {
           x: 0,
           z: -0.4,
           y: 44,
-          duration: 4
+          duration: 4,
         },
         0
       );
@@ -1017,14 +925,14 @@ buttonMap.addEventListener("mousedown", function () {
     tl.to(startbutton, {
       autoAlpha: 0,
       y: "-=20",
-      duration: 0.5
+      duration: 0.5,
     })
       .to(
         title,
         {
           autoAlpha: 0,
           y: "-=20",
-          duration: 1
+          duration: 1,
         },
         0
       )
@@ -1033,7 +941,7 @@ buttonMap.addEventListener("mousedown", function () {
         {
           y: 2,
           z: 6,
-          duration: 2
+          duration: 2,
         },
         0
       )
@@ -1042,7 +950,7 @@ buttonMap.addEventListener("mousedown", function () {
         {
           z: -0.4,
           y: 44,
-          duration: 4
+          duration: 4,
         },
         0
       );
@@ -1051,8 +959,6 @@ buttonMap.addEventListener("mousedown", function () {
 
 function animate() {
   requestAnimationFrame(animate);
-
-  updateRadiusFromCamera();
 
   controls.update();
 
@@ -1071,21 +977,3 @@ setupLight();
 init();
 
 //create360();
-// Intro screen
-
-
-
-let introMonitorIcon = toElement(feather.icons.monitor.toSvg());
-introMonitorIcon.style.display = "inline";
-let introHeadphonesIcon = toElement(feather.icons.headphones.toSvg());
-introHeadphonesIcon.style.display = "inline";
-
-document.getElementById("icon_computer").insertAdjacentElement('beforeend',introMonitorIcon)
-document.getElementById("icon_headphones").insertAdjacentElement('beforeend',introHeadphonesIcon);
-document.querySelector('#start').addEventListener('click',() => {
-  document.querySelector('#nav_map').innerHTML = feather.icons.map.toSvg();
-  muteAll(false);
-  document.querySelector('#intro').style.display = 'none';
-  ambientPads.play();
-  ambientNight.play();
-});
