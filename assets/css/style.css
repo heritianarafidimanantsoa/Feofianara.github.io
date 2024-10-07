@@ -300,21 +300,22 @@ progress::-moz-progress-bar {
 
 
 
-/* boutton quitter dans justine.js */
-.exitButton{
+/* boutton quitter dans main.js */
+.exitButton {
   position: absolute;
   top: 0px;
   right: -39px;
   display: block;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.3); /* Fond noir avec 50% d'opacité */
   border: 2px solid transparent;
   padding: 10px 20px;
   cursor: pointer;
   transform: translateX(-50%);
   transition: background-color 0.3s ease, right 1s ease;
 }
+
 .exitButton:hover{
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 .exitButton.moveLeft {
@@ -326,7 +327,7 @@ progress::-moz-progress-bar {
   top: 0px;
   right: 40px;
   display: block;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.3); /* Fond noir avec 50% d'opacité */
   border: 2px solid transparent;
   padding: 10px 20px;
   cursor: pointer;
@@ -334,14 +335,11 @@ progress::-moz-progress-bar {
   transition: background-color 0.3s ease;
 }
 
-.button:hover::before {
-  opacity: 0; /* Rendre l'image initiale invisible au survol */
-}
-
 .button:hover {
-  background-image: url('../img/music2.png'); /* Image de fond au survol */
+  background-image: url('./img/music2.png'); /* Image de fond au survol */
   background-color: transparent; /* Rend le fond transparent pour voir l'image */
 }
+
 
 
 #submit-btn {

@@ -475,8 +475,8 @@ function create360(data) {
   // Mise à jour du rendu du texte
   myText.sync();
 
-  // Ajouter le bouton "Quitter" seulement si la scène 360 n'est pas déjà ouverte
-  if (is360 === true) {
+   // Ajouter le bouton "Quitter" seulement si la scène 360 n'est pas déjà ouverte
+   if (is360 === true) {
     // Création du bouton lecture/pause pour l'audio
     audioPlayPauseButton = document.createElement("button");
     audioPlayPauseButton.classList.add("button");
@@ -495,24 +495,14 @@ function create360(data) {
     // Ajout du bouton à la page
     document.body.appendChild(audioPlayPauseButton);
 
-    // Ajout des événements pour changer l'image au survol
-    audioPlayPauseButton.addEventListener("mouseover", () => {
-        audioIcon.src = "./img/music2.png"; // Image au survol
-    });
-
-    audioPlayPauseButton.addEventListener("mouseout", () => {
-        // Rétablir l'image en fonction de l'état du son
-        audioIcon.src = sound.paused ? "./img/music.png" : "./img/mute.png";
-    });
-
     function toggleAudioPlayPause() {
-        if (sound.paused) {
-            sound.play(); // Si l'audio est actuellement en pause, le reprendre
-            audioIcon.src = "./img/mute.png"; // Mettre à jour l'icône en "pause"
-        } else {
-            sound.pause(); // Si l'audio est actuellement en lecture, le mettre en pause
-            audioIcon.src = "./img/music.png"; // Mettre à jour l'icône en "play"
-        }
+      if (sound.paused) {
+        sound.play(); // Si l'audio est actuellement en pause, le reprendre
+        audioIcon.src = "./img/music.png"; // Mettre à jour l'icône en "pause"
+      } else {
+        sound.pause(); // Si l'audio est actuellement en lecture, le mettre en pause
+        audioIcon.src = "./img/mute.png"; // Mettre à jour l'icône en "play"
+      }
     }
 
     exitButton = document.createElement("button");
@@ -531,7 +521,8 @@ function create360(data) {
 
     // Ajout d'un gestionnaire d'événements clic au bouton "Quitter"
     exitButton.addEventListener("click", exit360Scene);
-}
+  }
+
  else {
     // Afficher le bouton s'il existe déjà
     exitButton.style.display = "none";
@@ -559,11 +550,20 @@ function exit360Scene() {
   audi.loop = true;
   audi.play();
 
-  //sound stop
+ // Vérifiez que sound et scene360 sont définis correctement
+if (sound && scene360) {
+  // Stopper le son
   sound.pause();
   sound.currentTime = 0;
+
   // Nettoyer la scène 360
-  scene360.children = [];
+  if (scene360.children) {
+      scene360.children = [];
+  }
+} else {
+  console.error('sound ou scene360 non définis correctement.');
+}
+
 
   camera = cam;
 
