@@ -6,7 +6,6 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import gsap from "gsap";
 import { Sky } from "three/examples/jsm/objects/Sky.js";
 import locationsData from "./data.json";
-import sphere360 from "./img/vita360_stitch.jpg";
 import data from "./360.json";
 import { convertSpeed } from "geolib";
 
@@ -476,8 +475,8 @@ function create360(data) {
   // Mise à jour du rendu du texte
   myText.sync();
 
-  // Ajouter le bouton "Quitter" seulement si la scène 360 n'est pas déjà ouverte
-  if (is360 === true) {
+   // Ajouter le bouton "Quitter" seulement si la scène 360 n'est pas déjà ouverte
+   if (is360 === true) {
     // Création du bouton lecture/pause pour l'audio
     audioPlayPauseButton = document.createElement("button");
     audioPlayPauseButton.classList.add("button");
@@ -522,7 +521,9 @@ function create360(data) {
 
     // Ajout d'un gestionnaire d'événements clic au bouton "Quitter"
     exitButton.addEventListener("click", exit360Scene);
-  } else {
+  }
+
+ else {
     // Afficher le bouton s'il existe déjà
     exitButton.style.display = "none";
     audioPlayPauseButton.style.display = "none";
@@ -549,11 +550,20 @@ function exit360Scene() {
   audi.loop = true;
   audi.play();
 
-  //sound stop
+ // Vérifiez que sound et scene360 sont définis correctement
+if (sound && scene360) {
+  // Stopper le son
   sound.pause();
   sound.currentTime = 0;
+
   // Nettoyer la scène 360
-  scene360.children = [];
+  if (scene360.children) {
+      scene360.children = [];
+  }
+} else {
+  console.error('sound ou scene360 non définis correctement.');
+}
+
 
   camera = cam;
 
