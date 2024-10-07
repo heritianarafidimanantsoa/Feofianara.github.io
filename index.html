@@ -2,12 +2,12 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
-        <title>Feo'ny Fianarantsoa</title>
-        <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+        <title>Feon'i Fianarantsoa</title>
+        <link rel="icon" href="./img/feo.png" />
         <link rel="stylesheet" href="/assets/css/style.css" />
         <link rel="stylesheet" href="/assets/css/description.css" />
         <link rel="stylesheet" href="/assets/css/descriptionStyle.css" />
-        <script src="https://unpkg.com/geolib@3.3.1/umd/geolib.min.js"></script>
+		<script src="https://unpkg.com/geolib@3.3.1/umd/geolib.min.js"></script>
     </head>
     <body>
         <!-- Structure de la modale -->
@@ -46,9 +46,9 @@
         </div>
 
         <div class="navbar" id="navbar">
-            <div class="navbar-logo">
-                <h2>Feon'i Fianarantsoa</h2>
-            </div>
+            <div class="navbar-logo"  >
+                <img class="logofeo" src="./img/feo.png" href="index.html"></a>
+              </div>
             <div class="navbar-icons">
                 <img id="soundIcon" src="./img/music.png" alt="Musique" />
                 <img
@@ -579,8 +579,8 @@
         <input type="hidden" id="ls360" value="" />
 
         <div class=""><script type="module" src="main.js"></script></div>
-        <audio loop id="audioPlayer" src="./stream.mp3"></audio>
-        <audio loop id="audioPlayer2" src="./night.mp3"></audio>
+        <audio loop id="audioPlayer" src="./public/stream.mp3"></audio>
+        <audio loop id="audioPlayer2" src="./public/night.mp3"></audio>
         <script>
             dark = false;
             darkness = 2;
@@ -590,6 +590,7 @@
 
                 // alert(document.getElementById("testStart").value);
 
+                var audioPlayer = document.getElementById("audioPlayer");
                 var audioPlayer2 = document.getElementById("audioPlayer2");
                 var soundIcon = document.getElementById("soundIcon");
                 var explorer_bt = document.getElementById("explorer_bt");
@@ -602,15 +603,17 @@
                     isMuted = !isMuted;
 
                     if (isMuted) {
-                        audioPlayer2.pause();
+                        audioPlayer.pause();
                         //audioPlayer2.pause();
                         soundIcon.src = "./img/mute.png";
                         // console.log("Sound muted");
                     } else {
-                        audioPlayer2.play().catch((error) => {
+                        audioPlayer.play().catch((error) => {
                             console.error("Failed to play audio: ", error);
                         });
-
+                        /*audioPlayer2.play().catch((error) => {
+            console.error("Failed to play audio: ", error);
+            });*/
                         soundIcon.src = "./img/music.png";
                         // console.log("Sound unmuted");
                     }
@@ -618,7 +621,9 @@
 
                 function playSound() {
                     document.getElementById("testStart").value = false;
+                    audioPlayer.play();
                     audioPlayer2.play();
+                    audioPlayer.volume = 0.5;
                     audioPlayer2.volume = 1;
                 }
 
@@ -668,10 +673,12 @@
                 var mapIcon = document.querySelector(
                     ".navbar-icons img:nth-child(3)"
                 );
+                var hamburger = document.getElementById("hamburger");
 
                 // Ajout des événements aux autres icônes
                 darkModeIcon.addEventListener("click", toggleDarkMode);
                 mapIcon.addEventListener("click", changeCameraView);
+                hamburger.addEventListener("click", toggleMenu);
 
                 // Change la couleur de fond de la barre de navigation lors du défilement
                 window.onscroll = function () {
@@ -716,7 +723,5 @@
             // Ajout de la liste des lieux
             document.addEventListener("DOMContentLoaded", function () {});
         </script>
-
-        <script type="module" src="main.js"></script>
     </body>
 </html>
