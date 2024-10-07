@@ -1,10 +1,10 @@
-import * as THREE from "three";
-import { MapControls } from "three/addons/controls/MapControls.js";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { Text } from "troika-three-text";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import gsap from "gsap";
-import { Sky } from "three/examples/jsm/objects/Sky.js";
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.144.0/build/three.module.js';
+import { MapControls } from 'https://cdn.jsdelivr.net/npm/three@0.144.0/examples/jsm/controls/MapControls.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.144.0/examples/jsm/controls/OrbitControls.js';
+import { Text } from 'https://cdn.jsdelivr.net/npm/troika-three-text@latest/dist/troika-three-text.module.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.144.0/examples/jsm/loaders/GLTFLoader.js';
+import gsap from "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js";
+import { Sky } from 'https://cdn.jsdelivr.net/npm/three@0.144.0/examples/jsm/objects/Sky.js';
 import locationsData from "./data.json";
 import data from "./360.json";
 import { convertSpeed } from "geolib";
@@ -39,6 +39,13 @@ const progressBar = document.getElementById("progress-bar");
 const progressBarContainer = document.querySelector(".progress-bar-container");
 const loadingManager = new THREE.LoadingManager();
 const startbutton = document.querySelector(".header button");
+// Exemple d'utilisation de geolib
+const pointA = { latitude: 51.5103, longitude: 7.49347 };
+const pointB = { latitude: 51.515, longitude: 7.453619 };
+
+// Utiliser geolib pour calculer la distance entre les deux points
+const distance = geolib.getDistance(pointA, pointB);
+console.log(`Distance entre les points A et B: ${distance} mètres`);
 
 const buttonMap = document.getElementById("buttonMap");
 const title = document.querySelector(".header h1");
