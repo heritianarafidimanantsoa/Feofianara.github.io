@@ -21,6 +21,6 @@
     "gsap": "^3.12.5",
     "howler": "^2.2.4",
     "three": "^0.163.0",
-    "troika-three-text": "^0.49.0"
+    "troika-three-text": "^0.49.1"
   }
 }
