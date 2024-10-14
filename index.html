@@ -45,20 +45,12 @@
         </div>
 
         <div class="navbar" id="navbar">
-            <div class="navbar-logo"  >
-                <img class="logofeo" src="./img/feo.png" href="index.html"></a>
-              </div>
+            <div class="navbar-logo">
+                <img class="logofeo" src="./img/feo.png" href="index.html" />
+            </div>
             <div class="navbar-icons">
                 <img id="soundIcon" src="./img/music.png" alt="Musique" />
-                <img
-                    id="darkModeIcon"
-                    src="./img/day-mode.png"
-                    alt="Mode Dark"
-                />
                 <img src="./img/map.png" alt="Maps" id="buttonMap" />
-            </div>
-            <div class="hamburger" id="hamburger">
-                <!-- Contenu du hamburger, si nécessaire -->
             </div>
         </div>
 
@@ -293,7 +285,7 @@
                             document.querySelector(".img");
                         var scrollTop = divScrollable.scrollTop;
 
-                        if (scrollTop > 3000 - deScrol) {
+                        if (scrollTop > 980 - deScrol) {
                             img.classList.remove("img_fixed");
                             img.classList.add("img_absolute");
                             img.style.opacity = 0;
@@ -308,79 +300,6 @@
                 <!----------------------------CONTENEUR PAGE------------------------>
 
                 <div class="conteneur_bas">
-                    <!----------------------------CONTENU------------------------>
-
-                    <div class="center">
-                        <p id="description" class="apparition invisible"></p>
-                    </div>
-
-                    <script type="text/javascript">
-                        const apparition =
-                            document.querySelector(".apparition");
-                        divScrollable = document.getElementById("myScroll");
-                        divScrollable.addEventListener("scroll", function (e) {
-                            var scrollTop = divScrollable.scrollTop;
-                            if (scrollTop > 3500 - deScrol) {
-                                apparition.classList.remove("invisible");
-                                apparition.classList.add("visible");
-                            } else {
-                                apparition.classList.add("invisible");
-                                apparition.classList.remove("visible");
-                            }
-                        });
-                    </script>
-
-                    <!----------------------------CAROUSEL------------------------>
-                    <div class="carousel">
-                        <button id="prev">&#10096;</button>
-                        <button id="next">&#10097;</button>
-                        <ul id="carousel-list">
-                            <li class="slide">
-                                <img
-                                    class="image-cliquable"
-                                    alt="image carousel"
-                                />
-                            </li>
-                            <li class="slide active">
-                                <img
-                                    class="image-cliquable"
-                                    alt="image carousel"
-                                />
-                            </li>
-                            <li class="slide">
-                                <img
-                                    class="image-cliquable"
-                                    alt="image carousel"
-                                />
-                            </li>
-                        </ul>
-                    </div>
-
-                    <script type="text/javascript">
-                        const buttons = document.querySelectorAll(".btn");
-                        const slides = document.querySelectorAll(".slide");
-                        buttons.forEach((button) => {
-                            button.addEventListener("click", (e) => {
-                                const calcNextSlide =
-                                    e.target.id === "next" ? 1 : -1;
-                                const slideActive =
-                                    document.querySelector(".activ");
-
-                                newIndex =
-                                    calcNextSlide +
-                                    [...slides].indexOf(slideActive);
-
-                                if (newIndex < 0)
-                                    newIndex = [...slides].length - 1;
-                                if (newIndex >= [...slides].length)
-                                    newIndex = 0;
-                                slides[newIndex].classList.add("activ");
-
-                                slideActive.classList.remove("activ");
-                            });
-                        });
-                    </script>
-
                     <!----------------------------QUESTION REPONSES------------------------>
                     <div class="center question">
                         <p
@@ -440,7 +359,7 @@
                             );
                             var scrollTop = divScrollable.scrollTop;
 
-                            if (scrollTop > 4900 - deScrol) {
+                            if (scrollTop > 900 - deScrol) {
                                 apparitionQuestion.classList.remove(
                                     "questionInvisible"
                                 );
@@ -466,7 +385,7 @@
                         divScrollable.addEventListener("scroll", function (e) {
                             var scrollTop = divScrollable.scrollTop;
 
-                            if (scrollTop > 5300 - deScrol) {
+                            if (scrollTop > 300 - deScrol) {
                                 apparition2.classList.remove("invisible2");
                                 apparition2.classList.add("visible2");
                                 apparitionAudio1.classList.remove("invisible4");
@@ -483,7 +402,7 @@
                             document.querySelector(".apparition3");
                         divScrollable.addEventListener("scroll", function (e) {
                             var scrollTop = divScrollable.scrollTop;
-                            if (scrollTop > 5350 - deScrol) {
+                            if (scrollTop > 350 - deScrol) {
                                 apparition3.classList.remove("invisible3");
                                 apparition3.classList.add("visible3");
                             } else {
@@ -499,7 +418,7 @@
                             document.querySelector(".audio2");
                         divScrollable.addEventListener("scroll", function (e) {
                             var scrollTop = divScrollable.scrollTop;
-                            if (scrollTop > 5400 - deScrol) {
+                            if (scrollTop > 400 - deScrol) {
                                 apparition5.classList.remove("invisible5");
                                 apparition5.classList.add("visible5");
                                 apparitionAudio2.classList.remove("invisible6");
@@ -516,7 +435,7 @@
                             document.querySelector(".apparition7");
                         divScrollable.addEventListener("scroll", function (e) {
                             var scrollTop = divScrollable.scrollTop;
-                            if (scrollTop > 5400 - deScrol) {
+                            if (scrollTop > 400 - deScrol) {
                                 apparition7.classList.remove("invisible7");
                                 apparition7.classList.add("visible7");
                             } else {
@@ -568,6 +487,78 @@
                             }
                         });
                     </script>
+
+                    <!----------------------------CONTENU------------------------>
+
+                    <div class="center">
+                        <p id="description" class="apparition invisible"></p>
+                    </div>
+
+                    <script type="text/javascript">
+                        const apparition =
+                            document.querySelector(".apparition");
+                        divScrollable = document.getElementById("myScroll");
+                        divScrollable.addEventListener("scroll", function (e) {
+                            var scrollTop = divScrollable.scrollTop;
+                            if (scrollTop > 300 - deScrol) {
+                                apparition.classList.remove("invisible");
+                                apparition.classList.add("visible");
+                            } else {
+                                apparition.classList.add("invisible");
+                                apparition.classList.remove("visible");
+                            }
+                        });
+                    </script>
+                    <!----------------------------CAROUSEL------------------------>
+                    <div class="carousel">
+                        <button id="prev">&#10096;</button>
+                        <button id="next">&#10097;</button>
+                        <ul id="carousel-list">
+                            <li class="slide">
+                                <img
+                                    class="image-cliquable"
+                                    alt="image carousel"
+                                />
+                            </li>
+                            <li class="slide active">
+                                <img
+                                    class="image-cliquable"
+                                    alt="image carousel"
+                                />
+                            </li>
+                            <li class="slide">
+                                <img
+                                    class="image-cliquable"
+                                    alt="image carousel"
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                    s
+                    <script type="text/javascript">
+                        const buttons = document.querySelectorAll(".btn");
+                        const slides = document.querySelectorAll(".slide");
+                        buttons.forEach((button) => {
+                            button.addEventListener("click", (e) => {
+                                const calcNextSlide =
+                                    e.target.id === "next" ? 1 : -1;
+                                const slideActive =
+                                    document.querySelector(".activ");
+
+                                newIndex =
+                                    calcNextSlide +
+                                    [...slides].indexOf(slideActive);
+
+                                if (newIndex < 0)
+                                    newIndex = [...slides].length - 1;
+                                if (newIndex >= [...slides].length)
+                                    newIndex = 0;
+                                slides[newIndex].classList.add("activ");
+
+                                slideActive.classList.remove("activ");
+                            });
+                        });
+                    </script>
                 </div>
             </div>
         </div>
@@ -578,18 +569,14 @@
         <input type="hidden" id="ls360" value="" />
 
         <div class=""><script type="module" src="main.js"></script></div>
-        <audio loop id="audioPlayer" src="./stream.mp3"></audio>
+
         <audio loop id="audioPlayer2" src="./night.mp3"></audio>
         <script>
             dark = false;
             darkness = 2;
             document.addEventListener("DOMContentLoaded", function () {
                 var isMuted = false;
-                var isDark = document.getElementById("isDark");
 
-                // alert(document.getElementById("testStart").value);
-
-                var audioPlayer = document.getElementById("audioPlayer");
                 var audioPlayer2 = document.getElementById("audioPlayer2");
                 var soundIcon = document.getElementById("soundIcon");
                 var explorer_bt = document.getElementById("explorer_bt");
@@ -602,84 +589,32 @@
                     isMuted = !isMuted;
 
                     if (isMuted) {
-                        audioPlayer.pause();
-                        //audioPlayer2.pause();
+                        audioPlayer2.pause();
                         soundIcon.src = "./img/mute.png";
-                        // console.log("Sound muted");
                     } else {
-                        audioPlayer.play().catch((error) => {
+                        audioPlayer2.play().catch((error) => {
                             console.error("Failed to play audio: ", error);
                         });
-                        /*audioPlayer2.play().catch((error) => {
-            console.error("Failed to play audio: ", error);
-            });*/
                         soundIcon.src = "./img/music.png";
-                        // console.log("Sound unmuted");
                     }
                 }
 
                 function playSound() {
                     document.getElementById("testStart").value = false;
-                    audioPlayer.play();
                     audioPlayer2.play();
-                    audioPlayer.volume = 0.5;
                     audioPlayer2.volume = 1;
                 }
 
-                function toggleDarkMode() {
-                    // Obtenez le corps du document
-                    var body = document.body;
-
-                    // Basculez l'état du mode sombre
-                    var isDarkMode = body.classList.toggle("dark-mode");
-                    isDark.value = !isDark.value;
-
-                    // Mettez en œuvre la logique du mode sombre
-                    if (isDarkMode) {
-                        // Styles pour le mode sombre
-                        // console.log("Dark Mode activated");
-
-                        // Changez l'icône en mode sombre
-                        document.getElementById("darkModeIcon").src =
-                            "./img/night-mode.png";
-
-                        darkness = 2;
-                    } else {
-                        // Styles pour le mode clair
-                        // console.log("Dark Mode deactivated");
-
-                        // Changez l'icône en mode clair
-                        document.getElementById("darkModeIcon").src =
-                            "./img/day-mode.png";
-                        darkness = 90;
-                    }
-                }
-
                 function changeCameraView() {
-                    // Mettez votre logique pour changer la vue de la caméra dans three.js
                     console.log("Change Camera View");
                 }
 
-                function toggleMenu() {
-                    var navbarMenu = document.querySelector(".navbar-menu");
-                    navbarMenu.classList.toggle("show");
-                }
-
-                // Ajout d'identifiants aux autres icônes
-                var darkModeIcon = document.querySelector(
+                var mapIcon = document.querySelector(
                     ".navbar-icons img:nth-child(2)"
                 );
-                var mapIcon = document.querySelector(
-                    ".navbar-icons img:nth-child(3)"
-                );
-                var hamburger = document.getElementById("hamburger");
 
-                // Ajout des événements aux autres icônes
-                darkModeIcon.addEventListener("click", toggleDarkMode);
                 mapIcon.addEventListener("click", changeCameraView);
-                hamburger.addEventListener("click", toggleMenu);
 
-                // Change la couleur de fond de la barre de navigation lors du défilement
                 window.onscroll = function () {
                     var navbar = document.getElementById("navbar");
                     if (
@@ -703,24 +638,11 @@
                     main.className = "desc-main";
                 }
 
-                // Ajout de l'événement à l'icône Dark Mode
-                darkModeIcon.addEventListener("click", toggleDarkMode);
-
-                // Ajout de l'événement à l'icône Sound
                 soundIcon.addEventListener("click", toggleMute);
-
-                //Ajout de l'événement explorer
                 explorer_bt.addEventListener("click", playSound);
-
-                //Ajout de l'événement voir description
                 show_description.addEventListener("click", showDescription);
-
-                //Ajout de l'événement quiter la description
                 quiter_description.addEventListener("click", quitDescription);
             });
-
-            // Ajout de la liste des lieux
-            document.addEventListener("DOMContentLoaded", function () {});
         </script>
     </body>
 </html>
