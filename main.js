@@ -1,15 +1,11 @@
-import * as THREE from "three";
-import { MapControls } from "three/addons/controls/MapControls.js";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import * as THREE from "./build/three.module.js";
+import { MapControls } from "./controls/MapControls.js";
+import { OrbitControls } from './controls/OrbitControls.js';
 import { Text } from "troika-three-text";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { GLTFLoader } from "./loaders/GLTFLoader.js";
 import gsap from "gsap";
-import { Sky } from "three/examples/jsm/objects/Sky.js";
-import locationsData from "./data.json";
-import sphere360 from "./img/vita360_stitch.jpg";
 import data from "./360.json";
 import { convertSpeed } from "geolib";
-
 // Récupérer la modale
 var modal = document.getElementById("myModal");
 
@@ -96,34 +92,34 @@ fetch("360.json")
         console.error("Error loading JSON:", error);
     });
 
-var renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-
-// Position initiale en haut
-camera.position.set(0, 20, 0);
-
-var controls = new MapControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.25;
-controls.screenSpacePanning = false;
-controls.maxPolarAngle = Math.PI / 2.2;
-controls.enableZoom = true;
-controls.minZoom = 2;
-controls.maxZoom = 2;
-
-// Limites pour le contrôle de la caméra
-controls.minDistance = 8;
-controls.maxDistance = 15;
-
-controls.maxAzimuthAngle = THREE.MathUtils.degToRad(45);
-controls.minAzimuthAngle = THREE.MathUtils.degToRad(45);
-controls.maxPolarAngle = THREE.MathUtils.degToRad(45);
-controls.minPolarAngle = THREE.MathUtils.degToRad(45);
-
-// Définit les limites de déplacement sur l'axe X et Y (gauche, droite, haut, bas)
-const minPan = new THREE.Vector3(-7, -7, -7); // Limite minimum de déplacement (gauche, bas)
-const maxPan = new THREE.Vector3(7, 7, 7); // Limite maximum de déplacement (droite, haut)
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+    
+    // Position initiale en haut
+    camera.position.set(0, 20, 0);
+    
+    var controls = new MapControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.25;
+    controls.screenSpacePanning = false;
+    controls.maxPolarAngle = Math.PI / 2.2;
+    controls.enableZoom = true;
+    controls.minZoom = 2;
+    controls.maxZoom = 8;
+    
+    // Limites pour le contrôle de la caméra
+    controls.minDistance = 5;
+    controls.maxDistance = 8;
+    
+    controls.maxAzimuthAngle = THREE.MathUtils.degToRad(53);
+    controls.minAzimuthAngle = THREE.MathUtils.degToRad(45);
+    controls.maxPolarAngle = THREE.MathUtils.degToRad(45);
+    controls.minPolarAngle = THREE.MathUtils.degToRad(30);
+    
+    // Définit les limites de déplacement sur l'axe X et Y (gauche, droite, haut, bas)
+    const minPan = new THREE.Vector3(-3, -3, -3); // Limite minimum de déplacement (gauche, bas)
+    const maxPan = new THREE.Vector3(5.5, 5.5, 5.5); // Limite maximum de déplacement (droite, haut)
 
 // Fonction pour limiter le mouvement sur le plan
 controls.addEventListener("change", () => {
@@ -221,42 +217,10 @@ function loadModel(file, overideMaterial = null) {
 function init() {
     // build map
     // TODO : build by chunk
-    loadModel("half_ground.glb");
-    // ground chunks
-    for (let i = 0; i < 6; i++) {
-        for (let j = 0; j < 6; j++) {
-            try {
-                loader1.load(
-                    "grounds/ground_" + i + "_" + j + ".glb",
-                    async function (gltf) {
-                        let ground_chunk;
-                        ground_chunk = gltf.scene;
-                        ground_chunk.scale.set(
-                            0.004 * ground_chunk.scale.x,
-                            0.004 * ground_chunk.scale.y,
-                            0.004 * ground_chunk.scale.z
-                        );
-                        ground_chunk.position.y -= 6;
-                        // wait until the model can be added to the scene without blocking due to shader compilation
-                        await renderer.compileAsync(
-                            ground_chunk,
-                            camera,
-                            scene
-                        );
-
-                        ground_chunk.name = "ground_" + i + "_" + j;
-                        scene.add(ground_chunk);
-                        grounds.push(ground_chunk);
-                    }
-                );
-            } catch (error) {
-                console.log(error);
-            }
-        }
-    }
-
+    loadModel("Tany.glb");
+    
     // buildings
-    loader1.load("all_buildings.glb", async function (gltf) {
+    loader1.load("Trano.glb", async function (gltf) {
         buildings = gltf.scene;
         buildings.scale.set(
             0.004 * buildings.scale.x,
@@ -271,7 +235,7 @@ function init() {
         scene.add(buildings);
     });
     // roads
-    loader1.load("roads.glb", async function (gltf) {
+    loader1.load("Lalana.glb", async function (gltf) {
         roads = gltf.scene;
         roads.scale.set(
             0.004 * roads.scale.x,

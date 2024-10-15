@@ -88,8 +88,9 @@ body {
 .logofeo {
     margin-left: 20px;
     align-items: center;
-    width: 70px;
+    width: 50px;
 }
+
 .navbar-icons {
     display: flex;
     align-items: center;
@@ -544,9 +545,6 @@ li:hover {
 }
 
 #titre_lieu {
-    /*width: 200px;
-  height: 200px;
-  background-color: red;*/
     position: absolute;
     top: 50%;
     left: 50%;
@@ -556,7 +554,7 @@ li:hover {
 
     color: white;
     font-family: "JuliusSansOne";
-    font-size: 3.5rem;
+    font-size: 2.5rem;
 }
 
 /* Responsivité pour les écrans moyens (tablettes) */
