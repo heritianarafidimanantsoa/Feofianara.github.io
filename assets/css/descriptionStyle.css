@@ -64,7 +64,7 @@
 }
 
 #croix,
-#rideau,
+#sound,
 #circulaire {
     border-left: 1px solid white;
 }
@@ -130,6 +130,7 @@
 
 #quiter_description {
     cursor: pointer;
+    padding: auto;
 }
 
 .block {
@@ -669,4 +670,422 @@
     position: relative;
     margin-top: 2000px;
     margin-left: 650px;
+}
+/************* responsive container  dans le description dans 360*****************/
+/* Pour les écrans jusqu'à 768px */
+@media (max-width: 768px) {
+    #myScroll {
+        height: 80%; /* Ajuste la hauteur pour les écrans moyens */
+        /* Ajoute d'autres styles si nécessaire */
+    }
+}
+
+/* Pour les écrans jusqu'à 480px */
+@media (max-width: 480px) {
+    .myScroll {
+        height: 70%; /* Ajuste encore plus la hauteur pour les petits écrans */
+        /* Ajoute d'autres styles si nécessaire */
+    }
+}
+
+/************* responsive texte/ MARGE INTERIEUR du Audio nom dans le description dans 360*****************/
+
+/* Pour les écrans de taille moyenne (tablettes) */
+@media (max-width: 768px) {
+    .ligne2_bis {
+        margin-top: 1px; /* Réduit la marge pour les tablettes */
+    }
+}
+
+/* Pour les petits écrans (mobiles) */
+@media (max-width: 480px) {
+    .ligne2_bis {
+        margin-top: 15px; /* Réduction supplémentaire pour les mobiles */
+    }
+}
+
+/* Pour les écrans de taille moyenne (tablettes) */
+@media (max-width: 768px) {
+    .ligne1_bis {
+        margin-top: 20px; /* Réduit la marge pour les tablettes */
+    }
+}
+
+/* Pour les petits écrans (mobiles) */
+@media (max-width: 480px) {
+    .ligne1_bis {
+        margin-top: 10px; /* Réduction supplémentaire pour les mobiles */
+    }
+}
+/************* responsive texte/ au dessou du Audio nom dans le description dans 360*****************/
+@media (max-width: 768px) {
+    .conteneur_bas {
+        margin-top: 870px; /* Réduction de la marge supérieure */
+        height: 800px; /* Réduction de la hauteur */
+    }
+}
+
+@media (max-width: 480px) {
+    .conteneur_bas {
+        margin-top: 400px; /* Réduction encore plus importante de la marge supérieure */
+        height: 600px; /* Hauteur ajustée pour les petits écrans */
+    }
+}
+
+/************* responsive texte/ au dessou du Audio nom dans le description dans 360*****************/
+@media (max-width: 1024px) {
+    .invisible,
+    .visible {
+        font-size: 18px; /* Réduction de la taille de la police */
+        line-height: 30px; /* Ajustement de l'espacement des lignes */
+        padding-top: 20%; /* Réduction du padding-top pour les tablettes */
+    }
+}
+
+@media (max-width: 768px) {
+    .invisible,
+    .visible {
+        font-size: 16px; /* Réduction supplémentaire de la taille de la police */
+        line-height: 28px; /* Ajustement de l'espacement des lignes */
+        padding-top: 15%; /* Ajustement du padding-top */
+    }
+}
+
+@media (max-width: 480px) {
+    .invisible,
+    .visible {
+        font-size: 14px; /* Taille minimale pour les petits écrans */
+        line-height: 25px; /* Ajustement de l'espacement des lignes */
+        padding-top: 10%; /* Ajustement du padding-top pour les très petits écrans */
+    }
+}
+
+/************* responsive texte/ sous titre Audio nom dans le description dans 360*****************/
+@media (max-width: 1024px) {
+    .play1,
+    .play2 {
+        height: 80px; /* Réduction de la hauteur pour les tablettes */
+        width: 80px; /* Réduction de la largeur pour les tablettes */
+    }
+}
+
+@media (max-width: 768px) {
+    .play1,
+    .play2 {
+        height: 60px; /* Réduction de la hauteur pour les smartphones */
+        width: 60px; /* Réduction de la largeur pour les smartphones */
+    }
+}
+
+@media (max-width: 480px) {
+    .play1,
+    .play2 {
+        height: 50px; /* Taille minimale pour les petits écrans */
+        width: 50px;
+    }
+}
+
+/************* responsive texte sous titre Audio nom dans le description dans 360*****************/
+@media (max-width: 1024px) {
+    .visible3,
+    .visible7 {
+        font-size: 22px; /* Ajustement de la taille pour les tablettes */
+    }
+}
+
+@media (max-width: 768px) {
+    .visible3,
+    .visible7 {
+        font-size: 20px; /* Réduction de la taille pour les smartphones */
+    }
+}
+
+@media (max-width: 480px) {
+    .visible3,
+    .visible7 {
+        font-size: 18px; /* Réduction maximale pour les très petits écrans */
+    }
+}
+
+/************* responsive texte question Audio nom dans le description dans 360*****************/
+@media (max-width: 1024px) {
+    .visible2,
+    .visible5 {
+        font-size: 50px; /* Réduction de la taille de la police pour les tablettes */
+    }
+}
+
+@media (max-width: 768px) {
+    .visible2,
+    .visible5 {
+        font-size: 40px; /* Ajustement de la taille de la police pour les smartphones */
+    }
+}
+
+/* Pour les très petits écrans (smartphones ou appareils encore plus petits) */
+@media (max-width: 480px) {
+    .invisible2,
+    .invisible5 {
+        font-size: 30px; /* Réduction maximale pour les très petits écrans */
+    }
+}
+
+/************* responsive texte question nom dans le description dans 360*****************/
+
+@media (max-width: 1024px) {
+    .questionInvisible,
+    .questionVisible {
+        font-size: 40px; /* Réduction de la taille de la police pour les tablettes */
+    }
+}
+
+@media (max-width: 768px) {
+    .questionInvisible,
+    .questionVisible {
+        font-size: 30px; /* Taille de la police ajustée pour les smartphones */
+    }
+}
+
+@media (max-width: 480px) {
+    .questionInvisible,
+    .questionVisible {
+        font-size: 24px; /* Réduction maximale pour les très petits écrans */
+    }
+}
+
+/************* responsive texte nom dans le description dans 360*****************/
+/* Pour les tablettes et les écrans moyens */
+@media (max-width: 1024px) {
+    .texte_filtre p {
+        margin-top: 200vh; /* Réduction de la marge supérieure pour les écrans plus petits */
+        font-size: 24px; /* Taille de police légèrement réduite */
+        line-height: 30px; /* Ajustement du line-height */
+    }
+}
+
+/* Pour les smartphones (écrans plus petits) */
+@media (max-width: 768px) {
+    .texte_filtre p {
+        margin-top: 150vh; /* Réduction plus importante de la marge */
+        font-size: 20px; /* Réduction de la taille de la police */
+        line-height: 28px; /* Ajustement de l'interligne */
+    }
+}
+
+/* Pour les très petits écrans (smartphones ou petits appareils) */
+@media (max-width: 480px) {
+    .texte_filtre p {
+        margin-top: 100vh; /* Ajustement maximal de la marge supérieure */
+        font-size: 16px; /* Taille de la police plus petite pour la lisibilité */
+        line-height: 24px; /* Ajustement du line-height pour garder une bonne lisibilité */
+    }
+}
+
+/************* responsive menu nom dans le description dans 360*****************/
+
+@media (max-width: 1024px) {
+    #nom {
+        font-size: 50px; /* Réduit la taille de la police pour les écrans plus petits */
+        letter-spacing: 10px; /* Réduit l'espacement des lettres */
+    }
+}
+
+@media (max-width: 768px) {
+    #nom {
+        font-size: 40px; /* Réduction plus significative de la taille de la police pour smartphones */
+        letter-spacing: 8px; /* Réduction de l'espacement des lettres pour garder un bon rendu */
+    }
+}
+
+@media (max-width: 480px) {
+    #nom {
+        font-size: 30px; /* Taille plus petite pour très petits écrans */
+        letter-spacing: 5px; /* Espacement encore plus réduit */
+    }
+}
+
+/************* responsive menu *****************/
+
+@media (max-width: 768px) {
+    .menu {
+        height: 60px; /* Ajuste la hauteur du menu sur des petits écrans */
+    }
+
+    .menu_gauche {
+        width: 50%; /* Réduit la largeur du menu de gauche */
+        font-size: 16px; /* Réduit la taille de la police pour des écrans plus petits */
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .menu_droite {
+        width: 50%; /* Augmente la largeur du menu de droite */
+        font-size: 16px; /* Réduit également la taille de la police ici */
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .nav-toggler {
+        font-size: 16px; /* Ajuste la taille de la police pour le bouton */
+        color: white; /* Assure que le texte est lisible */
+        cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+        transition: background-color 0.3s; /* Ajoute une transition pour les effets de survol */
+    }
+
+    #quiter_description {
+        display: flex; /* Utilise flexbox pour centrer le contenu */
+        justify-content: center; /* Centre l'image horizontalement */
+        align-items: center; /* Centre l'image verticalement */
+    }
+
+    .croix {
+        width: 23px; /* Ajuste la taille de l'image de la croix */
+        height: auto; /* Garde le ratio de l'image */
+        cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+        transition: transform 0.3s; /* Ajoute une transition pour les effets de survol */
+    }
+
+    .croix:hover {
+        transform: scale(1.2); /* Agrandit l'image légèrement au survol */
+    }
+
+    #croix,
+    #rideau,
+    #circulaire,
+    #sound {
+        width: 12%; /* Adapte la largeur des éléments du menu */
+    }
+
+    #rideau {
+        width: 40%; /* Réduction de la largeur de certains éléments pour les rendre plus proportionnés */
+    }
+
+    #circulaire {
+        width: 22%; /* Ajuste la largeur de l'élément circulaire */
+    }
+}
+@media (max-width: 376px) {
+    .menu {
+        height: 50px; /* Réduit la hauteur du menu pour les petits écrans */
+        flex-direction: column; /* Change l'orientation en colonne */
+        padding: 5px; /* Ajoute un padding pour éviter que le contenu touche les bords */
+    }
+
+    .menu_gauche,
+    .menu_droite {
+        width: 100%; /* Prend toute la largeur pour chaque section du menu */
+        font-size: 14px; /* Réduit encore la taille de la police */
+        padding: 5px; /* Réduit le padding pour optimiser l'espace */
+        justify-content: center; /* Centre le contenu dans chaque section */
+    }
+
+    .nav-toggler {
+        font-size: 14px; /* Ajuste la taille de la police pour le bouton */
+        color: white; /* Assure que le texte est lisible */
+        cursor: pointer; /* Indique que c'est cliquable */
+        padding: 5px; /* Ajoute du padding autour du texte */
+    }
+
+    #quiter_description {
+        display: flex; /* Utilise flexbox pour centrer le contenu */
+        justify-content: center; /* Centre l'image horizontalement */
+        align-items: center; /* Centre l'image verticalement */
+        margin-top: 5px; /* Réduit l'espace au-dessus */
+    }
+
+    .croix {
+        width: 20px; /* Ajuste la taille de l'image de la croix */
+        height: auto; /* Garde le ratio de l'image */
+        cursor: pointer; /* Indique que c'est cliquable */
+        transition: transform 0.3s; /* Ajoute une transition pour les effets de survol */
+    }
+
+    .croix:hover {
+        transform: scale(
+            1.1
+        ); /* Légèrement plus petit agrandissement au survol */
+    }
+
+    #croix,
+    #rideau,
+    #circulaire,
+    #sound {
+        width: 100%; /* Prend toute la largeur disponible */
+        justify-content: center; /* Centre le contenu à l'intérieur de ces éléments */
+        margin: 5px 0; /* Ajoute un peu d'espace vertical entre les éléments */
+    }
+
+    #rideau {
+        width: 100%; /* Assure que l'élément rideau s'adapte à la largeur */
+    }
+
+    #circulaire {
+        width: 100%; /* Assure que l'élément circulaire s'adapte à la largeur */
+    }
+}
+/************* responsive carousel *****************/
+@media (max-width: 768px) {
+    .carousel {
+        width: 85%;
+        height: 45vh; /* Réduit la hauteur du carrousel */
+        margin-top: 120px;
+    }
+
+    #prev,
+    #next {
+        font-size: 2rem; /* Réduis la taille des flèches de navigation */
+    }
+}
+@media (max-width: 480px) {
+    .carousel {
+        width: 85%;
+        height: 45vh; /* Réduit la hauteur du carrousel */
+        margin-top: 120px;
+    }
+}
+
+/************* responsive Parallax *****************/
+@media (max-width: 768px) {
+    .conteneur_parallax .portrait {
+        width: 300px;
+        height: 500px;
+    }
+
+    .conteneur_parallax .paysage {
+        width: 500px;
+        height: 300px;
+    }
+
+    /* Ajustements pour les positions des images */
+    #img2 {
+        margin-left: 600px;
+    }
+    #img4 {
+        margin-left: 550px;
+    }
+    #img6 {
+        margin-left: 450px;
+    }
+}
+
+/************* responsive Texte additionnel *****************/
+@media (max-width: 768px) {
+    .textes_additionnels {
+        width: 85%;
+        margin-top: 200px;
+    }
+
+    .paragraphe1,
+    .paragraphe2 {
+        padding-left: 20px;
+        padding-right: 20px; /* Ajuste les marges et paddings pour plus de lisibilité */
+    }
+
+    .visibleGauche,
+    .visibleDroite,
+    .invisibleGauche,
+    .invisibleDroite {
+        font-size: 18px; /* Adapte la taille du texte pour plus de lisibilité */
+        line-height: 30px;
+    }
 }

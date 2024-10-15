@@ -2,6 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Feon'i Fianarantsoa</title>
         <link rel="icon" href="./img/feo.png" />
         <link rel="stylesheet" href="/assets/css/style.css" />
@@ -100,14 +101,13 @@
             <div class="menu">
                 <div id="nom-lieu" class="menu_gauche">Marché du Zoma</div>
                 <div class="menu_droite">
-                    <div id="sound">
-                        <img class="sound" src="img/sound.png" alt="Son" />
-                    </div>
-                    <div id="circulaire">Vue 360</div>
                     <div id="rideau">
                         <span class="nav-toggler">Changer de lieu</span>
                     </div>
-                    <!--<div><span class="nav-toggler2 inactive">Fermer</span></div>-->
+                    <div id="sound">
+                        <img class="sound" src="img/sound.png" alt="Son" />
+                    </div>
+
                     <div id="quiter_description">
                         <img class="croix" src="img/croix.png" alt="Fermer" />
                     </div>
@@ -534,7 +534,7 @@
                             </li>
                         </ul>
                     </div>
-                    s
+
                     <script type="text/javascript">
                         const buttons = document.querySelectorAll(".btn");
                         const slides = document.querySelectorAll(".slide");
@@ -568,7 +568,7 @@
         <input type="hidden" id="isDark" value="true" />
         <input type="hidden" id="ls360" value="" />
 
-        <div class=""><script type="module" src="main.js"></script></div>
+        <script type="module" src="main.js"></script>
 
         <audio loop id="audioPlayer2" src="./night.mp3"></audio>
         <script>
