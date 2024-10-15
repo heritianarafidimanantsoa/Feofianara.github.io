@@ -22,7 +22,6 @@ body {
     width: 100%;
     height: 100%;
     font-family: Arial, sans-serif;
-    /* cursor: none; */
     overflow: hidden;
 }
 
@@ -72,9 +71,6 @@ body {
     font-size: 24px; /* Suppression de l'espace entre "24" et "px" */
 }
 
-canvas {
-    display: block;
-}
 .navbar {
     position: fixed;
     top: 0;
@@ -105,16 +101,51 @@ canvas {
 }
 
 /* Responsive Styles */
-@media screen and (max-width: 768px) {
+/* Media Query pour les écrans de taille moyenne (tablettes) */
+@media (max-width: 768px) {
     .navbar {
-        padding: 10px 5px;
+        padding: 8px; /* Réduction du padding */
     }
-    .navbar-logo {
-        margin-right: 10px;
+
+    .logofeo {
+        width: 60px; /* Réduction de la taille du logo */
     }
+
     .navbar-icons img {
-        width: 18px;
-        margin-right: 8px;
+        width: 30px; /* Réduction de la taille des icônes */
+        margin-right: 15px; /* Réduction de la marge entre les icônes */
+    }
+}
+
+/* Media Query pour les petits écrans (480px) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 6px; /* Réduction supplémentaire du padding */
+    }
+
+    .logofeo {
+        width: 50px; /* Taille encore plus petite du logo */
+    }
+
+    .navbar-icons img {
+        width: 25px; /* Réduction supplémentaire de la taille des icônes */
+        margin-right: 10px; /* Réduction supplémentaire de la marge */
+    }
+}
+
+/* Media Query pour les très petits écrans (390px) */
+@media (max-width: 390px) {
+    .navbar {
+        padding: 5px; /* Padding minimal pour économiser de l'espace */
+    }
+
+    .logofeo {
+        width: 45px; /* Taille plus petite du logo */
+    }
+
+    .navbar-icons img {
+        width: 20px; /* Icônes plus petites */
+        margin-right: 8px; /* Réduction de la marge */
     }
 }
 
@@ -187,8 +218,11 @@ progress::-moz-progress-bar {
 .header {
     position: absolute;
     left: 50%;
-    top: 30%;
-    transform: translateX(-50%);
+    top: 50%; /* Centré à 50% de la hauteur de l'écran */
+    transform: translate(
+        -50%,
+        -50%
+    ); /* Ajuste le centrage en fonction de la taille de l'élément */
     text-align: center;
     z-index: 100;
 }
@@ -523,4 +557,24 @@ li:hover {
     color: white;
     font-family: "JuliusSansOne";
     font-size: 3.5rem;
+}
+
+/* Responsivité pour les écrans moyens (tablettes) */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 3.5rem; /* Ajustement de la taille de la police */
+        letter-spacing: 4px; /* Espacement légèrement réduit */
+    }
+}
+
+/* Responsivité pour les petits écrans (smartphones) */
+@media (max-width: 480px) {
+    .header {
+        top: 45%; /* Ajustement du centrage vertical pour les petits écrans */
+    }
+
+    .header h1 {
+        font-size: 2.5rem; /* Réduction de la taille de la police */
+        letter-spacing: 2px; /* Espacement plus petit pour compenser */
+    }
 }
