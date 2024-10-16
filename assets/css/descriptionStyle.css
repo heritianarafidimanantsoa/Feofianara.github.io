@@ -47,7 +47,9 @@
     color: white;
     font-size: 20px;
     display: flex;
-    align-items: center;
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte dans l'élément */
     position: relative;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -61,12 +63,6 @@
     position: relative;
     align-items: center;
     justify-content: center;
-}
-
-#croix,
-#sound,
-#circulaire {
-    border-left: 1px solid white;
 }
 
 #croix,
@@ -134,52 +130,125 @@
 }
 
 .block {
-    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(
+        5,
+        1fr
+    ); /* 5 colonnes pour les grands écrans */
+    gap: 20px; /* Espace entre les éléments */
     width: 100%;
-    display: block;
-}
-
-.block p {
-    margin-top: 3%;
-    font-size: 15px;
-    text-align: center;
-    font-family: "Julius Sans One";
-    /*font-weight: bolder;*/
-    color: white;
-}
-
-.block .ligne1,
-.ligne2,
-.ligne3 {
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: calc(100% / 3);
+    height: auto;
+    box-sizing: border-box;
+    padding: 20px; /* Espacement interne */
 }
 
 .element {
-    position: relative;
-    width: 17%;
-    height: 80%;
-    background-color: white;
+    display: flex; /* Utilisation de Flexbox */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: center; /* Centre les éléments horizontalement */
+    width: 100%; /* Largeur de l'élément */
+    height: 250px; /* Hauteur fixe pour le bloc contenant l'image */
+    overflow: hidden; /* Masque tout débordement */
+    text-align: center; /* Centre le texte à l'intérieur de l'élément */
+    padding: 10px; /* Espacement interne */
+    margin-bottom: -15%;
 }
 
-.block img {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    transition: 0.2s linear;
-    box-shadow: inset 0 -3em 3em rgb(0 0 0 / 30%),
-        0.3em 0.3em 1em rgb(0 0 0 / 60%);
+.element img {
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    width: 100%; /* Les images occupent toute la largeur de l'élément */
+    height: auto; /* Préserve les proportions de l'image */
+    max-height: 70%; /* Limite la hauteur maximale de l'image pour laisser de l'espace au texte */
+    object-fit: cover; /* Couvre le bloc sans déformer l'image */
+    cursor: pointer; /* Change le curseur lors du survol */
+    transition: transform 0.2s linear; /* Transition pour l'effet hover */
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.3),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.6); /* Ombres sur l'image */
 }
 
-.block img:hover {
-    transform: scale(1.05);
+.element p {
+    margin-top: 10px; /* Espacement entre l'image et le texte */
+    font-size: 15px; /* Taille du texte */
+    font-family: "Julius Sans One"; /* Police du texte */
+    color: black; /* Couleur du texte */
+    line-height: 1.5;
 }
 
+.element img:hover {
+    transform: scale(1.05); /* Effet de zoom sur le survol */
+}
+.element p {
+    margin-top: 10px;
+    font-size: 15px;
+    font-family: "Julius Sans One";
+    color: white;
+}
+
+/* Design adaptatif */
+@media screen and (max-width: 1280px) {
+    .block {
+        grid-template-columns: repeat(
+            4,
+            1fr
+        ); /* 3 colonnes pour les écrans de taille moyenne */
+    }
+    .element {
+        width: 95%;
+        height: 200px;
+        margin-bottom: -48px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .block {
+        grid-template-columns: repeat(
+            4,
+            1fr
+        ); /* 3 colonnes pour les écrans de taille moyenne */
+    }
+    .element {
+        width: 85%;
+        height: 165px;
+        margin-bottom: -46px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .block {
+        grid-template-columns: repeat(
+            3,
+            1fr
+        ); /* 3 colonnes pour les écrans de taille moyenne */
+    }
+    .element {
+        width: 80%;
+        height: 160px;
+        margin-bottom: -36px;
+    }
+    .element p {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .block {
+        grid-template-columns: repeat(
+            3,
+            1fr
+        ); /* 2 colonnes pour les petits écrans */
+        gap: 2px;
+        padding: 10px;
+    }
+    .element {
+        width: 100%;
+        height: 100px;
+        margin-bottom: auto;
+    }
+
+    .element p {
+        margin-top: 5px;
+        font-size: 9px;
+    }
+}
 .conteneur_haut {
     position: relative;
     width: 100%;
@@ -964,11 +1033,10 @@
         width: 22%; /* Ajuste la largeur de l'élément circulaire */
     }
 }
-@media (max-width: 376px) {
+@media (max-width: 375px) {
     .menu {
-        height: 50px; /* Réduit la hauteur du menu pour les petits écrans */
-        flex-direction: column; /* Change l'orientation en colonne */
-        padding: 5px; /* Ajoute un padding pour éviter que le contenu touche les bords */
+        height: 80px; /* Réduit la hauteur du menu pour les petits écrans */
+        padding: 8px; /* Ajoute un padding pour éviter que le contenu touche les bords */
     }
 
     .menu_gauche,

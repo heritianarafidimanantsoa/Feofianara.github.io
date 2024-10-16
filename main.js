@@ -1,6 +1,6 @@
 import * as THREE from "./build/three.module.js";
 import { MapControls } from "./controls/MapControls.js";
-import { OrbitControls } from './controls/OrbitControls.js';
+import { OrbitControls } from "./controls/OrbitControls.js";
 import { Text } from "troika-three-text";
 import { GLTFLoader } from "./loaders/GLTFLoader.js";
 import gsap from "gsap";
@@ -92,34 +92,34 @@ fetch("360.json")
         console.error("Error loading JSON:", error);
     });
 
-    var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-    
-    // Position initiale en haut
-    camera.position.set(0, 20, 0);
-    
-    var controls = new MapControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.25;
-    controls.screenSpacePanning = false;
-    controls.maxPolarAngle = Math.PI / 2.2;
-    controls.enableZoom = true;
-    controls.minZoom = 2;
-    controls.maxZoom = 8;
-    
-    // Limites pour le contrôle de la caméra
-    controls.minDistance = 5;
-    controls.maxDistance = 8;
-    
-    controls.maxAzimuthAngle = THREE.MathUtils.degToRad(53);
-    controls.minAzimuthAngle = THREE.MathUtils.degToRad(45);
-    controls.maxPolarAngle = THREE.MathUtils.degToRad(45);
-    controls.minPolarAngle = THREE.MathUtils.degToRad(30);
-    
-    // Définit les limites de déplacement sur l'axe X et Y (gauche, droite, haut, bas)
-    const minPan = new THREE.Vector3(-3, -3, -3); // Limite minimum de déplacement (gauche, bas)
-    const maxPan = new THREE.Vector3(5.5, 5.5, 5.5); // Limite maximum de déplacement (droite, haut)
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// Position initiale en haut
+camera.position.set(0, 20, 0);
+
+var controls = new MapControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.25;
+controls.screenSpacePanning = false;
+controls.maxPolarAngle = Math.PI / 2.2;
+controls.enableZoom = true;
+controls.minZoom = 2;
+controls.maxZoom = 8;
+
+// Limites pour le contrôle de la caméra
+controls.minDistance = 5;
+controls.maxDistance = 8;
+
+controls.maxAzimuthAngle = THREE.MathUtils.degToRad(53);
+controls.minAzimuthAngle = THREE.MathUtils.degToRad(45);
+controls.maxPolarAngle = THREE.MathUtils.degToRad(45);
+controls.minPolarAngle = THREE.MathUtils.degToRad(30);
+
+// Définit les limites de déplacement sur l'axe X et Y (gauche, droite, haut, bas)
+const minPan = new THREE.Vector3(-3, -3, -3); // Limite minimum de déplacement (gauche, bas)
+const maxPan = new THREE.Vector3(5.5, 5.5, 5.5); // Limite maximum de déplacement (droite, haut)
 
 // Fonction pour limiter le mouvement sur le plan
 controls.addEventListener("change", () => {
@@ -218,7 +218,7 @@ function init() {
     // build map
     // TODO : build by chunk
     loadModel("Tany.glb");
-    
+
     // buildings
     loader1.load("Trano.glb", async function (gltf) {
         buildings = gltf.scene;

@@ -94,10 +94,11 @@ body {
 .navbar-icons {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 .navbar-icons img {
     width: 35px;
-    margin-right: 40px;
+    margin-right: 4px;
     cursor: pointer;
 }
 
