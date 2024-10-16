@@ -86,68 +86,112 @@ body {
 }
 
 .logofeo {
-    margin-left: 20px;
+    margin-left: 65px;
     align-items: center;
-    width: 50px;
+    width: 65px;
 }
 
 .navbar-icons {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    padding-right: 50px;
 }
 .navbar-icons img {
     width: 35px;
-    margin-right: 4px;
-    cursor: pointer;
+    padding-right: 40px;
 }
 
 /* Responsive Styles */
 /* Media Query pour les écrans de taille moyenne (tablettes) */
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
     .navbar {
-        padding: 8px; /* Réduction du padding */
+        padding-top: 20px; /* Padding minimal pour économiser de l'espace */
     }
 
     .logofeo {
-        width: 60px; /* Réduction de la taille du logo */
+        width: 63px; /* Taille plus petite du logo */
+        margin-left: 50px;
+    }
+    .navbar-icons {
+        margin-right: -15px;
+    }
+    .navbar-icons img {
+        width: 35px; /* Icônes plus petites */
+        padding-right: 38px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding-top: 20px; /* Padding minimal pour économiser de l'espace */
     }
 
+    .logofeo {
+        width: 65px; /* Taille plus petite du logo */
+        margin-left: 50px;
+    }
+    .navbar-icons {
+        margin-right: -15px;
+    }
     .navbar-icons img {
-        width: 30px; /* Réduction de la taille des icônes */
-        margin-right: 15px; /* Réduction de la marge entre les icônes */
+        width: 35px; /* Icônes plus petites */
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding-top: 20px; /* Padding minimal pour économiser de l'espace */
+    }
+
+    .logofeo {
+        width: 63px; /* Taille plus petite du logo */
+        margin-left: 45px;
+    }
+    .navbar-icons {
+        margin-right: -30px;
+    }
+    .navbar-icons img {
+        width: 34px; /* Icônes plus petites */
+        padding-right: 35px;
     }
 }
 
 /* Media Query pour les petits écrans (480px) */
 @media (max-width: 480px) {
     .navbar {
-        padding: 6px; /* Réduction supplémentaire du padding */
+        padding-top: 20px; /* Padding minimal pour économiser de l'espace */
     }
 
     .logofeo {
-        width: 50px; /* Taille encore plus petite du logo */
+        width: 60px; /* Taille plus petite du logo */
+        margin-left: 20px;
     }
-
+    .navbar-icons {
+        margin-right: -45px;
+    }
     .navbar-icons img {
-        width: 25px; /* Réduction supplémentaire de la taille des icônes */
-        margin-right: 10px; /* Réduction supplémentaire de la marge */
+        width: 30px; /* Icônes plus petites */
+        padding-right: 20px;
     }
 }
 
 /* Media Query pour les très petits écrans (390px) */
-@media (max-width: 390px) {
+@media (max-width: 375px) {
     .navbar {
-        padding: 5px; /* Padding minimal pour économiser de l'espace */
+        padding-top: 20px; /* Padding minimal pour économiser de l'espace */
     }
 
     .logofeo {
-        width: 45px; /* Taille plus petite du logo */
+        width: 53px; /* Taille plus petite du logo */
+        margin-left: 20px;
     }
-
+    .navbar-icons {
+        margin-right: -45px;
+    }
     .navbar-icons img {
-        width: 20px; /* Icônes plus petites */
-        margin-right: 8px; /* Réduction de la marge */
+        width: 27px; /* Icônes plus petites */
+        padding-right: 20px;
     }
 }
 
@@ -403,15 +447,19 @@ progress::-moz-progress-bar {
 
 .modal-content {
     background-color: #fefefecf;
-    margin: 15% auto;
     padding: 20px;
     border: 1px solid #fff;
     border-radius: 15px;
     box-shadow: 0px 0px 20px #333;
-    width: 80%;
+    width: 90%;
     max-height: 80%;
     overflow-y: auto;
     word-wrap: break-word;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, padding 0.3s ease;
 }
 
 .close {
@@ -419,6 +467,7 @@ progress::-moz-progress-bar {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .close:hover,
@@ -428,47 +477,151 @@ progress::-moz-progress-bar {
     cursor: pointer;
 }
 
-/* Styles pour le contenu spécifique de la modale */
 .modal-dialog {
-    max-width: 500px; /* Largeur maximale de la modale */
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
 }
 
 .modal-title {
-    margin-bottom: 1em; /* Marge inférieure pour le titre */
+    margin-bottom: 1em;
+    font-size: 1.5em;
 }
 
 .modal-body {
-    padding-bottom: 1em; /* Espacement inférieur pour le contenu du corps */
+    padding-bottom: 1em;
 }
 
 .modal-footer {
-    justify-content: flex-end; /* Aligner les boutons vers la droite */
+    justify-content: flex-end;
 }
 
 .list-container {
-    text-align: center; /* Centrer horizontalement le contenu */
+    text-align: center;
 }
 
 ul {
-    list-style-type: none; /* Supprimer les puces */
-    padding: 0; /* Supprimer le remplissage par défaut */
-    display: flex; /* Utiliser un affichage flex pour la liste */
-    flex-wrap: wrap; /* Mettre les éléments à la ligne s'ils dépassent */
-    justify-content: center; /* Centrer horizontalement les éléments */
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-/* Style pour les éléments de la liste des lieux */
 li {
-    color: #666; /* Couleur du texte */
-    font-size: 1.2em; /* Taille de la police */
-    margin: 0 10px; /* Marge entre les éléments */
-    margin-bottom: 10px; /* Espacement inférieur entre les lignes */
+    color: #666;
+    font-size: 1.2em;
+    margin: 0 10px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease, font-size 0.3s ease;
 }
 
-/* Style pour les éléments de la liste des lieux au survol */
 li:hover {
-    color: #00a041; /* Couleur du texte au survol */
-    cursor: pointer; /* Curseur pointer au survol */
+    color: #00a041;
+    cursor: pointer;
+}
+
+/* Responsive */
+
+/* Pour les écrans >= 1280px */
+@media (min-width: 1280px) {
+    .modal-content {
+        width: 45%;
+        padding: 30px;
+    }
+
+    .modal-dialog {
+        max-width: 800px;
+    }
+
+    .modal-title {
+        font-size: 1.8em;
+    }
+
+    li {
+        font-size: 1.6em;
+    }
+}
+
+/* Pour les écrans >= 1024px */
+@media (min-width: 1024px) {
+    .modal-content {
+        width: 55%;
+        padding: 25px;
+    }
+
+    .modal-dialog {
+        max-width: 700px;
+    }
+
+    .modal-title {
+        font-size: 1.6em;
+    }
+
+    li {
+        font-size: 1.4em;
+    }
+}
+
+/* Pour les écrans >= 768px */
+@media (min-width: 768px) {
+    .modal-content {
+        width: 65%;
+        padding: 20px;
+    }
+
+    .modal-dialog {
+        max-width: 600px;
+    }
+
+    .modal-title {
+        font-size: 1.4em;
+    }
+
+    li {
+        font-size: 1.3em;
+        margin-bottom: 1.5em;
+    }
+}
+
+/* Pour les écrans >= 640px */
+@media (min-width: 640px) {
+    .modal-content {
+        width: 75%;
+        padding: 15px;
+    }
+
+    .modal-dialog {
+        max-width: 500px;
+    }
+
+    .modal-title {
+        font-size: 1.3em;
+    }
+
+    li {
+        font-size: 1.2em;
+    }
+}
+
+/* Pour les petits Ã©crans < 640px */
+@media (max-width: 640px) {
+    .modal-content {
+        width: 80%;
+        padding: 10px;
+    }
+
+    .modal-title {
+        font-size: 1.2em;
+    }
+
+    li {
+        font-size: 0.75em;
+        margin-bottom: 1.5em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
 }
 
 /*************FILTRE*****************/
@@ -561,7 +714,7 @@ li:hover {
 /* Responsivité pour les écrans moyens (tablettes) */
 @media (max-width: 768px) {
     .header h1 {
-        font-size: 3.5rem; /* Ajustement de la taille de la police */
+        font-size: 3.2rem; /* Ajustement de la taille de la police */
         letter-spacing: 4px; /* Espacement légèrement réduit */
     }
 }
@@ -573,7 +726,7 @@ li:hover {
     }
 
     .header h1 {
-        font-size: 2.5rem; /* Réduction de la taille de la police */
+        font-size: 2.3rem; /* Réduction de la taille de la police */
         letter-spacing: 2px; /* Espacement plus petit pour compenser */
     }
 }
