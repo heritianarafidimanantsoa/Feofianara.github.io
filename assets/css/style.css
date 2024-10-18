@@ -432,6 +432,88 @@ progress::-moz-progress-bar {
     padding-bottom: 50px;
 }
 
+/* Responsive styles */
+
+/* Écrans >= 1280px */
+@media (min-width: 1280px) {
+    #submit-btn {
+        margin-bottom: 2vh;
+        font-size: 18px;
+        padding: 12px 24px;
+        bottom: 30px; /* Ajustement du positionnement */
+    }
+
+    .icon_white,
+    .icon_black {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Écrans >= 1024px */
+@media (min-width: 1024px) {
+    #submit-btn {
+        margin-bottom: 2vh;
+        font-size: 17px;
+        padding: 12px 22px;
+        bottom: 25px;
+    }
+
+    .icon_white,
+    .icon_black {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* Écrans >= 768px */
+@media (min-width: 768px) {
+    #submit-btn {
+        margin-bottom: 2vh;
+        font-size: 16px;
+        padding: 10px 20px;
+        bottom: 20px;
+    }
+
+    .icon_white,
+    .icon_black {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Écrans >= 640px */
+@media (min-width: 640px) {
+    #submit-btn {
+        margin-bottom: 2vh;
+        font-size: 15px;
+        padding: 10px 18px;
+        bottom: 15px;
+    }
+
+    .icon_white,
+    .icon_black {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Petits écrans (max-width: 480px) */
+@media (max-width: 480px) {
+    #submit-btn {
+        margin-bottom: 2vh;
+        font-size: 14px;
+        padding: 8px 16px;
+        bottom: 10px;
+    }
+
+    .icon_white,
+    .icon_black {
+        width: 16px;
+        height: 16px;
+    }
+}
+
 /* Styles pour la modale */
 .modal {
     display: none; /* Masquer la modale par défaut */
