@@ -323,6 +323,58 @@ progress::-moz-progress-bar {
     height: 180%;
 }
 
+/* Responsive pour les petits écrans (jusqu'à 640px) */
+@media (max-width: 640px) {
+    .btn {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+
+    .header button:hover {
+        padding: 8px 25px;
+        font-size: 16px;
+    }
+}
+
+/* Responsive pour les écrans moyens (jusqu'à 768px) */
+@media (max-width: 768px) {
+    .btn {
+        padding: 9px 22px;
+        font-size: 18px;
+    }
+
+    .header button:hover {
+        padding: 9px 27px;
+        font-size: 18px;
+    }
+}
+
+/* Responsive pour les grands écrans (jusqu'à 1024px) */
+@media (max-width: 1024px) {
+    .btn {
+        padding: 10px 23px;
+        font-size: 19px;
+    }
+
+    .header button:hover {
+        padding: 10px 28px;
+        font-size: 19px;
+    }
+}
+
+/* Responsive pour les très grands écrans (jusqu'à 1280px) */
+@media (max-width: 1280px) {
+    .btn {
+        padding: 10px 24px;
+        font-size: 19px;
+    }
+
+    .header button:hover {
+        padding: 10px 29px;
+        font-size: 19px;
+    }
+}
+
 .backgroundExplorer {
     width: 100%;
     height: 100%;
@@ -375,7 +427,19 @@ progress::-moz-progress-bar {
     background-image: url("./img/music2.png"); /* Image de fond au survol */
     background-color: transparent; /* Rend le fond transparent pour voir l'image */
 }
+/* Ajustements pour les écrans moyens */
+@media (max-width: 768px) {
+    .button {
+        right: 30px; /* Réduit la distance par rapport au bord droit */
+    }
+}
 
+/* Ajustements pour les petits écrans */
+@media (max-width: 480px) {
+    .button {
+        right: 31px; /* Réduit encore la distance par rapport au bord droit */
+    }
+}
 #submit-btn {
     background-color: transparent;
     border: 2px solid transparent;

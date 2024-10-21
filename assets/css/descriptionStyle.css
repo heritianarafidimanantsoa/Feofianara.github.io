@@ -201,30 +201,54 @@
 @media screen and (max-width: 1024px) {
     .block {
         grid-template-columns: repeat(
-            4,
+            5,
             1fr
         ); /* 3 colonnes pour les écrans de taille moyenne */
+        gap: 0px;
     }
     .element {
         width: 85%;
-        height: 165px;
-        margin-bottom: -46px;
+        height: 160px;
+        margin-bottom: -40px;
+    }
+    .element p {
+        font-size: 10px;
+        margin-top: 5px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .block {
+        grid-template-columns: repeat(
+            5,
+            1fr
+        ); /* 3 colonnes pour les écrans de taille moyenne */
+        gap: 0px;
+    }
+    .element {
+        width: 85%;
+        height: 150px;
+        margin-bottom: -40px;
+    }
+    .element p {
+        font-size: 8px;
+        margin-top: 5px;
     }
 }
 @media screen and (max-width: 768px) {
     .block {
         grid-template-columns: repeat(
-            3,
+            5,
             1fr
         ); /* 3 colonnes pour les écrans de taille moyenne */
+        gap: 0px;
     }
     .element {
         width: 80%;
-        height: 160px;
-        margin-bottom: -36px;
+        height: 120px;
+        margin-bottom: -20px;
     }
     .element p {
-        font-size: 12px;
+        font-size: 8px;
         margin-top: 5px;
     }
 }
@@ -405,7 +429,7 @@
     height: 88vh;
     width: 143vh;
     position: relative;
-    margin-top: 160px;
+    margin-top: 12vh;
     box-shadow: inset 0 -3em 3em rgb(0 0 0 / 30%),
         0.3em 0.3em 1em rgb(0 0 0 / 60%);
 }
@@ -1010,7 +1034,7 @@
 
 @media (max-width: 768px) {
     .menu {
-        height: 60px; /* Ajuste la hauteur du menu sur des petits écrans */
+        height: 45px; /* Ajuste la hauteur du menu sur des petits écrans */
     }
 
     .menu_gauche {
@@ -1068,7 +1092,7 @@
 }
 @media (max-width: 375px) {
     .menu {
-        height: 80px; /* Réduit la hauteur du menu pour les petits écrans */
+        height: 7vh; /* Réduit la hauteur du menu pour les petits écrans */
         padding: 8px; /* Ajoute un padding pour éviter que le contenu touche les bords */
     }
 

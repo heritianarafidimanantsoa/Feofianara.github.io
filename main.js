@@ -1,9 +1,12 @@
-import * as THREE from "./build/three.module.js";
-import { MapControls } from "./controls/MapControls.js";
-import { OrbitControls } from "./controls/OrbitControls.js";
+import * as THREE from "three";
+import { MapControls } from "three/addons/controls/MapControls.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { Text } from "troika-three-text";
-import { GLTFLoader } from "./loaders/GLTFLoader.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import gsap from "gsap";
+import { Sky } from "three/examples/jsm/objects/Sky.js";
+import locationsData from "./data.json";
+import sphere360 from "./img/vita360_stitch.jpg";
 import data from "./360.json";
 import { convertSpeed } from "geolib";
 // Récupérer la modale
@@ -118,8 +121,8 @@ controls.maxPolarAngle = THREE.MathUtils.degToRad(45);
 controls.minPolarAngle = THREE.MathUtils.degToRad(30);
 
 // Définit les limites de déplacement sur l'axe X et Y (gauche, droite, haut, bas)
-const minPan = new THREE.Vector3(-3, -3, -3); // Limite minimum de déplacement (gauche, bas)
-const maxPan = new THREE.Vector3(5.5, 5.5, 5.5); // Limite maximum de déplacement (droite, haut)
+const minPan = new THREE.Vector3(-7, -7, -7); // Limite minimum de déplacement (gauche, bas)
+const maxPan = new THREE.Vector3(7, 7, 7); // Limite maximum de déplacement (droite, haut)
 
 // Fonction pour limiter le mouvement sur le plan
 controls.addEventListener("change", () => {
@@ -264,15 +267,6 @@ function init() {
         rivers.name = "rivers";
         scene.add(rivers);
     });
-
-    //console.log("Lanterns : ",lanterns);
-    materialDepth = new THREE.ShaderMaterial({});
-    // uniforms:       depthShader.uniforms,
-    // vertexShader:   depthShader.vertexShader,
-    // fragmentShader: depthShader.fragmentShader
-
-    materialDepth.uniforms["mNear"].value = 2;
-    materialDepth.uniforms["mFar"].value = 3;
 
     setupLight();
 
@@ -433,13 +427,25 @@ function create360(data) {
     scene360.add(myText);
 
     // Configuration des propriétés du texte
-    // myText.text = data.lieu;
     myText.text = data.lieu;
-    myText.fontSize = 1;
     myText.anchorX = "center";
     myText.font = "./fonts/Montserrat-Regular.otf";
-    myText.position.z = -4;
     myText.color = 0x9ec3e9;
+
+    // Ajustements responsive en fonction de la taille de l'écran
+    if (window.innerWidth <= 768) {
+        // Pour les écrans mobiles
+        myText.fontSize = 0.3; // Taille plus petite sur mobile
+        myText.position.z = -2; // Position ajustée pour mobile
+    } else if (window.innerWidth <= 1024) {
+        // Pour les tablettes
+        myText.fontSize = 0.3; // Taille moyenne pour les tablettes
+        myText.position.z = -2; // Position ajustée pour tablette
+    } else {
+        // Pour les grands écrans
+        myText.fontSize = 1; // Taille normale pour les grands écrans
+        myText.position.z = -4; // Position par défaut
+    }
 
     // Mise à jour du rendu du texte
     myText.sync();
@@ -453,10 +459,45 @@ function create360(data) {
         audioPlayPauseButton.addEventListener("click", toggleAudioPlayPause); // Ajoute un gestionnaire d'événements clic
 
         // Création de l'icône pour le bouton lecture/pause
+        // Création de l'icône pour le bouton lecture/pause
         const audioIcon = document.createElement("img");
         audioIcon.src = "./img/music.png"; // Chemin vers l'icône "play" ou "pause"
-        audioIcon.style.width = "35px"; // Définir la largeur de l'icône
-        audioIcon.style.height = "34px"; // Définir la hauteur de l'icône
+
+        // Ajustement de la taille de l'icône en fonction de la largeur de la fenêtre
+        const screenWidth = window.innerWidth;
+
+        if (screenWidth < 640) {
+            // Petit écran (mobile)
+            audioIcon.style.width = "25px"; // Définir la largeur de l'icône
+            audioIcon.style.height = "24px"; // Définir la hauteur de l'icône
+        } else if (screenWidth < 768) {
+            // Écrans moyens
+            audioIcon.style.width = "30px"; // Définir la largeur de l'icône
+            audioIcon.style.height = "29px"; // Définir la hauteur de l'icône
+        } else {
+            // Grands écrans
+            audioIcon.style.width = "35px"; // Définir la largeur de l'icône
+            audioIcon.style.height = "34px"; // Définir la hauteur de l'icône
+        }
+
+        // Écouter les événements de redimensionnement de la fenêtre
+        window.addEventListener("resize", () => {
+            const screenWidth = window.innerWidth;
+
+            if (screenWidth < 640) {
+                // Petit écran (mobile)
+                audioIcon.style.width = "25px"; // Mettre à jour la largeur de l'icône
+                audioIcon.style.height = "24px"; // Mettre à jour la hauteur de l'icône
+            } else if (screenWidth < 768) {
+                // Écrans moyens
+                audioIcon.style.width = "30px"; // Mettre à jour la largeur de l'icône
+                audioIcon.style.height = "29px"; // Mettre à jour la hauteur de l'icône
+            } else {
+                // Grands écrans
+                audioIcon.style.width = "35px"; // Mettre à jour la largeur de l'icône
+                audioIcon.style.height = "34px"; // Mettre à jour la hauteur de l'icône
+            }
+        });
 
         // Ajout de l'icône au bouton lecture/pause
         audioPlayPauseButton.appendChild(audioIcon);
@@ -480,8 +521,39 @@ function create360(data) {
         // Créer l'élément img pour l'icône de mute
         const muteIcon = document.createElement("img");
         muteIcon.src = "./img/quitter_rouge.png"; // Chemin vers l'icône de mute
-        muteIcon.style.width = "35px"; // Définir la largeur de l'icône
-        muteIcon.style.height = "34px"; // Définir la hauteur de l'icône
+
+        if (screenWidth < 640) {
+            // Petit écran (mobile)
+            muteIcon.style.width = "25px"; // Définir la largeur de l'icône
+            muteIcon.style.height = "24px"; // Définir la hauteur de l'icône
+        } else if (screenWidth < 768) {
+            // Écrans moyens
+            muteIcon.style.width = "30px"; // Définir la largeur de l'icône
+            muteIcon.style.height = "29px"; // Définir la hauteur de l'icône
+        } else {
+            // Grands écrans
+            muteIcon.style.width = "35px"; // Définir la largeur de l'icône
+            muteIcon.style.height = "34px"; // Définir la hauteur de l'icône
+        }
+
+        // Écouter les événements de redimensionnement de la fenêtre
+        window.addEventListener("resize", () => {
+            const screenWidth = window.innerWidth;
+
+            if (screenWidth < 640) {
+                // Petit écran (mobile)
+                muteIcon.style.width = "25px"; // Mettre à jour la largeur de l'icône
+                muteIcon.style.height = "24px"; // Mettre à jour la hauteur de l'icône
+            } else if (screenWidth < 768) {
+                // Écrans moyens
+                muteIcon.style.width = "30px"; // Mettre à jour la largeur de l'icône
+                muteIcon.style.height = "29px"; // Mettre à jour la hauteur de l'icône
+            } else {
+                // Grands écrans
+                muteIcon.style.width = "35px"; // Mettre à jour la largeur de l'icône
+                muteIcon.style.height = "34px"; // Mettre à jour la hauteur de l'icône
+            }
+        });
 
         // Ajouter l'icône de mute au bouton "Quitter"
         exitButton.appendChild(muteIcon);
