@@ -6,7 +6,7 @@ import { Text } from "https://unpkg.com/troika-three-text@0.50.2/dist/troika-thr
 import { GLTFLoader } from "./loaders/GLTFLoader.js";
 import gsap from "gsap";
 
-import locationsData from "./data.json" assert { type: "json" };
+// import locationsData from "./data.json" assert { type: "json" };
 
 import data from "./360.json" assert { type: "json" };
 import { convertSpeed } from "geolib";
