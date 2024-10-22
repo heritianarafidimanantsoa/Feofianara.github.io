@@ -4,25 +4,11 @@ import { OrbitControls } from "./controls/OrbitControls.js";
 import { Text } from "troika-three-text";
 import { GLTFLoader } from "./loaders/GLTFLoader.js";
 import gsap from "gsap";
-<<<<<<< HEAD
 
 import locationsData from "./data.json";
-
 import data from "./360.json";
 import { convertSpeed } from "geolib";
 
-=======
-import { Sky } from "three/examples/jsm/objects/Sky.js";
-import locationsData from "./data.json";
-import sphere360 from "./img/vita360_stitch.jpg";
-import data from "./360.json";
-import { convertSpeed } from "geolib";
-
-
-
-
-
->>>>>>> a262be11a3584ba877211482716a9a6bc7cf43f3
 // Récupérer la modale
 var modal = document.getElementById("myModal");
 
@@ -129,10 +115,10 @@ controls.maxZoom = 8;
 controls.minDistance = 5;
 controls.maxDistance = 10;
 
-controls.maxAzimuthAngle = THREE.MathUtils.degToRad(45);
-controls.minAzimuthAngle = THREE.MathUtils.degToRad(45);
-controls.maxPolarAngle = THREE.MathUtils.degToRad(45);
-controls.minPolarAngle = THREE.MathUtils.degToRad(45);
+// controls.maxAzimuthAngle = THREE.MathUtils.degToRad(45);
+// controls.minAzimuthAngle = THREE.MathUtils.degToRad(45);
+// controls.maxPolarAngle = THREE.MathUtils.degToRad(45);
+// controls.minPolarAngle = THREE.MathUtils.degToRad(45);
 
 // Définit les limites de déplacement sur l'axe X et Y (gauche, droite, haut, bas)
 const minPan = new THREE.Vector3(-7, -7, -7); // Limite minimum de déplacement (gauche, bas)
@@ -893,8 +879,8 @@ startbutton.addEventListener("mousedown", function () {
             camera.position,
             {
                 y: 2,
-                z: 6,
-                duration: 2,
+                z: 2,
+                duration: 4,
             },
             0
         )
@@ -917,10 +903,7 @@ setTimeout(function () {
 buttonMap.addEventListener("mousedown", function () {
     isMap = !isMap;
 
-    //camera.position.set(0, 20, 0);
     if (isMap === false) {
-        // document.getElementById("backgroundExplorer").style.width = "100%";
-        // document.getElementById("backgroundExplorer").style.height = "100%";
         const tl = gsap.timeline();
         tl.to(startbutton, {
             autoAlpha: 0,
@@ -939,26 +922,31 @@ buttonMap.addEventListener("mousedown", function () {
             .to(
                 camera.position,
                 {
-                    x: 0,
-                    y: 20,
-                    z: 0,
-                    duration: 4,
+                    y: Math.max(
+                        controls.minDistance,
+                        Math.min(20, controls.maxDistance)
+                    ), // Limiter dans l'intervalle des distances
+                    z: Math.max(
+                        controls.minDistance,
+                        Math.min(0.1, controls.maxDistance)
+                    ),
+                    duration: 2,
+                    onUpdate: function () {
+                        controls.update(); // Mettre à jour les contrôles pendant l'animation
+                    },
                 },
                 0
             )
             .to(
                 camera.rotation,
                 {
-                    x: 900,
-                    z: 90,
+                    z: -0.4,
                     y: 44,
                     duration: 4,
                 },
                 0
             );
     } else {
-        // document.getElementById("backgroundExplorer").style.width = 0;
-        // document.getElementById("backgroundExplorer").style.height = 0;
         const tl = gsap.timeline();
         tl.to(startbutton, {
             autoAlpha: 0,
@@ -977,9 +965,18 @@ buttonMap.addEventListener("mousedown", function () {
             .to(
                 camera.position,
                 {
-                    y: 2,
-                    z: 7,
+                    y: Math.max(
+                        controls.minDistance,
+                        Math.min(5, controls.maxDistance)
+                    ), // Limiter dans l'intervalle des distances
+                    z: Math.max(
+                        controls.minDistance,
+                        Math.min(0.1, controls.maxDistance)
+                    ),
                     duration: 2,
+                    onUpdate: function () {
+                        controls.update(); // Mettre à jour les contrôles pendant l'animation
+                    },
                 },
                 0
             )
