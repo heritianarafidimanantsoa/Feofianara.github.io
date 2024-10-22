@@ -8,7 +8,7 @@ import gsap from "gsap";
 
 // import locationsData from "./data.json" assert { type: "json" };
 
-import data from "./360.json" assert { type: "json" };
+import data from "./360.json" with { type: "json" };
 import { convertSpeed } from "geolib";
 
 // Récupérer la modale
