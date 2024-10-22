@@ -260,10 +260,10 @@ function loadModel(file, overideMaterial = null) {
 function init() {
     // build map
     // TODO : build by chunk
-    loadModel("Tany.glb");
+    loadModel("./public/Tany.glb");
 
     // buildings
-    loader1.load("Trano.glb", async function (gltf) {
+    loader1.load("./public/Trano.glb", async function (gltf) {
         buildings = gltf.scene;
         buildings.scale.set(
             0.004 * buildings.scale.x,
@@ -278,7 +278,7 @@ function init() {
         scene.add(buildings);
     });
     // roads
-    loader1.load("Lalana.glb", async function (gltf) {
+    loader1.load("./public/Lalana.glb", async function (gltf) {
         roads = gltf.scene;
         roads.scale.set(
             0.004 * roads.scale.x,
@@ -291,21 +291,6 @@ function init() {
 
         roads.name = "roads";
         scene.add(roads);
-    });
-    // rivers
-    loader1.load("rivers.glb", async function (gltf) {
-        rivers = gltf.scene;
-        rivers.scale.set(
-            0.004 * rivers.scale.x,
-            0.004 * rivers.scale.y,
-            0.004 * rivers.scale.z
-        );
-        rivers.position.y -= 6;
-        // wait until the model can be added to the scene without blocking due to shader compilation
-        await renderer.compileAsync(rivers, camera, scene);
-
-        rivers.name = "rivers";
-        scene.add(rivers);
     });
 
     setupLight();
@@ -676,7 +661,7 @@ for (let i = 0; i < data.length; i++) {
 }
 
 function loadPointOfInterest(x, y, z, data) {
-    loader.load("paper_lantern.glb", (poiGltf) => {
+    loader.load("./public/paper_lantern.glb", (poiGltf) => {
         const pointOfInterest = poiGltf.scene;
 
         pointOfInterest.position.set(x, y, z);
