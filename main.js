@@ -4,12 +4,25 @@ import { OrbitControls } from "./controls/OrbitControls.js";
 import { Text } from "troika-three-text";
 import { GLTFLoader } from "./loaders/GLTFLoader.js";
 import gsap from "gsap";
+<<<<<<< HEAD
 
 import locationsData from "./data.json";
 
 import data from "./360.json";
 import { convertSpeed } from "geolib";
 
+=======
+import { Sky } from "three/examples/jsm/objects/Sky.js";
+import locationsData from "./data.json";
+import sphere360 from "./img/vita360_stitch.jpg";
+import data from "./360.json";
+import { convertSpeed } from "geolib";
+
+
+
+
+
+>>>>>>> a262be11a3584ba877211482716a9a6bc7cf43f3
 // Récupérer la modale
 var modal = document.getElementById("myModal");
 
