@@ -1,14 +1,15 @@
-import * as THREE from "three";
-import { MapControls } from "three/addons/controls/MapControls.js";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import * as THREE from "./build/three.module.js";
+import { MapControls } from "./controls/MapControls.js";
+import { OrbitControls } from "./controls/OrbitControls.js";
 import { Text } from "troika-three-text";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { GLTFLoader } from "./loaders/GLTFLoader.js";
 import gsap from "gsap";
-import { Sky } from "three/examples/jsm/objects/Sky.js";
+
 import locationsData from "./data.json";
-import sphere360 from "./img/vita360_stitch.jpg";
+
 import data from "./360.json";
 import { convertSpeed } from "geolib";
+
 // Récupérer la modale
 var modal = document.getElementById("myModal");
 
@@ -113,12 +114,12 @@ controls.maxZoom = 8;
 
 // Limites pour le contrôle de la caméra
 controls.minDistance = 5;
-controls.maxDistance = 8;
+controls.maxDistance = 10;
 
-controls.maxAzimuthAngle = THREE.MathUtils.degToRad(53);
+controls.maxAzimuthAngle = THREE.MathUtils.degToRad(45);
 controls.minAzimuthAngle = THREE.MathUtils.degToRad(45);
 controls.maxPolarAngle = THREE.MathUtils.degToRad(45);
-controls.minPolarAngle = THREE.MathUtils.degToRad(30);
+controls.minPolarAngle = THREE.MathUtils.degToRad(45);
 
 // Définit les limites de déplacement sur l'axe X et Y (gauche, droite, haut, bas)
 const minPan = new THREE.Vector3(-7, -7, -7); // Limite minimum de déplacement (gauche, bas)
@@ -928,15 +929,15 @@ buttonMap.addEventListener("mousedown", function () {
                     x: 0,
                     y: 20,
                     z: 0,
-                    duration: 2,
+                    duration: 4,
                 },
                 0
             )
             .to(
                 camera.rotation,
                 {
-                    x: 0,
-                    z: -0.4,
+                    x: 900,
+                    z: 90,
                     y: 44,
                     duration: 4,
                 },
@@ -964,7 +965,7 @@ buttonMap.addEventListener("mousedown", function () {
                 camera.position,
                 {
                     y: 2,
-                    z: 6,
+                    z: 7,
                     duration: 2,
                 },
                 0
