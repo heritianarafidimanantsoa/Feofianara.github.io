@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "JuliusSansOne";
+    src: url("fonts/JuliusSansOne-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Regular.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "DMSerifDisplay";
+    src: url("fonts/DMSerifDisplay-Regular.ttf") format("truetype");
+}
+
 /*************SETTINGS*****************/
 
 .desc-main * {
@@ -43,7 +58,7 @@
 
 .menu .menu_droite,
 .menu_gauche {
-    font-family: "Julius Sans One";
+    font-family: "JuliusSansOne";
     color: white;
     font-size: 20px;
     display: flex;
@@ -97,7 +112,7 @@
 }
 
 .ouvert{
-  font-family: "Julius Sans One";
+  font-family: "JuliusSansOne";
   color: white;
   font-size: 20px;
   display: flex;
@@ -169,7 +184,7 @@
 .element p {
     margin-top: 10px; /* Espacement entre l'image et le texte */
     font-size: 15px; /* Taille du texte */
-    font-family: "Julius Sans One"; /* Police du texte */
+    font-family: "JuliusSansOne"; /* Police du texte */
     color: black; /* Couleur du texte */
     line-height: 1.5;
 }
@@ -180,7 +195,7 @@
 .element p {
     margin-top: 10px;
     font-size: 15px;
-    font-family: "Julius Sans One";
+    font-family: "JuliusSansOne";
     color: white;
 }
 
@@ -345,7 +360,7 @@
     font-size: 70px;
     color: white;
     letter-spacing: 15px;
-    font-family: "Julius Sans One";
+    font-family: "JuliusSansOne";
     font-weight: bold;
     z-index: 15;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.808);
@@ -483,7 +498,7 @@
     align-self: center;
     font-size: 50px;
     color: white;
-    font-family: "Julius Sans One";
+    font-family: "JuliusSansOne";
     font-weight: bolder;
     opacity: 0;
     transition: 1.5s ease;
@@ -495,7 +510,7 @@
     align-self: center;
     font-size: 50px;
     color: white;
-    font-family: "Julius Sans One";
+    font-family: "JuliusSansOne";
     font-weight: bolder;
     opacity: 1;
     transition: 1.5s ease;
@@ -568,7 +583,7 @@
 .invisible5 {
     font-size: 70px;
     color: white;
-    font-family: "Julius Sans One";
+    font-family: "JuliusSansOne";
     font-weight: bolder;
     opacity: 0;
     transition: 1.5s ease;
@@ -578,7 +593,7 @@
 .visible5 {
     font-size: 70px;
     color: white;
-    font-family: "Julius Sans One";
+    font-family: "JuliusSansOne";
     font-weight: bolder;
     opacity: 1;
     transition: 1.5s ease;
@@ -586,7 +601,7 @@
 
 .invisible3,
 .invisible7 {
-    font-family: "Julius Sans One";
+    font-family: "JuliusSansOne";
     font-size: 25px;
     font-weight: bolder;
     opacity: 0;
@@ -595,7 +610,7 @@
 
 .visible3,
 .visible7 {
-    font-family: "Julius Sans One";
+    font-family: "JuliusSansOne";
     font-size: 25px;
     font-weight: bolder;
     opacity: 1;
@@ -729,7 +744,7 @@
     text-align: center;
     font-size: 50px;
     color: white;
-    font-family: "Julius Sans One";
+    font-family: "JuliusSansOne";
     font-weight: bolder;
 }
 
