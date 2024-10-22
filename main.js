@@ -1,7 +1,8 @@
 import * as THREE from "./build/three.module.js";
+//https://unpkg.com/three@latest/build/three.module.js
 import { MapControls } from "./controls/MapControls.js";
 import { OrbitControls } from "./controls/OrbitControls.js";
-import { Text } from "troika-three-text";
+import { Text } from "https://unpkg.com/troika-three-text@0.50.2/dist/troika-three-text.esm.js";
 import { GLTFLoader } from "./loaders/GLTFLoader.js";
 import gsap from "gsap";
 
