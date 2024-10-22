@@ -90,18 +90,42 @@ fetch("360.json")
             });
             jsonList.appendChild(listItem);
         });
+        // Récuperation de parametre de l'IRL
+        let url = window.location.href;
+        let params = url.split("?")[1];
+        if (params == undefined) {
+        }
+        let param = params.split("=")[0];
+        let value = decodeURI(params.split("=")[1]);
+
+        if (param == "lieu") {
+            // affichage du lieu choisi
+            data.forEach((item) => {
+                if (item.lieu == value) {
+                    create360(item);
+                    // Masquer le navbar après avoir créé la scène 360
+                    hideNavbarIn360();
+                    // Supprimer complètement la première scène après avoir créé la deuxième scène
+                    removeFirstScene();
+                    // Définir renderScene360 sur true pour indiquer que la scène 360 doit être rendue
+                    renderScene360 = true;
+                }
+            });
+        }
     })
     .catch((error) => {
         console.error("Error loading JSON:", error);
     });
 
+// Initialisation du renderer
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Position initiale en haut
+// Position initiale de la caméra
 camera.position.set(0, 20, 0);
 
+// Initialisation des contrôles de la carte
 var controls = new MapControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.25;
@@ -110,6 +134,19 @@ controls.maxPolarAngle = Math.PI / 2.2;
 controls.enableZoom = true;
 controls.minZoom = 2;
 controls.maxZoom = 8;
+
+// Fonction pour mettre à jour la taille du renderer et de la caméra
+function onWindowResize() {
+    // Met à jour la taille du renderer
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Met à jour le rapport d'aspect de la caméra
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix(); // Nécessaire pour que la caméra prenne en compte le nouveau rapport d'aspect
+}
+
+// Écouteur d'événements pour le redimensionnement de la fenêtre
+window.addEventListener("resize", onWindowResize, false);
 
 // Limites pour le contrôle de la caméra
 controls.minDistance = 5;
@@ -785,6 +822,7 @@ function onMouseMove(event, dat) {
         if (object.userData.onClick !== undefined) {
             // object.position.z -= 1;
             //evenement collision
+
             activePlace(object.userData.data.lieu);
             // console.log(object.userData.data)
         }
@@ -903,6 +941,9 @@ setTimeout(function () {
 buttonMap.addEventListener("mousedown", function () {
     isMap = !isMap;
 
+    // Désactiver les contrôles pendant l'animation
+    controls.enabled = false;
+
     if (isMap === false) {
         const tl = gsap.timeline();
         tl.to(startbutton, {
@@ -943,6 +984,9 @@ buttonMap.addEventListener("mousedown", function () {
                     z: -0.4,
                     y: 44,
                     duration: 4,
+                    onComplete: function () {
+                        controls.enabled = true; // Réactiver les contrôles après l'animation
+                    },
                 },
                 0
             );
@@ -986,6 +1030,9 @@ buttonMap.addEventListener("mousedown", function () {
                     z: -0.4,
                     y: 44,
                     duration: 4,
+                    onComplete: function () {
+                        controls.enabled = true; // Réactiver les contrôles après l'animation
+                    },
                 },
                 0
             );

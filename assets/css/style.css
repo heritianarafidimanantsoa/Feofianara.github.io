@@ -16,6 +16,7 @@
 body {
     background-color: #ccc;
     color: #000;
+
     overscroll-behavior: none;
     margin: 0;
     padding: 0;
