@@ -4,7 +4,8 @@ import { MapControls } from "./controls/MapControls.js";
 import { OrbitControls } from "./controls/OrbitControls.js";
 import { Text } from "https://unpkg.com/troika-three-text@0.50.2/dist/troika-three-text.esm.js";
 import { GLTFLoader } from "./loaders/GLTFLoader.js";
-import gsap from "gsap";
+//import gsap from "gsap";
+
 
 // import locationsData from "./data.json" assert { type: "json" };
 
