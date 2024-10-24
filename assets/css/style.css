@@ -877,3 +877,12 @@ li:hover {
         letter-spacing: 2px; /* Espacement plus petit pour compenser */
     }
 }
+
+/* Changer la couleur du texte et icone sur Cette expérience s'apprécie sur un ordinateur */
+
+.readthedocs {
+    color: #000000;/* couleur personnalisée */
+	font-family: "Montserrat";
+	font-size: 12 px;
+	font-weight: bold;
+    }
