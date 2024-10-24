@@ -38,6 +38,23 @@ window.onclick = function (event) {
     }
 };
 
+// Instruction souris
+// Sélection des éléments
+const helpButton = document.querySelector('.c-create-help-button');
+const popup = document.querySelector('.instructions-popup');
+const closeButton = document.querySelector('.close-instructions');
+
+// Afficher la popup quand on clique sur l'icône
+helpButton.addEventListener('click', () => {
+  popup.classList.toggle('hidden');
+});
+
+// Cacher la popup quand on clique sur "Fermer"
+closeButton.addEventListener('click', () => {
+  popup.classList.add('hidden');
+});
+// Instruction souris
+
 const progressBar = document.getElementById("progress-bar");
 const progressBarContainer = document.querySelector(".progress-bar-container");
 const loadingManager = new THREE.LoadingManager();
@@ -260,10 +277,10 @@ function loadModel(file, overideMaterial = null) {
 function init() {
     // build map
     // TODO : build by chunk
-    loadModel("./public/Tany.glb");
+    loadModel("public/Tany.glb");
 
     // buildings
-    loader1.load("./public/Trano.glb", async function (gltf) {
+    loader1.load("public/Trano.glb", async function (gltf) {
         buildings = gltf.scene;
         buildings.scale.set(
             0.004 * buildings.scale.x,
@@ -278,7 +295,7 @@ function init() {
         scene.add(buildings);
     });
     // roads
-    loader1.load("./public/Lalana.glb", async function (gltf) {
+    loader1.load("/Lalana.glb", async function (gltf) {
         roads = gltf.scene;
         roads.scale.set(
             0.004 * roads.scale.x,
@@ -316,9 +333,14 @@ loadPointOfInterest();
 let exitButton; // Variable globale pour stocker une référence au bouton "Quitter"
 let audioPlayPauseButton; // Variable globale pour stocker une référence au bouton "Quitter"
 
+
 function create360(data) {
     audioPlayer2.pause();
     sound360 = true;
+
+    // Cacher le bouton d'aide
+    helpButton.style.display = 'none';
+
     if (is360) {
         // Création de la caméra
         camera360.position.set(0, 0, 0);
@@ -330,23 +352,21 @@ function create360(data) {
     const geometry = new THREE.SphereGeometry(10, 30, 30);
 
     // Chargement de la texture
-    // const texture = new THREE.TextureLoader().load("./img/"+data.photo);
     const texture = new THREE.TextureLoader().load(
         "./img/360/" + data.photo360
     );
     texture.wrapS = THREE.RepeatWrapping;
     texture.repeat.x = -1;
 
-    //Charement des données descriptions
-    document.getElementById("show_description").classList =
-        "show_description is_displayed2";
+    // Chargement des données de description
+    document.getElementById("show_description").classList = "show_description is_displayed2";
     document.getElementById("nom-lieu").textContent = data.lieu;
     document.getElementById("nom").textContent = data.lieu;
     document.getElementById("desc1").textContent = data.descriptions[0];
     document.getElementById("description").textContent = data.descriptions[1];
-    document.getElementById("image_principale").src =
-        "img/galery/" + data.photo;
+    document.getElementById("image_principale").src = "img/galery/" + data.photo;
 
+    // Chargement des éléments audio
     try {
         audioElement1 = new Audio("./music/audio/" + data.feo[0].audio);
         document.getElementById("nom1").textContent = data.feo[0].name;
@@ -368,25 +388,19 @@ function create360(data) {
     }
 
     // Sélection de l'élément du carrousel
-    var images = data.galery;
-    // Sélection de l'élément du carrousel
     const carouselList = document.getElementById("carousel-list");
-    const prev = document.querySelector(".carousel #prev");
-    const next = document.querySelector(".carousel #next");
+    const images = data.galery;
 
-    // Vérification si l'élément existe
     if (carouselList) {
-        // Générer le HTML du carrousel
         let carouselHTML = "";
         images.forEach((imageUrl, index) => {
-            const activeClass = index === 0 ? "activ" : ""; // Ajoute la classe "active" au premier élément
+            const activeClass = index === 0 ? "activ" : ""; 
             carouselHTML += `
-          <li class="slide ${activeClass}">
-            <img src="img/galery/${imageUrl}" class="image-cliquable" alt="image carousel">
-          </li>
-        `;
+                <li class="slide ${activeClass}">
+                    <img src="img/galery/${imageUrl}" class="image-cliquable" alt="image carousel">
+                </li>
+            `;
         });
-        // Mettre le HTML généré dans le carrousel
         carouselList.innerHTML = carouselHTML;
     } else {
         console.error("L'élément carousel-list est introuvable.");
@@ -396,10 +410,10 @@ function create360(data) {
     const prevButton = document.getElementById("prev");
     const nextButton = document.getElementById("next");
 
-    // Ajout des gestionnaires d'événements pour les boutons précédent et suivant
-    prevButton.addEventListener("click", () => changeSlide(-1)); // -1 pour la diapositive précédente
-    nextButton.addEventListener("click", () => changeSlide(1)); // 1 pour la diapositive suivante
+    prevButton.addEventListener("click", () => changeSlide(-1));
+    nextButton.addEventListener("click", () => changeSlide(1));
 
+    // Gestion du son
     var sound360 = true;
     document.getElementById("sound").addEventListener("click", () => {
         if (sound360 === true) {
@@ -411,190 +425,154 @@ function create360(data) {
         }
     });
 
-    // Fonction pour changer de diapositive
     function changeSlide(direction) {
         const slides = document.querySelectorAll(".slide");
         let currentSlide = document.querySelector(".slide.active");
 
         if (!currentSlide) {
-            currentSlide = slides[0]; // Sélectionne la première diapositive si aucune n'est active
+            currentSlide = slides[0];
             currentSlide.classList.add("active");
         }
 
         let newIndex = Array.from(slides).indexOf(currentSlide) + direction;
-        newIndex = (newIndex + slides.length) % slides.length; // Permet de boucler les diapositives
+        newIndex = (newIndex + slides.length) % slides.length;
 
         slides.forEach((slide) => slide.classList.remove("active"));
         slides[newIndex].classList.add("active");
     }
 
-    // document.getElementById("desc-description").textContent = data.descriptions[0];
-    console.log(data);
-    //sound
     sound = new Audio("./music/" + data.audio);
     sound.loop = true;
     sound.play();
 
-    // Création du matériau
     const material = new THREE.MeshBasicMaterial({
         map: texture,
         side: THREE.BackSide,
     });
 
-    // Création de la sphère
     const sphere = new THREE.Mesh(geometry, material);
-
-    // Ajout de la sphère à la scène 360
     scene360.add(sphere);
 
-    // Création de texte
     const myText = new Text();
     scene360.add(myText);
-
-    // Configuration des propriétés du texte
     myText.text = data.lieu;
     myText.anchorX = "center";
     myText.font = "./fonts/Montserrat-Regular.otf";
     myText.color = 0x9ec3e9;
 
-    // Ajustements responsive en fonction de la taille de l'écran
     if (window.innerWidth <= 768) {
-        // Pour les écrans mobiles
-        myText.fontSize = 0.3; // Taille plus petite sur mobile
-        myText.position.z = -2; // Position ajustée pour mobile
+        myText.fontSize = 0.3; 
+        myText.position.z = -2; 
     } else if (window.innerWidth <= 1024) {
-        // Pour les tablettes
-        myText.fontSize = 0.3; // Taille moyenne pour les tablettes
-        myText.position.z = -2; // Position ajustée pour tablette
+        myText.fontSize = 0.3; 
+        myText.position.z = -2; 
     } else {
-        // Pour les grands écrans
-        myText.fontSize = 1; // Taille normale pour les grands écrans
-        myText.position.z = -4; // Position par défaut
+        myText.fontSize = 1; 
+        myText.position.z = -4; 
     }
 
-    // Mise à jour du rendu du texte
     myText.sync();
 
-    // Ajouter le bouton "Quitter" seulement si la scène 360 n'est pas déjà ouverte
     if (is360 === true) {
-        // Création du bouton lecture/pause pour l'audio
         audioPlayPauseButton = document.createElement("button");
         audioPlayPauseButton.classList.add("button");
         audioPlayPauseButton.style.display = "block";
-        audioPlayPauseButton.addEventListener("click", toggleAudioPlayPause); // Ajoute un gestionnaire d'événements clic
+        audioPlayPauseButton.addEventListener("click", toggleAudioPlayPause); 
 
-        // Création de l'icône pour le bouton lecture/pause
-        // Création de l'icône pour le bouton lecture/pause
         const audioIcon = document.createElement("img");
-        audioIcon.src = "./img/music.png"; // Chemin vers l'icône "play" ou "pause"
+        audioIcon.src = "./img/music.png"; 
 
-        // Ajustement de la taille de l'icône en fonction de la largeur de la fenêtre
         const screenWidth = window.innerWidth;
 
         if (screenWidth < 640) {
-            // Petit écran (mobile)
-            audioIcon.style.width = "25px"; // Définir la largeur de l'icône
-            audioIcon.style.height = "24px"; // Définir la hauteur de l'icône
+            audioIcon.style.width = "25px"; 
+            audioIcon.style.height = "24px"; 
         } else if (screenWidth < 768) {
-            // Écrans moyens
-            audioIcon.style.width = "30px"; // Définir la largeur de l'icône
-            audioIcon.style.height = "29px"; // Définir la hauteur de l'icône
+            audioIcon.style.width = "30px"; 
+            audioIcon.style.height = "29px"; 
         } else {
-            // Grands écrans
-            audioIcon.style.width = "35px"; // Définir la largeur de l'icône
-            audioIcon.style.height = "34px"; // Définir la hauteur de l'icône
+            audioIcon.style.width = "35px"; 
+            audioIcon.style.height = "34px"; 
         }
 
-        // Écouter les événements de redimensionnement de la fenêtre
         window.addEventListener("resize", () => {
             const screenWidth = window.innerWidth;
 
             if (screenWidth < 640) {
-                // Petit écran (mobile)
-                audioIcon.style.width = "25px"; // Mettre à jour la largeur de l'icône
-                audioIcon.style.height = "24px"; // Mettre à jour la hauteur de l'icône
+                audioIcon.style.width = "25px"; 
+                audioIcon.style.height = "24px"; 
             } else if (screenWidth < 768) {
-                // Écrans moyens
-                audioIcon.style.width = "30px"; // Mettre à jour la largeur de l'icône
-                audioIcon.style.height = "29px"; // Mettre à jour la hauteur de l'icône
+                audioIcon.style.width = "30px"; 
+                audioIcon.style.height = "29px"; 
             } else {
-                // Grands écrans
-                audioIcon.style.width = "35px"; // Mettre à jour la largeur de l'icône
-                audioIcon.style.height = "34px"; // Mettre à jour la hauteur de l'icône
+                audioIcon.style.width = "35px"; 
+                audioIcon.style.height = "34px"; 
             }
         });
 
-        // Ajout de l'icône au bouton lecture/pause
         audioPlayPauseButton.appendChild(audioIcon);
-
-        // Ajout du bouton à la page
         document.body.appendChild(audioPlayPauseButton);
 
         function toggleAudioPlayPause() {
             if (sound.paused) {
-                sound.play(); // Si l'audio est actuellement en pause, le reprendre
-                audioIcon.src = "./img/music.png"; // Mettre à jour l'icône en "pause"
+                sound.play(); 
+                audioIcon.src = "./img/music.png"; 
             } else {
-                sound.pause(); // Si l'audio est actuellement en lecture, le mettre en pause
-                audioIcon.src = "./img/mute.png"; // Mettre à jour l'icône en "play"
+                sound.pause(); 
+                audioIcon.src = "./img/mute.png"; 
             }
         }
 
         exitButton = document.createElement("button");
         exitButton.classList.add("exitButton");
 
-        // Créer l'élément img pour l'icône de mute
         const muteIcon = document.createElement("img");
-        muteIcon.src = "./img/quitter_rouge.png"; // Chemin vers l'icône de mute
+        muteIcon.src = "./img/quitter_rouge.png"; 
 
         if (screenWidth < 640) {
-            // Petit écran (mobile)
-            muteIcon.style.width = "25px"; // Définir la largeur de l'icône
-            muteIcon.style.height = "24px"; // Définir la hauteur de l'icône
+            muteIcon.style.width = "25px"; 
+            muteIcon.style.height = "24px"; 
         } else if (screenWidth < 768) {
-            // Écrans moyens
-            muteIcon.style.width = "30px"; // Définir la largeur de l'icône
-            muteIcon.style.height = "29px"; // Définir la hauteur de l'icône
+            muteIcon.style.width = "30px"; 
+            muteIcon.style.height = "29px"; 
         } else {
-            // Grands écrans
-            muteIcon.style.width = "35px"; // Définir la largeur de l'icône
-            muteIcon.style.height = "34px"; // Définir la hauteur de l'icône
+            muteIcon.style.width = "35px"; 
+            muteIcon.style.height = "34px"; 
         }
 
-        // Écouter les événements de redimensionnement de la fenêtre
         window.addEventListener("resize", () => {
             const screenWidth = window.innerWidth;
 
             if (screenWidth < 640) {
-                // Petit écran (mobile)
-                muteIcon.style.width = "25px"; // Mettre à jour la largeur de l'icône
-                muteIcon.style.height = "24px"; // Mettre à jour la hauteur de l'icône
+                muteIcon.style.width = "25px"; 
+                muteIcon.style.height = "24px"; 
             } else if (screenWidth < 768) {
-                // Écrans moyens
-                muteIcon.style.width = "30px"; // Mettre à jour la largeur de l'icône
-                muteIcon.style.height = "29px"; // Mettre à jour la hauteur de l'icône
+                muteIcon.style.width = "30px"; 
+                muteIcon.style.height = "29px"; 
             } else {
-                // Grands écrans
-                muteIcon.style.width = "35px"; // Mettre à jour la largeur de l'icône
-                muteIcon.style.height = "34px"; // Mettre à jour la hauteur de l'icône
+                muteIcon.style.width = "35px"; 
+                muteIcon.style.height = "34px"; 
             }
         });
 
-        // Ajouter l'icône de mute au bouton "Quitter"
         exitButton.appendChild(muteIcon);
-
         document.body.appendChild(exitButton);
 
-        // Ajout d'un gestionnaire d'événements clic au bouton "Quitter"
-        exitButton.addEventListener("click", exit360Scene);
+        // Événement de clic sur le exitButton
+        exitButton.addEventListener("click", () => {
+            exit360Scene();
+            // Afficher le bouton d'aide lorsque l'utilisateur quitte la scène
+            helpButton.style.display = 'block';
+        });
     } else {
-        // Afficher le bouton s'il existe déjà
         exitButton.style.display = "none";
         audioPlayPauseButton.style.display = "none";
     }
+    
     const submitBtn = document.getElementById("submit-btn");
     submitBtn.style.display = "none";
 }
+
 
 function rand(p) {
     return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
@@ -621,6 +599,8 @@ function exit360Scene() {
         exitButton.style.display = "none";
         audioPlayPauseButton.style.display = "none";
         exitButton.classList.add("moveLeft");
+        // Afficher le bouton d'aide lorsque l'utilisateur quitte la scène
+        helpButton.style.display = 'block';
     }
 
     // Réinitialiser renderScene360 à false pour indiquer que la scène 360 n'est plus rendue
@@ -661,7 +641,7 @@ for (let i = 0; i < data.length; i++) {
 }
 
 function loadPointOfInterest(x, y, z, data) {
-    loader.load("./public/paper_lantern.glb", (poiGltf) => {
+    loader.load("/paper_lantern.glb", (poiGltf) => {
         const pointOfInterest = poiGltf.scene;
 
         pointOfInterest.position.set(x, y, z);

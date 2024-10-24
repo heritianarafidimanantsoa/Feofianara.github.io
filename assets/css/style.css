@@ -99,7 +99,7 @@ body {
 }
 .navbar-icons img {
     width: 35px;
-    padding-right: 40px;
+    padding-right: 20px;
 }
 
 /* Responsive Styles */
@@ -124,7 +124,7 @@ body {
 
 @media (max-width: 1024px) {
     .navbar {
-        padding-top: 20px; /* Padding minimal pour économiser de l'espace */
+        padding-top: 5px; /* Padding minimal pour économiser de l'espace */
     }
 
     .logofeo {
@@ -886,3 +886,171 @@ li:hover {
 	font-size: 12 px;
 	font-weight: bold;
     }
+
+
+
+/* Instruction d'utilisation de souris */
+/* Style pour le bouton d'aide */
+.c-create-help-button {
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+    position: fixed;
+    bottom: 20px;
+    right: 60px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.c-create-help-button__desktop {
+    width: 48px;
+    height: 48px;
+    transition: transform 200ms cubic-bezier(0.2, 0, 0.2, 1);
+    display: block; /* Affiche l'icône de bureau par défaut */
+}
+
+.c-icon-button__icon {
+    width: 48px;
+    height: 48px;
+    transition: transform 200ms cubic-bezier(0.2, 0, 0.2, 1);
+    display: none; /* Masqué par défaut pour mobile/tablette */
+    fill: white; /* Modifie la couleur de remplissage des chemins */
+   
+    
+}
+
+/* Correction : Suppression de cette règle répétée qui cachait à tort l'icône */
+.c-icon-button__icon {
+    display: none;
+}
+
+/* Style pour la popup d'instructions */
+.instructions-popup {
+    position: fixed; /* Changer à fixed pour toujours rester dans le coin */
+    bottom: 20px;
+    right: 100px;
+    width: auto; /* Ajustement automatique */
+    max-width: 250px; /* Réduire la largeur maximale pour plus de compacité */
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px; /* Ajustement des marges internes */
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 101;
+}
+
+/* Masque par défaut */
+.hidden {
+    display: none;
+}
+
+/* Styles pour les éléments d'instruction */
+.instruction-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 8px; /* Réduire l'espace entre les éléments d'instruction */
+}
+
+.instruction-item svg {
+    min-width: 30px; /* Réduire la taille minimale */
+    height: 30px; /* Réduire la taille */
+    margin-right: 6px; /* Réduire l'espace entre le SVG et le texte */
+}
+
+/* Styles responsives */
+@media (max-width: 1366px) { /* Tablettes et mobiles */
+    .c-create-help-button__desktop {
+        display: none; /* Masque l'icône de bureau sur mobile/tablette */
+    }
+
+    .c-icon-button__icon {
+        display: block; /* Affiche l'icône mobile sur mobile/tablette */
+        color: #fff;
+    }
+
+    .desktop-text {
+        display: none; /* Masquer sur mobile */
+    }
+
+    .mobile-text {
+        display: block; /* Afficher sur mobile */
+        font-size: 0.5rem; /* Ajuster la taille de police pour mobile */
+    }
+
+    .icon.mobile-icon {
+        width: 32px; /* Ajuster la taille de l'icône pour mobile */
+        height: 32px;
+    }
+
+    .icon.desktop-icon {
+        display: none;
+    }
+}
+
+@media (min-width: 1367px) { /* Desktop */
+    .mobile-text {
+        display: none; /* Masquer sur desktop */
+    }
+
+    .desktop-text {
+        font-size: 0.8rem; /* Ajuster la taille de police pour desktop */
+    }
+
+    .icon.mobile-icon {
+        display: none;
+    }
+}
+
+/* Styles pour les icônes au survol */
+.explore-desktop-01_svg__cls-2,
+.create-desktop-02_svg__cls-2,
+.explore-desktop-02_svg__cls-2,
+.explore-desktop-03_svg__cls-2 {
+    fill: #ffffff; /* Couleur de remplissage par défaut */
+}
+
+.icon.mobile-icon {
+    fill: #ffffff;
+}
+
+.explore-desktop-01_svg__cls-2:hover,
+.create-desktop-02_svg__cls-2:hover,
+.explore-desktop-02_svg__cls-2:hover,
+.explore-desktop-03_svg__cls-2:hover {
+    fill: #00a041; /* Couleur de remplissage lors du survol */
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.close-instructions {
+    background-color: #00a041;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0; /* Retirer le padding inutile */
+    border-radius: 5px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-instructions svg {
+    width: 20px; /* Ajuster la taille de l'icône */
+    height: 20px; /* Assurer que le SVG reste bien centré */
+    fill: white; /* Assurer que l'icône soit blanche comme le texte */
+}
+
+
+
+      
+/* fin Instruction d'utilisation de souris */
