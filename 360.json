@@ -18,12 +18,12 @@
             {
                 "name": "Nalahatra",
                 "comment": "Ce qui m'a particulièrement attiré ici, c'est la tranquillité de la ville",
-                "audio": "001.wav"
+                "audio": "001.mp3"
             },
             {
                 "name": "Ravaka",
                 "comment": "Je me sens bien ici parce que presque tous les endroits sont accessibles à pied, il n'est pas nécessaire de prendre un moyen de transport pour se déplacer. C'est à la fois un exercice physique et une façon de protéger l'environnement",
-                "audio": "003.wav"
+                "audio": "003.mp3"
             }
         ],
         "audio": "lapany 2.mp3",
@@ -210,9 +210,9 @@
                 "audio": "015.mp3"
             },
             {
-               "name": "Nalahatra",
+                "name": "Nalahatra",
                 "comment": "Ce qui m'a particulièrement attiré ici, c'est la tranquillité de la ville",
-                "audio": "001.wav"
+                "audio": "001.mp3"
             }
         ],
         "audio": "Gare FCE.mp3",
@@ -238,7 +238,7 @@
             {
                 "name": "Ravaka",
                 "comment": "Je me sens bien ici parce que presque tous les endroits sont accessibles à pied, il n'est pas nécessaire de prendre un moyen de transport pour se déplacer. C'est à la fois un exercice physique et une façon de protéger l'environnement",
-                "audio": "003.wav"
+                "audio": "003.mp3"
             },
             {
                 "name": "Rivo",

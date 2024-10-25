@@ -895,7 +895,7 @@
     .visible {
         font-size: 14px; /* Taille minimale pour les petits écrans */
         line-height: 25px; /* Ajustement de l'espacement des lignes */
-        padding-top: 10%; /* Ajustement du padding-top pour les très petits écrans */
+        padding-top: 25%; /* Ajustement du padding-top pour les très petits écrans */
     }
 }
 
@@ -1206,7 +1206,7 @@
     .carousel {
         width: 32vh;
         height: 25vh;
-        margin-top: 11vh;
+        margin-top: 7vh;
     }
 }
 
