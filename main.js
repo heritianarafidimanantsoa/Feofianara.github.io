@@ -148,7 +148,7 @@ camera.position.set(0, 20, 0);
 
 // Initialisation des contrôles de la carte
 var controls = new MapControls(camera, renderer.domElement);
-controls.mouseButtons.RIGHT = null;
+// controls.mouseButtons.RIGHT = null;
 controls.enableDamping = true;
 controls.dampingFactor = 0.25;
 controls.screenSpacePanning = false;
@@ -218,7 +218,7 @@ camera360.position.z = 3;
 // Ajout des contrôles de la caméra
 var controls360 = new OrbitControls(camera360, renderer.domElement);
 
-controls360.mouseButtons.RIGHT = null;
+// controls360.mouseButtons.RIGHT = null;
 controls360.enableDamping = true;
 controls360.dampingFactor = 0.05;
 controls360.enableZoom = false;
