@@ -311,6 +311,21 @@ function init() {
         scene.add(roads);
     });
 
+    loader1.load("public/Lanitra.glb", async function (gltf) {
+        roads = gltf.scene;
+        roads.scale.set(
+            0.004 * roads.scale.x,
+            0.004 * roads.scale.y,
+            0.004 * roads.scale.z
+        );
+        roads.position.y -= 6;
+        // wait until the model can be added to the scene without blocking due to shader compilation
+        await renderer.compileAsync(roads, camera, scene);
+
+        roads.name = "Lanitra";
+        scene.add(roads);
+    });
+
     setupLight();
 
     initPostprocessing();
