@@ -26,6 +26,19 @@ body {
     overflow: hidden;
 }
 
+/* Styles généraux */
+body {
+    background-color: #ccc;
+    color: #000;
+    overscroll-behavior: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Pour éviter le défilement horizontal */
+}
+
 .cursor {
     height: 50px;
     width: 50px;
@@ -99,7 +112,7 @@ body {
 }
 .navbar-icons img {
     width: 35px;
-    padding-right: 40px;
+    padding-right: 50px;
 }
 
 /* Responsive Styles */
@@ -124,7 +137,7 @@ body {
 
 @media (max-width: 1024px) {
     .navbar {
-        padding-top: 20px; /* Padding minimal pour économiser de l'espace */
+        padding-top: 5px; /* Padding minimal pour économiser de l'espace */
     }
 
     .logofeo {
@@ -196,12 +209,6 @@ body {
     }
 }
 
-/* Style supplémentaire pour le mode sombre */
-.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
 .progress-bar-container {
     position: absolute;
     left: 50%;
@@ -209,7 +216,7 @@ body {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.98);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -246,7 +253,7 @@ progress {
 
 /* Styles pour la valeur de progression */
 progress::-webkit-progress-bar {
-    background-color: #515151; /* Couleur de fond de la barre */
+    background-color: #202020; /* Couleur de fond de la barre */
 }
 
 progress::-webkit-progress-value {
@@ -262,6 +269,34 @@ progress::-moz-progress-bar {
     ); /* Couleur de la valeur de progression pour Firefox */
     border-radius: 5px; /* Coins arrondis */
 }
+
+/* Styles responsive pour petits écrans */
+@media (max-width: 768px) {
+    label {
+        font-size: 1rem; /* Taille de police plus petite */
+    }
+
+    #progress-bar {
+        height: 8px; /* Hauteur ajustée pour les petits écrans */
+    }
+}
+
+/* Styles pour très petits écrans (téléphones) */
+@media (max-width: 480px) {
+    .progress-bar-container {
+        width: 95%; /* Occupe plus d'espace horizontal */
+        padding: 10px; /* Moins de padding pour petits écrans */
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    progress {
+        height: 12px;
+    }
+}
+
 .header {
     position: absolute;
     left: 50%;
@@ -324,62 +359,55 @@ progress::-moz-progress-bar {
     height: 180%;
 }
 
-/* Responsive pour les petits écrans (jusqu'à 640px) */
-@media (max-width: 640px) {
-    .btn {
-        padding: 8px 20px;
-        font-size: 16px;
-    }
-
-    .header button:hover {
-        padding: 8px 25px;
-        font-size: 16px;
-    }
+/* Style de base pour les boutons */
+.btn {
+    border: 3px solid #00a041;
+    border-radius: 50px;
+    background: none;
+    padding: 10px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Responsive pour les écrans moyens (jusqu'à 768px) */
-@media (max-width: 768px) {
-    .btn {
-        padding: 9px 22px;
-        font-size: 18px;
-    }
-
-    .header button:hover {
-        padding: 9px 27px;
-        font-size: 18px;
-    }
+.btn1 {
+    color: #000000;
 }
 
-/* Responsive pour les grands écrans (jusqu'à 1024px) */
-@media (max-width: 1024px) {
-    .btn {
-        padding: 10px 23px;
-        font-size: 19px;
-    }
-
-    .header button:hover {
-        padding: 10px 28px;
-        font-size: 19px;
-    }
+.header button:hover {
+    background-color: white;
+    color: black;
+    padding: 10px 30px;
+    font-size: 20px;
 }
 
-/* Responsive pour les très grands écrans (jusqu'à 1280px) */
-@media (max-width: 1280px) {
-    .btn {
-        padding: 10px 24px;
-        font-size: 19px;
-    }
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #fff;
+    z-index: -1;
+    transition: 0.8s;
+}
 
-    .header button:hover {
-        padding: 10px 29px;
-        font-size: 19px;
-    }
+.btn1::before {
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+
+.btn1:hover::before {
+    height: 180%;
 }
 
 .backgroundExplorer {
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.308);
+    background-color: rgb(255 255 255 / 50%);
     position: absolute;
     transition: 0s;
 }
@@ -869,7 +897,7 @@ li:hover {
 /* Responsivité pour les petits écrans (smartphones) */
 @media (max-width: 480px) {
     .header {
-        top: 45%; /* Ajustement du centrage vertical pour les petits écrans */
+        top: 50%; /* Ajustement du centrage vertical pour les petits écrans */
     }
 
     .header h1 {
@@ -877,3 +905,214 @@ li:hover {
         letter-spacing: 2px; /* Espacement plus petit pour compenser */
     }
 }
+
+/* Changer la couleur du texte et icone sur Cette expérience s'apprécie sur un ordinateur */
+
+.readthedocs {
+    color: #000000; /* couleur personnalisée */
+    font-family: "Montserrat";
+    font-size: 12 px;
+    font-weight: bold;
+}
+
+/* Responsive pour les écrans de 480px et plus */
+@media (min-width: 300px) {
+    .readthedocs {
+        font-size: 14px; /* taille de police pour les écrans de 480px et plus */
+    }
+}
+
+/* Responsive pour les écrans de 640px et plus */
+@media (min-width: 640px) {
+    .readthedocs {
+        font-size: 16px; /* taille de police pour les écrans de 640px et plus */
+    }
+}
+
+/* Responsive pour les tablettes, 1024px et plus */
+@media (min-width: 1024px) {
+    .readthedocs {
+        font-size: 18px; /* taille de police pour les écrans de 1024px et plus */
+    }
+}
+
+/* Responsive pour les grands écrans, 1280px et plus */
+@media (min-width: 1280px) {
+    .readthedocs {
+        font-size: 20px; /* taille de police pour les écrans de 1280px et plus */
+    }
+}
+
+/* Instruction d'utilisation de souris */
+/* Style pour le bouton d'aide */
+.c-create-help-button {
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+    position: fixed;
+    bottom: 20px;
+    right: 60px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.c-create-help-button__desktop {
+    width: 48px;
+    height: 48px;
+    transition: transform 200ms cubic-bezier(0.2, 0, 0.2, 1);
+    display: block; /* Affiche l'icône de bureau par défaut */
+}
+
+.c-icon-button__icon {
+    width: 48px;
+    height: 48px;
+    transition: transform 200ms cubic-bezier(0.2, 0, 0.2, 1);
+    display: none; /* Masqué par défaut pour mobile/tablette */
+    fill: white; /* Modifie la couleur de remplissage des chemins */
+}
+
+/* Correction : Suppression de cette règle répétée qui cachait à tort l'icône */
+.c-icon-button__icon {
+    display: none;
+}
+
+/* Style pour la popup d'instructions */
+.instructions-popup {
+    position: fixed; /* Changer à fixed pour toujours rester dans le coin */
+    bottom: 20px;
+    right: 30px;
+    width: auto; /* Ajustement automatique */
+    max-width: 250px; /* Réduire la largeur maximale pour plus de compacité */
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px; /* Ajustement des marges internes */
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 101;
+}
+
+/* Masque par défaut */
+.hidden {
+    display: none;
+}
+
+/* Styles pour les éléments d'instruction */
+.instruction-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 8px; /* Réduire l'espace entre les éléments d'instruction */
+}
+
+.instruction-item svg {
+    min-width: 30px; /* Réduire la taille minimale */
+    height: 30px; /* Réduire la taille */
+    margin-right: 6px; /* Réduire l'espace entre le SVG et le texte */
+}
+
+/* Styles responsives */
+@media (max-width: 1366px) {
+    /* Tablettes et mobiles */
+    .c-create-help-button__desktop {
+        display: none; /* Masque l'icône de bureau sur mobile/tablette */
+    }
+
+    .c-icon-button__icon {
+        display: block; /* Affiche l'icône mobile sur mobile/tablette */
+        color: #fff;
+        position: absolute; /* Positionnement absolu */
+        bottom: 5px; /* Ajuster la distance du bas */
+        left: 5px; /* Ajuster la distance du côté gauche (ou change selon tes besoins) */
+        width: 40px; /* Ajuster la taille de l'icône pour mobile */
+        height: 40px;
+    }
+
+    .desktop-text {
+        display: none; /* Masquer sur mobile */
+    }
+
+    .mobile-text {
+        display: block; /* Afficher sur mobile */
+        font-size: 0.5rem; /* Ajuster la taille de police pour mobile */
+    }
+
+    .icon.mobile-icon {
+        width: 32px; /* Ajuster la taille de l'icône pour mobile */
+        height: 32px;
+    }
+
+    .icon.desktop-icon {
+        display: none;
+    }
+
+    /* Centrer la popup d'instructions */
+    .instructions-popup {
+        left: 50%; /* Positionner à 50% de la largeur */
+        transform: translateX(-50%); /* Centrer horizontalement */
+        right: auto; /* Supprimer le droit pour éviter des conflits */
+    }
+}
+@media (min-width: 1367px) {
+    /* Desktop */
+    .mobile-text {
+        display: none; /* Masquer sur desktop */
+    }
+
+    .desktop-text {
+        font-size: 0.8rem; /* Ajuster la taille de police pour desktop */
+    }
+
+    .icon.mobile-icon {
+        display: none;
+    }
+}
+
+/* Styles pour les icônes au survol */
+.explore-desktop-01_svg__cls-2,
+.create-desktop-02_svg__cls-2,
+.explore-desktop-02_svg__cls-2,
+.explore-desktop-03_svg__cls-2 {
+    fill: #ffffff; /* Couleur de remplissage par défaut */
+}
+
+.icon.mobile-icon {
+    fill: #ffffff;
+}
+
+.explore-desktop-01_svg__cls-2:hover,
+.create-desktop-02_svg__cls-2:hover,
+.explore-desktop-02_svg__cls-2:hover,
+.explore-desktop-03_svg__cls-2:hover {
+    fill: #00a041; /* Couleur de remplissage lors du survol */
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.close-instructions {
+    background-color: #00a041;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0; /* Retirer le padding inutile */
+    border-radius: 5px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-instructions svg {
+    width: 20px; /* Ajuster la taille de l'icône */
+    height: 20px; /* Assurer que le SVG reste bien centré */
+    fill: white; /* Assurer que l'icône soit blanche comme le texte */
+}
+
+/* fin Instruction d'utilisation de souris */

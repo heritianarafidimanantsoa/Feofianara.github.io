@@ -16,14 +16,14 @@
         ],
         "feo": [
             {
-                "name": "BADODA",
-                "comment": "c'est un des plus beaux endroits de la ville!",
+                "name": "Nalahatra",
+                "comment": "Ce qui m'a particulièrement attiré ici, c'est la tranquillité de la ville",
                 "audio": "001.wav"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "002.wav"
+                "name": "Ravaka",
+                "comment": "Je me sens bien ici parce que presque tous les endroits sont accessibles à pied, il n'est pas nécessaire de prendre un moyen de transport pour se déplacer. C'est à la fois un exercice physique et une façon de protéger l'environnement",
+                "audio": "003.wav"
             }
         ],
         "audio": "lapany 2.mp3",
@@ -56,14 +56,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
-                "audio": "002.mp3"
+                "name": "Rivo",
+                "comment": "C'est agréable ici car presque tous les habitants se connaissent, même s'ils ne connaissent pas les noms, ils se reconnaissent de vue. On peut encore y percevoir clairement la culture malgache",
+                "audio": "004.mp3"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "003.mp3"
+                "name": "Fidson",
+                "comment": "Fianarantsoa est l'une des capitales régionales les plus paisibles en termes de sécurité. Quant au coût de la vie, on peut dire qu'il est tout à fait abordable grâce à la disponibilité des produits locaux et à l'élevage",
+                "audio": "006.mp3"
             }
         ],
         "audio": "rova.mp3",
@@ -92,14 +92,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
-                "audio": "005.mp3"
+                "name": "Josie",
+                "comment": "Ce que j'apprécie particulièrement à Fianarantsoa, c'est de fréquenter les restaurants locaux",
+                "audio": "008.mp3"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "006.mp3"
+                "name": "Sarah",
+                "comment": "J'aime Fianarantsoa parce que c'est mon lieu de naissance, l'endroit où j'ai grandi, cette ville est gravée dans mon cœur et je n'ai aucune intention de partir d'ici",
+                "audio": "007.mp3"
             }
         ],
         "audio": "Cathedrale 1.mp3",
@@ -126,14 +126,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
-                "audio": "007.mp3"
+                "name": "Nary",
+                "comment": "J'aime bien Anjoma parce que c'est proche du marché",
+                "audio": "009.mp3"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "008.mp3"
+                "name": "Ny aina",
+                "comment": "Mes endroits préférés ici à Fianarantsoa sont Tanàna Ambony et l'autre un peu éloigné qui est Ranomafana Ifanadina",
+                "audio": "011.mp3"
             }
         ],
         "audio": "Gare FCE.mp3",
@@ -172,14 +172,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
-                "audio": "009.mp3"
+                "name": "Rachelle",
+                "comment": "Ce sont les endroits propres et calmes qui me plaisent à Fianarantsoa",
+                "audio": "012.mp3"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "010.mp3"
+                "name": "Ramanjato",
+                "comment": "Mon endroit préféré ici à Fianarantsoa est Anosy, un lieu qui est un peu calme",
+                "audio": "013.mp3"
             }
         ],
         "audio": "Gare FCE.mp3",
@@ -205,14 +205,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
-                "audio": "011.mp3"
+                "name": "Rafalimanana",
+                "comment": "Les endroits agréables ici à Fianarantsoa : Ivory Avaratra est particulièrement plaisant, où l'on peut se promener à travers ses jardins, et l'environnement n'est pas encore trop dégradé",
+                "audio": "015.mp3"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "012.mp3"
+               "name": "Nalahatra",
+                "comment": "Ce qui m'a particulièrement attiré ici, c'est la tranquillité de la ville",
+                "audio": "001.wav"
             }
         ],
         "audio": "Gare FCE.mp3",
@@ -236,14 +236,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
-                "audio": "013.mp3"
+                "name": "Ravaka",
+                "comment": "Je me sens bien ici parce que presque tous les endroits sont accessibles à pied, il n'est pas nécessaire de prendre un moyen de transport pour se déplacer. C'est à la fois un exercice physique et une façon de protéger l'environnement",
+                "audio": "003.wav"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "014.mp3"
+                "name": "Rivo",
+                "comment": "C'est agréable ici car presque tous les habitants se connaissent, même s'ils ne connaissent pas les noms, ils se reconnaissent de vue. On peut encore y percevoir clairement la culture malgache",
+                "audio": "004.mp3"
             }
         ],
         "audio": "Gare FCE.mp3",
@@ -267,14 +267,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
-                "audio": "015.mp3"
+                "name": "Fidson",
+                "comment": "Fianarantsoa est l'une des capitales régionales les plus paisibles en termes de sécurité. Quant au coût de la vie, on peut dire qu'il est tout à fait abordable grâce à la disponibilité des produits locaux et à l'élevage",
+                "audio": "006.mp3"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "016.mp3"
+                "name": "Josie",
+                "comment": "Ce que j'apprécie particulièrement à Fianarantsoa, c'est de fréquenter les restaurants locaux",
+                "audio": "008.mp3"
             }
         ],
         "audio": "Gare FCE.mp3",
@@ -301,14 +301,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
-                "audio": "001.mp3"
+                "name": "Sarah",
+                "comment": "J'aime Fianarantsoa parce que c'est mon lieu de naissance, l'endroit où j'ai grandi, cette ville est gravée dans mon cœur et je n'ai aucune intention de partir d'ici",
+                "audio": "007.mp3"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "002.mp3"
+                "name": "Nary",
+                "comment": "J'aime bien Anjoma parce que c'est proche du marché",
+                "audio": "009.mp3"
             }
         ],
         "audio": "Gare FCE.mp3",
@@ -334,14 +334,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
-                "audio": "003.mp3"
+                "name": "Olivier",
+                "comment": "Mon endroit préféré est le Point de vue, où l'on peut contempler la vue imprenable sur toute la ville de Fianarantsoa, tout en profitant de l'air pur!",
+                "audio": "010.mp3"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "004.mp3"
+                "name": "Ny aina",
+                "comment": "Mes endroits préférés ici à Fianarantsoa sont Tanàna Ambony et l'autre un peu éloigné qui est Ranomafana Ifanadina",
+                "audio": "011.mp3"
             }
         ],
         "audio": "Gare FCE.mp3",
@@ -365,14 +365,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
-                "audio": "005.mp3"
+                "name": "Rachelle",
+                "comment": "Ce sont les endroits propres et calmes qui me plaisent à Fianarantsoa",
+                "audio": "012.mp3"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "006.mp3"
+                "name": "Olivier",
+                "comment": "Mon endroit préféré est le Point de vue, où l'on peut contempler la vue imprenable sur toute la ville de Fianarantsoa, tout en profitant de l'air pur!",
+                "audio": "010.mp3"
             }
         ],
         "audio": "Gare FCE.mp3",
@@ -397,14 +397,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
-                "audio": "005.mp3"
+                "name": "Ramanjato",
+                "comment": "Mon endroit préféré ici à Fianarantsoa est Anosy, un lieu qui est un peu calme",
+                "audio": "013.mp3"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "006.mp3"
+                "name": "Rafalimanana",
+                "comment": "Les endroits agréables ici à Fianarantsoa : Ivory Avaratra est particulièrement plaisant, où l'on peut se promener à travers ses jardins, et l'environnement n'est pas encore trop dégradé",
+                "audio": "015.mp3"
             }
         ],
         "audio": "Gare FCE.mp3",
@@ -424,14 +424,14 @@
         ],
         "feo": [
             {
-                "name": "Mahera",
-                "comment": "c'est un des plus beaux endroits de la ville!",
+                "name": "Sarah",
+                "comment": "J'aime Fianarantsoa parce que c'est mon lieu de naissance, l'endroit où j'ai grandi, cette ville est gravée dans mon cœur et je n'ai aucune intention de partir d'ici",
                 "audio": "007.mp3"
             },
             {
-                "name": "Tokiarivelo",
-                "comment": "J'aime cet endroit car il représente bien Fianarantsoa",
-                "audio": "008.mp3"
+                "name": "Rafalimanana",
+                "comment": "Les endroits agréables ici à Fianarantsoa : Ivory Avaratra est particulièrement plaisant, où l'on peut se promener à travers ses jardins, et l'environnement n'est pas encore trop dégradé",
+                "audio": "015.mp3"
             }
         ],
         "audio": "Gare FCE.mp3",
