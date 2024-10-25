@@ -325,7 +325,7 @@ function init() {
             0.004 * roads.scale.y,
             0.004 * roads.scale.z
         );
-        roads.position.y -= 6;
+        roads.position.y -= 1.4;
         // wait until the model can be added to the scene without blocking due to shader compilation
         await renderer.compileAsync(roads, camera, scene);
 
