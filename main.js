@@ -38,6 +38,7 @@ window.onclick = function (event) {
     }
 };
 
+
 // Instruction souris
 // Sélection des éléments
 const helpButton = document.querySelector('.c-create-help-button');
@@ -641,7 +642,7 @@ for (let i = 0; i < data.length; i++) {
 }
 
 function loadPointOfInterest(x, y, z, data) {
-    loader.load("/paper_lantern.glb", (poiGltf) => {
+    loader.load("public/paper_lantern.glb", (poiGltf) => {
         const pointOfInterest = poiGltf.scene;
 
         pointOfInterest.position.set(x, y, z);
