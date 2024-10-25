@@ -928,7 +928,7 @@ li:hover {
 .instructions-popup {
     position: fixed; /* Changer à fixed pour toujours rester dans le coin */
     bottom: 20px;
-    right: 100px;
+    right: 30px;
     width: auto; /* Ajustement automatique */
     max-width: 250px; /* Réduire la largeur maximale pour plus de compacité */
     background-color: rgba(0, 0, 0, 0.8);
@@ -970,6 +970,11 @@ li:hover {
     .c-icon-button__icon {
         display: block; /* Affiche l'icône mobile sur mobile/tablette */
         color: #fff;
+        position: absolute; /* Positionnement absolu */
+        bottom: 5px; /* Ajuster la distance du bas */
+        left: 5px; /* Ajuster la distance du côté gauche (ou change selon tes besoins) */
+		width: 40px; /* Ajuster la taille de l'icône pour mobile */
+        height: 40px;
     }
 
     .desktop-text {
@@ -989,8 +994,14 @@ li:hover {
     .icon.desktop-icon {
         display: none;
     }
-}
 
+    /* Centrer la popup d'instructions */
+    .instructions-popup {
+        left: 50%; /* Positionner à 50% de la largeur */
+        transform: translateX(-50%); /* Centrer horizontalement */
+        right: auto; /* Supprimer le droit pour éviter des conflits */
+    }
+}
 @media (min-width: 1367px) { /* Desktop */
     .mobile-text {
         display: none; /* Masquer sur desktop */
