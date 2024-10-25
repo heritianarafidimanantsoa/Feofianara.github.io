@@ -130,6 +130,7 @@ camera.position.set(0, 20, 0);
 
 // Initialisation des contrôles de la carte
 var controls = new MapControls(camera, renderer.domElement);
+controls.mouseButtons.RIGHT = null;
 controls.enableDamping = true;
 controls.dampingFactor = 0.25;
 controls.screenSpacePanning = false;
@@ -198,10 +199,16 @@ camera360.position.z = 3;
 
 // Ajout des contrôles de la caméra
 var controls360 = new OrbitControls(camera360, renderer.domElement);
+controls.enabled = false;
+controls360.mouseButtons.RIGHT = null;
 controls360.enableDamping = true;
 controls360.dampingFactor = 0.05;
 controls360.enableZoom = false;
 controls360.screenSpacePanning = false;
+
+
+
+
 
 function setupLight() {
     var hemiLight = new THREE.HemisphereLight(0x224488, 0xffffff, 0.1);
@@ -596,9 +603,7 @@ function create360(data) {
     submitBtn.style.display = "none";
 }
 
-function rand(p) {
-    return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
-}
+
 
 // Fonction pour quitter la scène 360 et revenir à la scène principale
 function exit360Scene() {
@@ -705,42 +710,6 @@ function loadPointOfInterest(x, y, z, data) {
         lant.push(pointOfInterest);
     });
 }
-
-//cercle(0, 0, 0)
-
-function cercle(x, y, z) {
-    loader.load("./assets/arendrinatsymirehatra.glb", (poiGltf) => {
-        const pointOfInterest = poiGltf.scene;
-
-        pointOfInterest.position.set(x, y, z);
-        pointOfInterest.scale.set(0.3, 0.3, 0.3);
-
-        // Attribution d'un ID unique à chaque GLB
-        pointOfInterest.userData.id = currentGLBId++;
-
-        const ringGeometry = new THREE.RingGeometry(20.5, 0.6, 32);
-        const ringMaterial = new THREE.MeshBasicMaterial({
-            color: 0xff0000,
-            side: THREE.DoubleSide,
-        });
-        ringMesh = new THREE.Mesh(ringGeometry, ringMaterial);
-
-        ringMesh.position.copy(pointOfInterest.position);
-
-        lanternes.push({
-            id: lanternes.length,
-            x: x,
-            y: y,
-            z: z,
-            object: pointOfInterest, // Stockez la référence à l'objet dans l'array lanternes
-        });
-
-        // scene.add(pointOfInterest);
-        scene.add(ringMesh);
-    });
-}
-// Ajouter un gestionnaire d'événements pour le clic
-// document.addEventListener('click', onClick);
 
 document.addEventListener("click", function (event) {
     onClick(event, donnees);
