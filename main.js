@@ -224,7 +224,7 @@ controls360.dampingFactor = 0.05;
 controls360.enableZoom = false;
 controls360.screenSpacePanning = false;
 
-// controls360.enabled = false;
+controls360.enabled = false;
 
 
 
@@ -358,6 +358,11 @@ let audioPlayPauseButton; // Variable globale pour stocker une référence au bo
 
 
 function create360(data) {
+    controls360.enabled = true;
+    controls.enabled = false;
+
+   
+
     audioPlayer2.pause();
     sound360 = true;
 
@@ -369,6 +374,14 @@ function create360(data) {
         camera360.position.set(0, 0, 0);
         camera360.lookAt(0, 0, 0);
     }
+
+    // Réinitialisation de la caméra 360
+    camera360.position.set(0, 0, 0);
+    camera360.lookAt(0, 0, -1); // Oriente vers l'axe Z négatif
+
+    // Réinitialiser les contrôles pour prendre en compte la nouvelle position de la caméra
+    controls360.target.set(0, 0, -1); // Définit la cible de focus des contrôles
+    controls360.update(); // Met à jour les contrôles pour appliquer les changements
 
     is360 = true;
     // Création de la géométrie de la sphère
@@ -602,6 +615,9 @@ function create360(data) {
 
 // Fonction pour quitter la scène 360 et revenir à la scène principale
 function exit360Scene() {
+    controls360.enabled = false;
+    controls.enabled = true;
+
     audioPlayer2.play();
     is360 = false;
 
