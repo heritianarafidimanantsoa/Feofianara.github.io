@@ -114,11 +114,15 @@ var camera = new THREE.PerspectiveCamera(
 );
 
 const jsonList = document.getElementById("jsonList");
+const jsonList2 = document.getElementById("jsonList2");
 
 // Charger le fichier JSON
 fetch("360.json")
     .then((response) => response.json())
     .then((data) => {
+
+        const uniquesNames = [];
+
         // Parcourir les données JSON et créer des éléments <li>
         data.forEach((item) => {
             const listItem = document.createElement("li");
@@ -136,7 +140,45 @@ fetch("360.json")
                 modal.style.display = "none";
             });
             jsonList.appendChild(listItem);
+
+            item.feo.forEach((person) => {
+                if (!uniquesNames.includes(person.name)) {
+                    uniquesNames.push(person.name); // Ajoute le nom seulement s'il n'existe pas déjà
+                }
+            });
         });
+
+        uniquesNames.forEach((nom)=>{
+            const listItem2 = document.createElement("li");
+            listItem2.classList = "lieuLi";
+            listItem2.textContent = nom;
+
+            listItem2.addEventListener("click", function () {
+
+                const nameToFind = nom; // Le nom que vous cherchez
+                const ids = data
+                    .filter(item => item.feo.some(fe => fe.name === nameToFind))
+                    .map(item => item.id);
+
+                console.log(data[ids[0]-1].lieu); // Aff
+                console.log(ids)
+
+
+                create360(data[ids[0]-1]);
+
+                hideNavbarIn360();
+
+                removeFirstScene();
+
+                renderScene360 = true;
+
+                modal2.style.display = "none";
+            });
+            jsonList2.appendChild(listItem2);
+        });
+        console.log("atttto")
+        console.log(uniquesNames)
+
         // Récuperation de parametre de l'IRL
         let url = window.location.href;
         let params = url.split("?")[1];
