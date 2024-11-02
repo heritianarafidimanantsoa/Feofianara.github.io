@@ -39,6 +39,22 @@ body {
     overflow-x: hidden; /* Pour éviter le défilement horizontal */
 }
 
+.accordion {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+.accordion-header {
+    padding: 10px;
+    cursor: pointer;
+}
+.accordion-content {
+    display: none;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
 .cursor {
     height: 50px;
     width: 50px;

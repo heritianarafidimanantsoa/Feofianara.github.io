@@ -150,32 +150,73 @@ fetch("360.json")
 
         uniquesNames.forEach((nom)=>{
             const listItem2 = document.createElement("li");
-            listItem2.classList = "lieuLi";
-            listItem2.textContent = nom;
+            listItem2.classList = "persoLi";
+            // listItem2.textContent = nom;
 
-            listItem2.addEventListener("click", function () {
+            const nameToFind = nom; // Le nom que vous cherchez
+            const ids = data //ids contient la liste des id des lieu qu'apparait une personne
+                .filter(item => item.feo.some(fe => fe.name === nameToFind))
+                .map(item => item.id);
 
-                const nameToFind = nom; // Le nom que vous cherchez
-                const ids = data
-                    .filter(item => item.feo.some(fe => fe.name === nameToFind))
-                    .map(item => item.id);
+            const accordionContainer = listItem2;
+            const accordionData = [];
 
-                console.log(data[ids[0]-1].lieu); // Aff
-                console.log(ids)
+            for (let i = 0; i < ids.length; i++) {
+                accordionData.push(data[ids[i]-1]);
+            }
 
+            
+            // Créer le conteneur de l'accordéon
+            const accordion = document.createElement('div');
+            accordion.className = 'accordion';
 
-                create360(data[ids[0]-1]);
+            // Créer l'en-tête de l'accordéon
+            const header = document.createElement('div');
+            header.className = 'accordion-header';
+            header.textContent = nom;
+            header.onclick = () => {
+                const content = header.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            };
 
-                hideNavbarIn360();
+            // Créer le contenu de l'accordéon avec plusieurs divs
+            const content = document.createElement('div');
+            content.className = 'accordion-content';
 
-                removeFirstScene();
+            accordionData.forEach(acc => {
+                const div = document.createElement('div');
+                div.textContent = acc.lieu;
+                content.appendChild(div);
 
-                renderScene360 = true;
+                div.addEventListener("click", function () {
 
-                modal2.style.display = "none";
+                    // console.log(ids)
+                    create360(data[ids[0]-1]);
+    
+                    hideNavbarIn360();
+    
+                    removeFirstScene();
+    
+                    renderScene360 = true;
+    
+                    modal2.style.display = "none";
+                });
             });
-            jsonList2.appendChild(listItem2);
+
+            // Ajouter l'en-tête et le contenu à l'accordéon
+            accordion.appendChild(header);
+            accordion.appendChild(content);
+
+            // Ajouter l'accordéon au conteneur
+            accordionContainer.appendChild(accordion);
+            
+
+            
+            
+
+            jsonList2.appendChild(accordionContainer);
         });
+
         console.log("atttto")
         console.log(uniquesNames)
 
