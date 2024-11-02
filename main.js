@@ -11,7 +11,7 @@ import { GLTFLoader } from "./loaders/GLTFLoader.js";
 
 import data from "./360.json" with { type: "json" };
 
-
+//Modal1
 // Récupérer la modale
 var modal = document.getElementById("myModal");
 
@@ -38,6 +38,32 @@ window.onclick = function (event) {
     }
 };
 
+//Modal2
+// Récupérer la modale
+var modal2 = document.getElementById("myModal2");
+
+// Récupérer le bouton qui ouvre la modale
+var btn2 = document.getElementById("submit-btn2");
+
+// Récupérer l'élément <span> qui permet de fermer la modale
+var span2 = document.getElementsByClassName("close2")[0];
+
+// Quand l'utilisateur clique sur le bouton, ouvrir la modale
+btn2.onclick = function () {
+    modal2.style.display = "block";
+};
+
+// Quand l'utilisateur clique sur <span> (x), fermer la modale
+span2.onclick = function () {
+    modal2.style.display = "none";
+};
+
+// Quand l'utilisateur clique n'importe où en dehors de la modale, fermer la modale
+window.onclick = function (event) {
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+};
 
 // Instruction souris
 // Sélection des éléments
