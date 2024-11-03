@@ -55,6 +55,19 @@ body {
     border-top: 1px solid #ccc;
 }
 
+.accordion-content:hover{
+    color: rgb(34, 34, 34);
+}
+
+.accordion-lieu{
+    margin-bottom: 50px;
+}
+
+.accordion-lieu:hover{
+    color:#00a041;
+    cursor: pointer;
+}
+
 .cursor {
     height: 50px;
     width: 50px;

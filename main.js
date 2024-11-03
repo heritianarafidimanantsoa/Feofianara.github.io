@@ -185,13 +185,14 @@ fetch("360.json")
 
             accordionData.forEach(acc => {
                 const div = document.createElement('div');
+                div.className = 'accordion-lieu'
                 div.textContent = acc.lieu;
                 content.appendChild(div);
 
                 div.addEventListener("click", function () {
 
-                    // console.log(ids)
-                    create360(data[ids[0]-1]);
+                    // console.log(accordionData)
+                    create360(acc);
     
                     hideNavbarIn360();
     
