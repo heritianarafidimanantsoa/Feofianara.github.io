@@ -97,7 +97,7 @@ const darkModeIcon = document.getElementById("darkModeIcon");
 var isMap = true;
 var donnees = "";
 var is360 = false;
-var sound = "";
+
 var buildings;
 var roads;
 var rivers;
@@ -471,7 +471,7 @@ function create360(data) {
     controls360.enabled = true;
     controls.enabled = false;
 
-   
+    backGroundIsPlaying = true;
 
     audioPlayer2.pause();
     sound360 = true;
@@ -565,6 +565,7 @@ function create360(data) {
         if (sound360 === true) {
             sound.pause();
             sound360 = false;
+            
         } else {
             sound.play();
             sound360 = true;
@@ -589,6 +590,7 @@ function create360(data) {
 
     sound = new Audio("./music/" + data.audio);
     sound.loop = true;
+    sound.volume = 0.30;
     sound.play();
 
     const material = new THREE.MeshBasicMaterial({
@@ -717,6 +719,9 @@ function create360(data) {
     
     const submitBtn = document.getElementById("submit-btn");
     submitBtn.style.display = "none";
+
+    const submitBtn2 = document.getElementById("submit-btn2");
+    submitBtn2.style.display = "none";
 }
 
 
@@ -760,6 +765,9 @@ function exit360Scene() {
     // Afficher le bouton submit-btn
     var submitButton = document.getElementById("submit-btn");
     submitButton.style.display = "flex";
+
+    var submitButton2 = document.getElementById("submit-btn2");
+    submitButton2.style.display = "flex";
 
     animate();
     // lighting(darkness);
