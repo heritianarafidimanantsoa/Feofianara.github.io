@@ -4,6 +4,8 @@ import { MapControls } from "./controls/MapControls.js";
 import { OrbitControls } from "./controls/OrbitControls.js";
 import { Text } from "https://unpkg.com/troika-three-text@0.50.2/dist/troika-three-text.esm.js";
 import { GLTFLoader } from "./loaders/GLTFLoader.js";
+
+
 //import gsap from "gsap";
 
 
@@ -218,8 +220,6 @@ fetch("360.json")
             jsonList2.appendChild(accordionContainer);
         });
 
-        console.log("atttto")
-        console.log(uniquesNames)
 
         // Récuperation de parametre de l'IRL
         let url = window.location.href;
@@ -673,6 +673,7 @@ function create360(data) {
 
         exitButton = document.createElement("button");
         exitButton.classList.add("exitButton");
+        exitButton.id="bt_exit360";
 
         const muteIcon = document.createElement("img");
         muteIcon.src = "./img/quitter_rouge.png"; 
@@ -708,7 +709,9 @@ function create360(data) {
 
         // Événement de clic sur le exitButton
         exitButton.addEventListener("click", () => {
+
             exit360Scene();
+
             // Afficher le bouton d'aide lorsque l'utilisateur quitte la scène
             helpButton.style.display = 'block';
         });
@@ -742,6 +745,16 @@ function exit360Scene() {
     //sound stop
     sound.pause();
     sound.currentTime = 0;
+
+    audioElement1.pause();
+    audioElement2.pause();
+
+    const soundImage1 = document.querySelector(".play1");
+    const soundImage2 = document.querySelector(".play2");
+    soundImage1.src = "img/play.png";
+    soundImage2.src = "img/play.png";
+    isPlaying = false;
+
     // Nettoyer la scène 360
     scene360.children = [];
 
@@ -792,9 +805,44 @@ let currentGLBId = 0;
 // Ajouter une deuxième point d'intérêt
 //loadPointOfInterest(0, 0, 0);
 
-for (let i = 0; i < data.length; i++) {
-    loadPointOfInterest(data[i].x, data[i].y, data[i].z, data[i]);
+function createTextSprite(message, parameters) {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+
+    // Configurer le canvas
+    const fontSize = parameters.fontSize || 32;
+    const scaleFactor = 2; // Facteur d'échelle pour le fond
+    const baseWidth = 256; // Largeur de base
+    const baseHeight = 128; // Hauteur de base
+    canvas.width = baseWidth * scaleFactor; // Largeur doublée
+    canvas.height = baseHeight * scaleFactor; // Hauteur doublée
+
+    // Dessiner le rectangle de fond
+    context.fillStyle = parameters.backgroundColor || "rgba(0, 0, 0, 0.5)";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Dessiner le texte
+    context.fillStyle = parameters.textColor || "white";
+    context.font = `${fontSize * scaleFactor}px Arial`; // Ajuster la taille de la police
+    context.textAlign = 'center';
+    context.textBaseline = 'middle';
+
+    // Positionner le texte en tenant compte des nouvelles dimensions
+    context.fillText(message, canvas.width / 2, canvas.height / 2);
+
+    // Créer la texture à partir du canvas
+    const texture = new THREE.Texture(canvas);
+    texture.needsUpdate = true;
+
+    // Créer le sprite
+    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+    const sprite = new THREE.Sprite(spriteMaterial);
+
+    // Ajuster la taille du sprite
+    sprite.scale.set(1, 0.5, 1); // Ajustez la taille selon vos besoins
+    return sprite;
 }
+
 
 function loadPointOfInterest(x, y, z, data) {
     loader.load("public/paper_lantern.glb", (poiGltf) => {
@@ -804,33 +852,35 @@ function loadPointOfInterest(x, y, z, data) {
         pointOfInterest.scale.set(0.15, 0.15, 0.15);
         pointOfInterest.position.y -= 0.5;
 
-        // Attribution d'un ID unique à chaque GLB
+        // Assign unique ID and data
         pointOfInterest.userData.id = currentGLBId++;
         pointOfInterest.userData.data = data;
 
-        lanternLight = new THREE.PointLight(0xffff88, 1, 0.9, 0.1);
+        // Add light to the model
+        const lanternLight = new THREE.PointLight(0xffff88, 1, 0.9, 0.1);
         lanternLight.name = "lanternLight";
         lanternLight.castShadow = true;
         pointOfInterest.add(lanternLight);
 
-        lanternes.push({
-            id: lanternes.length,
-            x: x,
-            y: y,
-            z: z,
-            object: pointOfInterest, // Stockez la référence à l'objet dans l'array lanternes
+        // Create a sprite with text
+        const sprite = createTextSprite(data.lieu, {
+            fontSize: 30,
+            backgroundColor: 'rgba(0, 0, 0, 0)', // Transparent black
+            textColor: 'white',
         });
 
+        // Position the sprite above the model
+        sprite.position.set(x, y , z); // Adjust y offset as needed
+        scene.add(sprite);
+
+        // Add the 3D model to the scene
         scene.add(pointOfInterest);
         scene.add(ringMesh);
-        // Rendre le modèle GLB interactif
-        pointOfInterest.userData.onClick = function () {
-            // console.log("GLB cliqué ! ID:", pointOfInterest.userData.id);
-            donnees = data;
-            // Ajoutez ici votre logique supplémentaire lors du clic sur le GLB
-        };
 
-        // Ajoute un gestionnaire d'événements de clic au point d'intérêt (GLB)
+        // Optional: make the model clickable
+        pointOfInterest.userData.onClick = function () {
+            donnees = data;
+        };
         pointOfInterest.traverse((child) => {
             if (child.isMesh) {
                 child.userData.onClick = pointOfInterest.userData.onClick;
@@ -839,7 +889,21 @@ function loadPointOfInterest(x, y, z, data) {
         });
 
         lant.push(pointOfInterest);
+
+        // Add to lanternes array
+        lanternes.push({
+            id: lanternes.length,
+            x: x,
+            y: y,
+            z: z,
+            object: pointOfInterest,
+        });
     });
+}
+
+
+for (let i = 0; i < data.length; i++) {
+    loadPointOfInterest(data[i].x, data[i].y, data[i].z, data[i]);
 }
 
 document.addEventListener("click", function (event) {
