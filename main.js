@@ -468,6 +468,7 @@ let audioPlayPauseButton; // Variable globale pour stocker une référence au bo
 
 
 function create360(data) {
+    document.getElementById("titre_lieu").style.display = "none";
     controls360.enabled = true;
     controls.enabled = false;
 
@@ -733,6 +734,7 @@ function create360(data) {
 
 // Fonction pour quitter la scène 360 et revenir à la scène principale
 function exit360Scene() {
+    document.getElementById("titre_lieu").style.display = "block";
     controls360.enabled = false;
     controls.enabled = true;
 
@@ -785,6 +787,7 @@ function exit360Scene() {
     animate();
     // lighting(darkness);
     //francky
+    
     setupLight();
     for (let i = 0; i < data.length; i++) {
         loadPointOfInterest(data[i].x, data[i].y, data[i].z, data[i]);
@@ -812,7 +815,7 @@ function createTextSprite(message, parameters) {
     // Configurer le canvas
     const fontSize = parameters.fontSize || 32;
     const scaleFactor = 2; // Facteur d'échelle pour le fond
-    const baseWidth = 256; // Largeur de base
+    const baseWidth = 512; // Augmentez la largeur de base
     const baseHeight = 128; // Hauteur de base
     canvas.width = baseWidth * scaleFactor; // Largeur doublée
     canvas.height = baseHeight * scaleFactor; // Hauteur doublée
@@ -839,9 +842,10 @@ function createTextSprite(message, parameters) {
     const sprite = new THREE.Sprite(spriteMaterial);
 
     // Ajuster la taille du sprite
-    sprite.scale.set(1, 0.5, 1); // Ajustez la taille selon vos besoins
+    sprite.scale.set(2, 0.5, 1); // Ajustez la taille selon vos besoins
     return sprite;
 }
+
 
 
 function loadPointOfInterest(x, y, z, data) {
@@ -1067,8 +1071,9 @@ startbutton.addEventListener("mousedown", function () {
         )
         .to(
             camera.position,
-            {
-                y: 2,
+            {   
+                x: 0,
+                y: 3,
                 z: 2,
                 duration: 2.5,
             },
@@ -1092,6 +1097,7 @@ setTimeout(function () {
 
 buttonMap.addEventListener("mousedown", function () {
     isMap = !isMap;
+    // alert("lasa")
 
     // Désactiver les contrôles pendant l'animation
     controls.enabled = false;
