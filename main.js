@@ -673,6 +673,7 @@ function create360(data) {
 
         exitButton = document.createElement("button");
         exitButton.classList.add("exitButton");
+        exitButton.id="bt_exit360";
 
         const muteIcon = document.createElement("img");
         muteIcon.src = "./img/quitter_rouge.png"; 
@@ -708,7 +709,9 @@ function create360(data) {
 
         // Événement de clic sur le exitButton
         exitButton.addEventListener("click", () => {
+
             exit360Scene();
+
             // Afficher le bouton d'aide lorsque l'utilisateur quitte la scène
             helpButton.style.display = 'block';
         });
@@ -742,6 +745,16 @@ function exit360Scene() {
     //sound stop
     sound.pause();
     sound.currentTime = 0;
+
+    audioElement1.pause();
+    audioElement2.pause();
+
+    const soundImage1 = document.querySelector(".play1");
+    const soundImage2 = document.querySelector(".play2");
+    soundImage1.src = "img/play.png";
+    soundImage2.src = "img/play.png";
+    isPlaying = false;
+
     // Nettoyer la scène 360
     scene360.children = [];
 
