@@ -1186,3 +1186,9 @@ li:hover {
 }
 
 /* fin Instruction d'utilisation de souris */
+
+/* masquer les elements avant de cliquer sur explorer */
+.hidden {
+    display: none; /* Cette règle masquera les éléments */
+  }
+/* fin masquer les elements avant de cliquer sur explorer */

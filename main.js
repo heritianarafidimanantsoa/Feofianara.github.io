@@ -13,6 +13,23 @@ import { GLTFLoader } from "./loaders/GLTFLoader.js";
 
 import data from "./360.json" with { type: "json" };
 
+// masquer les elements avant de cliquer sur explorer
+const explorerBtn = document.getElementById("explorer_bt");
+const elementsToToggle = ["navbar", "buttons-container", "helpSection"];
+
+// Masquez d'abord tous les éléments lors du chargement de la page
+elementsToToggle.forEach(id => {
+  const element = document.getElementById(id);
+  element.classList.add("hidden");
+});
+
+explorerBtn.addEventListener("click", () => {
+  elementsToToggle.forEach(id => {
+    const element = document.getElementById(id);
+    element.classList.toggle("hidden"); // Bascule la classe hidden
+  });
+});
+
 //Modal1
 // Récupérer la modale
 var modal = document.getElementById("myModal");
