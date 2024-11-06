@@ -515,10 +515,7 @@ progress::-moz-progress-bar {
     align-items: center; /* Aligner verticalement le contenu */
 }
 
-.icon_container {
-    margin-right: 4px;
-   /* Ajustez la valeur selon vos besoins */
-}
+
 
 #submit-btn:hover {
     background-color: #ffffff;
