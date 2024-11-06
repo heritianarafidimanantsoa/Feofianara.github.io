@@ -345,7 +345,7 @@ camera360.position.z = 3;
 // Ajout des contrôles de la caméra
 var controls360 = new OrbitControls(camera360, renderer.domElement);
 
-// controls360.mouseButtons.RIGHT = null;
+controls360.mouseButtons.RIGHT = null;
 controls360.enableDamping = true;
 controls360.dampingFactor = 0.05;
 controls360.enableZoom = false;
@@ -403,7 +403,7 @@ function loadModel(file, overideMaterial = null) {
             });
         }
         model.traverse((item) => {
-            console.log(item);
+            // console.log(item);
         });
         scene.add(model);
     });
@@ -552,30 +552,59 @@ function create360(data) {
     }
 
     // Sélection de l'élément du carrousel
-    const carouselList = document.getElementById("carousel-list");
-    const images = data.galery;
+const carouselList = document.getElementById("carousel-list");
+const images = data.galery;
+const delayIntervals = [5000, 6000, 5500, 7000]; // Intervalle individuel pour chaque image (en ms)
 
-    if (carouselList) {
-        let carouselHTML = "";
-        images.forEach((imageUrl, index) => {
-            const activeClass = index === 0 ? "activ" : ""; 
-            carouselHTML += `
-                <li class="slide ${activeClass}">
-                    <img src="img/galery/${imageUrl}" class="image-cliquable" alt="image carousel">
-                </li>
-            `;
-        });
-        carouselList.innerHTML = carouselHTML;
-    } else {
-        console.error("L'élément carousel-list est introuvable.");
-    }
+if (carouselList) {
+    let carouselHTML = "";
+    images.forEach((imageUrl, index) => {
+        const activeClass = index === 0 ? "active" : "";
+        carouselHTML += `
+            <li class="slide ${activeClass}">
+                <img src="img/galery/${imageUrl}" class="image-cliquable" alt="image carousel">
+            </li>
+        `;
+    });
+    carouselList.innerHTML = carouselHTML;
+} else {
+    console.error("L'élément carousel-list est introuvable.");
+}
 
-    // Sélection des boutons précédent et suivant
-    const prevButton = document.getElementById("prev");
-    const nextButton = document.getElementById("next");
+// Sélection des boutons précédent et suivant
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
 
-    prevButton.addEventListener("click", () => changeSlide(-1));
-    nextButton.addEventListener("click", () => changeSlide(1));
+let currentIndex = 0;
+let intervalId;
+
+function changeSlide(step) {
+    const slides = document.querySelectorAll(".slide");
+    slides[currentIndex].classList.remove("active"); // Retire la classe active de l'élément actuel sans transition
+
+    currentIndex = (currentIndex + step + slides.length) % slides.length;
+    slides[currentIndex].classList.add("active"); // Ajoute la classe active au nouvel élément sans transition
+
+    resetAutoScroll();
+}
+
+function autoScroll() {
+    changeSlide(1);
+    intervalId = setTimeout(autoScroll, delayIntervals[currentIndex % delayIntervals.length]);
+}
+
+function resetAutoScroll() {
+    clearTimeout(intervalId);
+    intervalId = setTimeout(autoScroll, delayIntervals[currentIndex % delayIntervals.length]);
+}
+
+// Lancement du défilement automatique
+autoScroll();
+
+prevButton.addEventListener("click", () => changeSlide(-1));
+nextButton.addEventListener("click", () => changeSlide(1));
+
+
 
     // Gestion du son
     var sound360 = true;
@@ -633,7 +662,7 @@ function create360(data) {
         myText.fontSize = 0.3; 
         myText.position.z = -2; 
     } else {
-        myText.fontSize = 1; 
+        myText.fontSize = 0.6; 
         myText.position.z = -4; 
     }
 
@@ -870,7 +899,7 @@ function loadPointOfInterest(x, y, z, data) {
         const pointOfInterest = poiGltf.scene;
 
         pointOfInterest.position.set(x, y, z);
-        pointOfInterest.scale.set(0.15, 0.15, 0.15);
+        pointOfInterest.scale.set(0.16, 0.16, 0.16);
         pointOfInterest.position.y -= 0.5;
 
         // Assign unique ID and data

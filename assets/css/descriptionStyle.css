@@ -475,7 +475,7 @@
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition: opacity 0.4s ease-in-out; /* Correction ici */
+    transition: opacity 0.8s ease-in-out; /* Correction ici */
 }
 
 .slide.active {

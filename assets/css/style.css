@@ -55,16 +55,16 @@ body {
     border-top: 1px solid #ccc;
 }
 
-.accordion-content:hover{
+.accordion-content:hover {
     color: rgb(34, 34, 34);
 }
 
-.accordion-lieu{
-    margin-bottom: 50px;
+.accordion-lieu {
+    margin-bottom: 10px;
 }
 
-.accordion-lieu:hover{
-    color:#00a041;
+.accordion-lieu:hover {
+    color: #00a041;
     cursor: pointer;
 }
 
@@ -498,7 +498,8 @@ progress::-moz-progress-bar {
         right: 31px; /* Réduit encore la distance par rapport au bord droit */
     }
 }
-#submit-btn, #submit-btn2 {
+#submit-btn,
+#submit-btn2 {
     background-color: transparent;
     border: 2px solid transparent;
     color: #fff; /* Couleur du texte */
@@ -546,15 +547,14 @@ progress::-moz-progress-bar {
 
 .bt_list {
     /* background-color: rgba(255, 0, 0, 0.363); */
-    width: 300px;
-    
+    width: 430px;
 
     /* Centrage horizontal et vertical */
     position: absolute;
     top: calc(100% - 30px);
     left: 50%;
     transform: translate(-50%, -50%);
-    
+
     /* Alignement côte à côte des éléments enfants */
     display: flex;
     justify-content: space-around; /* Ajoute de l'espace entre les éléments */
@@ -570,8 +570,6 @@ progress::-moz-progress-bar {
     position: relative;
     width: 50%; /* S'ajustera automatiquement pour chaque élément enfant */
 }
-
-
 
 .button_lieux:hover .icon_white {
     display: none;
@@ -592,7 +590,8 @@ progress::-moz-progress-bar {
 
 /* Écrans >= 1280px */
 @media (min-width: 1280px) {
-    #submit-btn, #submit-btn2 {
+    #submit-btn,
+    #submit-btn2 {
         margin-bottom: 2vh;
         font-size: 18px;
         padding: 12px 24px;
@@ -608,7 +607,8 @@ progress::-moz-progress-bar {
 
 /* Écrans >= 1024px */
 @media (min-width: 1024px) {
-    #submit-btn, #submit-btn2 {
+    #submit-btn,
+    #submit-btn2 {
         margin-bottom: 2vh;
         font-size: 17px;
         padding: 12px 22px;
@@ -624,7 +624,8 @@ progress::-moz-progress-bar {
 
 /* Écrans >= 768px */
 @media (min-width: 768px) {
-    #submit-btn, #submit-btn2 {
+    #submit-btn,
+    #submit-btn2 {
         margin-bottom: 2vh;
         font-size: 16px;
         padding: 10px 20px;
@@ -640,7 +641,8 @@ progress::-moz-progress-bar {
 
 /* Écrans >= 640px */
 @media (min-width: 640px) {
-    #submit-btn, #submit-btn2 {
+    #submit-btn,
+    #submit-btn2 {
         margin-bottom: 2vh;
         font-size: 15px;
         padding: 10px 18px;
@@ -656,7 +658,8 @@ progress::-moz-progress-bar {
 
 /* Petits écrans (max-width: 480px) */
 @media (max-width: 480px) {
-    #submit-btn, #submit-btn2 {
+    #submit-btn,
+    #submit-btn2 {
         margin-bottom: 2vh;
         font-size: 14px;
         padding: 8px 16px;
@@ -690,7 +693,7 @@ progress::-moz-progress-bar {
     border-radius: 15px;
     box-shadow: 0px 0px 20px #333;
     width: 90%;
-    max-height: 80%;
+    max-height: 65%;
     overflow-y: auto;
     word-wrap: break-word;
     position: fixed;
@@ -700,7 +703,8 @@ progress::-moz-progress-bar {
     transition: width 0.3s ease, padding 0.3s ease;
 }
 
-.close, .close2 {
+.close,
+.close2 {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -1190,5 +1194,5 @@ li:hover {
 /* masquer les elements avant de cliquer sur explorer */
 .hidden {
     display: none; /* Cette règle masquera les éléments */
-  }
+}
 /* fin masquer les elements avant de cliquer sur explorer */

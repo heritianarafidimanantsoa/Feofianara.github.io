@@ -37,8 +37,11 @@
                 <span class="close2">&times;</span>
 
                 <div class="list-container2">
-                    <h2>Liste des personnes</h2>
-                    <ul id="jsonList2" style="display: flex; flex-direction: column-reverse;"></ul>
+                    <h2 style="text-align: center">Liste des personnes</h2>
+                    <ul
+                        id="jsonList2"
+                        style="display: flex; flex-direction: column-reverse"
+                    ></ul>
                 </div>
             </div>
         </div>
@@ -64,7 +67,6 @@
                     Tous les lieux
                 </button>
             </div>
-            
 
             <div class="bt_m_">
                 <button id="submit-btn2" class="button_lieux">
@@ -86,7 +88,6 @@
                 </button>
             </div>
         </div>
-
 
         <div class="navbar" id="navbar">
             <div class="navbar-logo">
@@ -642,10 +643,10 @@
                                 isPlaying = true;
                                 soundImage1.src = "img/pause.png";
                                 audioElement2.pause();
-                                
+
                                 soundImage2.src = "img/play.png";
 
-                                if(backGroundIsPlaying == true){
+                                if (backGroundIsPlaying == true) {
                                     backGroundIsPlaying = false;
                                     sound.pause();
                                 }
@@ -653,9 +654,8 @@
                                 audioElement1.pause();
                                 isPlaying = false;
                                 soundImage1.src = "img/play.png";
-                                
 
-                                if(backGroundIsPlaying == false){
+                                if (backGroundIsPlaying == false) {
                                     backGroundIsPlaying = true;
                                     sound.play();
                                 }
@@ -670,17 +670,16 @@
                                 audioElement1.pause();
                                 soundImage1.src = "img/play.png";
 
-                                if(backGroundIsPlaying == true){
+                                if (backGroundIsPlaying == true) {
                                     backGroundIsPlaying = false;
                                     sound.pause();
                                 }
-                                
                             } else {
                                 audioElement2.pause();
                                 isPlaying = false;
                                 soundImage2.src = "img/play.png";
 
-                                if(backGroundIsPlaying == false){
+                                if (backGroundIsPlaying == false) {
                                     backGroundIsPlaying = true;
                                     sound.play();
                                 }
@@ -710,55 +709,12 @@
                         });
                     </script>
                     <!----------------------------CAROUSEL------------------------>
+
                     <div class="carousel">
                         <button id="prev">&#10096;</button>
                         <button id="next">&#10097;</button>
-                        <ul id="carousel-list">
-                            <li class="slide">
-                                <img
-                                    class="image-cliquable"
-                                    alt="image carousel"
-                                />
-                            </li>
-                            <li class="slide active">
-                                <img
-                                    class="image-cliquable"
-                                    alt="image carousel"
-                                />
-                            </li>
-                            <li class="slide">
-                                <img
-                                    class="image-cliquable"
-                                    alt="image carousel"
-                                />
-                            </li>
-                        </ul>
+                        <ul id="carousel-list"></ul>
                     </div>
-
-                    <script type="text/javascript">
-                        const buttons = document.querySelectorAll(".btn");
-                        const slides = document.querySelectorAll(".slide");
-                        buttons.forEach((button) => {
-                            button.addEventListener("click", (e) => {
-                                const calcNextSlide =
-                                    e.target.id === "next" ? 1 : -1;
-                                const slideActive =
-                                    document.querySelector(".activ");
-
-                                newIndex =
-                                    calcNextSlide +
-                                    [...slides].indexOf(slideActive);
-
-                                if (newIndex < 0)
-                                    newIndex = [...slides].length - 1;
-                                if (newIndex >= [...slides].length)
-                                    newIndex = 0;
-                                slides[newIndex].classList.add("activ");
-
-                                slideActive.classList.remove("activ");
-                            });
-                        });
-                    </script>
                 </div>
             </div>
         </div>
@@ -868,7 +824,6 @@
                 show_description.addEventListener("click", showDescription);
                 quiter_description.addEventListener("click", quitDescription);
             });
-
         </script>
     </body>
 </html>
