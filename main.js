@@ -536,30 +536,58 @@ function create360(data) {
     }
 
     // Sélection de l'élément du carrousel
-    const carouselList = document.getElementById("carousel-list");
-    const images = data.galery;
+const carouselList = document.getElementById("carousel-list");
+const images = data.galery;
+const delayIntervals = [4000, 5000, 4500, 6000]; // Intervalle individuel pour chaque image (en ms)
 
-    if (carouselList) {
-        let carouselHTML = "";
-        images.forEach((imageUrl, index) => {
-            const activeClass = index === 0 ? "activ" : ""; 
-            carouselHTML += `
-                <li class="slide ${activeClass}">
-                    <img src="img/galery/${imageUrl}" class="image-cliquable" alt="image carousel">
-                </li>
-            `;
-        });
-        carouselList.innerHTML = carouselHTML;
-    } else {
-        console.error("L'élément carousel-list est introuvable.");
-    }
+if (carouselList) {
+    let carouselHTML = "";
+    images.forEach((imageUrl, index) => {
+        const activeClass = index === 0 ? "active" : "";
+        carouselHTML += `
+            <li class="slide ${activeClass}">
+                <img src="img/galery/${imageUrl}" class="image-cliquable" alt="image carousel">
+            </li>
+        `;
+    });
+    carouselList.innerHTML = carouselHTML;
+} else {
+    console.error("L'élément carousel-list est introuvable.");
+}
 
-    // Sélection des boutons précédent et suivant
-    const prevButton = document.getElementById("prev");
-    const nextButton = document.getElementById("next");
+// Sélection des boutons précédent et suivant
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
 
-    prevButton.addEventListener("click", () => changeSlide(-1));
-    nextButton.addEventListener("click", () => changeSlide(1));
+let currentIndex = 0;
+let intervalId;
+
+function changeSlide(step) {
+    const slides = document.querySelectorAll(".slide");
+    slides[currentIndex].classList.remove("active"); // Retire la classe active de l'élément actuel sans transition
+
+    currentIndex = (currentIndex + step + slides.length) % slides.length;
+    slides[currentIndex].classList.add("active"); // Ajoute la classe active au nouvel élément sans transition
+
+    resetAutoScroll();
+}
+
+function autoScroll() {
+    changeSlide(1);
+    intervalId = setTimeout(autoScroll, delayIntervals[currentIndex % delayIntervals.length]);
+}
+
+function resetAutoScroll() {
+    clearTimeout(intervalId);
+    intervalId = setTimeout(autoScroll, delayIntervals[currentIndex % delayIntervals.length]);
+}
+
+// Lancement du défilement automatique
+autoScroll();
+
+prevButton.addEventListener("click", () => changeSlide(-1));
+nextButton.addEventListener("click", () => changeSlide(1));
+
 
     // Gestion du son
     var sound360 = true;
