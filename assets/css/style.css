@@ -239,7 +239,7 @@ body {
 }
 
 .progress-bar-container {
-    position: absolute;
+    position: fixed; /* Utiliser "fixed" pour qu'il reste visible même lors du défilement */
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -266,56 +266,55 @@ label {
 
 /* Styles pour le label */
 .progress-bar-container label {
-    margin-bottom: 10px; /* Espacement en dessous du label */
-    font-size: 18px; /* Taille de police */
-    color: rgb(248, 248, 248); /* Couleur du texte */
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: rgb(248, 248, 248);
 }
 
 /* Styles pour la barre de progression */
 progress {
-    width: 100%; /* Largeur de la barre de progression */
-    height: 20px; /* Hauteur de la barre */
-    appearance: none; /* Supprimer le style par défaut */
-    border-radius: 50px; /* Coins arrondis */
-    background-color: #393939; /* Couleur de fond */
+    width: 100%;
+    height: 20px;
+    appearance: none; 
+    -webkit-appearance: none; /* Prise en charge de Webkit */
+    -moz-appearance: none;    /* Prise en charge de Firefox */
+    border-radius: 50px;
+    background-color: #393939;
 }
 
-/* Styles pour la valeur de progression */
+/* Styles pour la barre de progression (Webkit) */
 progress::-webkit-progress-bar {
-    background-color: #202020;/* Couleur de fond de la barre */
+    background-color: #202020;
     border-radius: 50px;
 }
 
 progress::-webkit-progress-value {
-    background-color: green; /* Couleur de la valeur de progression */
-    border-radius: 50px; /* Coins arrondis */
+    background-color: green;
+    border-radius: 50px;
 }
 
+/* Styles pour la barre de progression (Firefox) */
 progress::-moz-progress-bar {
-    background-color: rgb(
-        2,
-        97,
-        15
-    ); /* Couleur de la valeur de progression pour Firefox */
-    border-radius: 50px; /* Coins arrondis */
+    background-color: rgb(2, 97, 15);
+    border-radius: 50px;
 }
 
 /* Styles responsive pour petits écrans */
 @media (max-width: 768px) {
     label {
-        font-size: 1rem; /* Taille de police plus petite */
+        font-size: 1rem;
     }
 
     #progress-bar {
-        height: 8px; /* Hauteur ajustée pour les petits écrans */
+        height: 8px;
     }
 }
 
 /* Styles pour très petits écrans (téléphones) */
 @media (max-width: 480px) {
     .progress-bar-container {
-        width: 95%; /* Occupe plus d'espace horizontal */
-        padding: 10px; /* Moins de padding pour petits écrans */
+        width: 95%;
+        padding: 10px;
     }
 
     label {
