@@ -90,21 +90,14 @@ const helpButton = document.querySelector('.c-create-help-button');
 const popup = document.querySelector('.instructions-popup');
 const closeButton = document.querySelector('.close-instructions');
 
-// Afficher la popup quand on clique sur le bouton d'aide
+// Afficher la popup quand on clique sur l'icône
 helpButton.addEventListener('click', () => {
-    popup.classList.toggle('hidden'); // Bascule la classe 'hidden' pour afficher/masquer
+  popup.classList.toggle('hidden');
 });
 
 // Cacher la popup quand on clique sur "Fermer"
 closeButton.addEventListener('click', () => {
-    popup.classList.add('hidden'); // Ajoute la classe 'hidden' pour masquer
-});
-
-// Cacher la popup si on clique en dehors de celle-ci
-window.addEventListener('click', (event) => {
-    if (!popup.classList.contains('hidden') && !popup.contains(event.target) && !helpButton.contains(event.target)) {
-        popup.classList.add('hidden'); // Masquer la popup si le clic est en dehors
-    }
+  popup.classList.add('hidden');
 });
 // Instruction souris
 

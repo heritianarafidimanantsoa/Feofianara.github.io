@@ -535,7 +535,7 @@
                             );
                             var scrollTop = divScrollable.scrollTop;
 
-                            if (scrollTop > 1200 - deScrol) {
+                            if (scrollTop > 550 - deScrol) {
                                 apparitionQuestion.classList.remove(
                                     "questionInvisible"
                                 );
@@ -561,7 +561,7 @@
                         divScrollable.addEventListener("scroll", function (e) {
                             var scrollTop = divScrollable.scrollTop;
 
-                            if (scrollTop > 1300 - deScrol) {
+                            if (scrollTop > 750 - deScrol) {
                                 apparition2.classList.remove("invisible2");
                                 apparition2.classList.add("visible2");
                                 apparitionAudio1.classList.remove("invisible4");
@@ -578,7 +578,7 @@
                             document.querySelector(".apparition3");
                         divScrollable.addEventListener("scroll", function (e) {
                             var scrollTop = divScrollable.scrollTop;
-                            if (scrollTop > 1400 - deScrol) {
+                            if (scrollTop > 880 - deScrol) {
                                 apparition3.classList.remove("invisible3");
                                 apparition3.classList.add("visible3");
                             } else {
@@ -594,7 +594,7 @@
                             document.querySelector(".audio2");
                         divScrollable.addEventListener("scroll", function (e) {
                             var scrollTop = divScrollable.scrollTop;
-                            if (scrollTop > 1300 - deScrol) {
+                            if (scrollTop > 980 - deScrol) {
                                 apparition5.classList.remove("invisible5");
                                 apparition5.classList.add("visible5");
                                 apparitionAudio2.classList.remove("invisible6");
@@ -611,7 +611,7 @@
                             document.querySelector(".apparition7");
                         divScrollable.addEventListener("scroll", function (e) {
                             var scrollTop = divScrollable.scrollTop;
-                            if (scrollTop > 1500 - deScrol) {
+                            if (scrollTop > 1070 - deScrol) {
                                 apparition7.classList.remove("invisible7");
                                 apparition7.classList.add("visible7");
                             } else {
@@ -687,6 +687,14 @@
                         });
                     </script>
 
+                    <!----------------------------CAROUSEL------------------------>
+
+                    <div class="carousel">
+                        <button id="prev">&#10096;</button>
+                        <button id="next">&#10097;</button>
+                        <ul id="carousel-list"></ul>
+                    </div>
+
                     <!----------------------------CONTENU------------------------>
 
                     <div class="center">
@@ -699,7 +707,7 @@
                         divScrollable = document.getElementById("myScroll");
                         divScrollable.addEventListener("scroll", function (e) {
                             var scrollTop = divScrollable.scrollTop;
-                            if (scrollTop > 1800 - deScrol) {
+                            if (scrollTop > 1200 - deScrol) {
                                 apparition.classList.remove("invisible");
                                 apparition.classList.add("visible");
                             } else {
@@ -708,13 +716,6 @@
                             }
                         });
                     </script>
-                    <!----------------------------CAROUSEL------------------------>
-
-                    <div class="carousel">
-                        <button id="prev">&#10096;</button>
-                        <button id="next">&#10097;</button>
-                        <ul id="carousel-list"></ul>
-                    </div>
                 </div>
             </div>
         </div>
