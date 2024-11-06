@@ -636,7 +636,7 @@ nextButton.addEventListener("click", () => changeSlide(1));
     myText.text = data.lieu;
     myText.anchorX = "center";
     myText.font = "./fonts/Montserrat-Regular.otf";
-    myText.color = 0x9ec3e9;
+    myText.color = 0x5f9cd9;
 
     if (window.innerWidth <= 768) {
         myText.fontSize = 0.3; 
@@ -645,8 +645,9 @@ nextButton.addEventListener("click", () => changeSlide(1));
         myText.fontSize = 0.3; 
         myText.position.z = -2; 
     } else {
-        myText.fontSize = 1; 
+        myText.fontSize = 0.7; 
         myText.position.z = -4; 
+        
     }
 
     myText.sync();
