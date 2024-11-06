@@ -517,7 +517,7 @@ progress::-moz-progress-bar {
 
 .icon_container {
     margin-right: 4px;
-    margin-top: 5px; /* Ajustez la valeur selon vos besoins */
+   /* Ajustez la valeur selon vos besoins */
 }
 
 #submit-btn:hover {
