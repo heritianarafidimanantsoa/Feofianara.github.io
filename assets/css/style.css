@@ -247,7 +247,7 @@ body {
 }
 
 .progress-bar-container {
-    position: absolute;
+    position: fixed; /* Utiliser "fixed" pour qu'il reste visible même lors du défilement */
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -274,55 +274,55 @@ label {
 
 /* Styles pour le label */
 .progress-bar-container label {
-    margin-bottom: 10px; /* Espacement en dessous du label */
-    font-size: 18px; /* Taille de police */
-    color: rgb(248, 248, 248); /* Couleur du texte */
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: rgb(248, 248, 248);
 }
 
 /* Styles pour la barre de progression */
 progress {
-    width: 100%; /* Largeur de la barre de progression */
-    height: 20px; /* Hauteur de la barre */
-    appearance: none; /* Supprimer le style par défaut */
-    border-radius: 50px; /* Coins arrondis */
-    background-color: #393939; /* Couleur de fond */
+    width: 100%;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none; /* Prise en charge de Webkit */
+    -moz-appearance: none; /* Prise en charge de Firefox */
+    border-radius: 50px;
+    background-color: #393939;
 }
 
-/* Styles pour la valeur de progression */
+/* Styles pour la barre de progression (Webkit) */
 progress::-webkit-progress-bar {
-    background-color: #202020; /* Couleur de fond de la barre */
+    background-color: #202020;
+    border-radius: 50px;
 }
 
 progress::-webkit-progress-value {
-    background-color: green; /* Couleur de la valeur de progression */
-    border-radius: 5px; /* Coins arrondis */
+    background-color: green;
+    border-radius: 50px;
 }
 
+/* Styles pour la barre de progression (Firefox) */
 progress::-moz-progress-bar {
-    background-color: rgb(
-        2,
-        97,
-        15
-    ); /* Couleur de la valeur de progression pour Firefox */
-    border-radius: 5px; /* Coins arrondis */
+    background-color: rgb(2, 97, 15);
+    border-radius: 50px;
 }
 
 /* Styles responsive pour petits écrans */
 @media (max-width: 768px) {
     label {
-        font-size: 1rem; /* Taille de police plus petite */
+        font-size: 1rem;
     }
 
     #progress-bar {
-        height: 8px; /* Hauteur ajustée pour les petits écrans */
+        height: 8px;
     }
 }
 
 /* Styles pour très petits écrans (téléphones) */
 @media (max-width: 480px) {
     .progress-bar-container {
-        width: 95%; /* Occupe plus d'espace horizontal */
-        padding: 10px; /* Moins de padding pour petits écrans */
+        width: 95%;
+        padding: 10px;
     }
 
     label {
@@ -336,6 +336,9 @@ progress::-moz-progress-bar {
 
 .header {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.104); /* 0.7 pour une opacité de 70% */
     left: 50%;
     top: 50%; /* Centré à 50% de la hauteur de l'écran */
     transform: translate(
@@ -355,10 +358,9 @@ progress::-moz-progress-bar {
 .btn {
     border: 3px solid #00a041;
     border-radius: 50px;
-    background: none;
+    background-color: black;
     padding: 10px 25px;
     font-size: 20px;
-
     cursor: pointer;
     margin: 10px;
     transition: 0.4s;
@@ -368,6 +370,7 @@ progress::-moz-progress-bar {
 
 .btn1 {
     color: #000000;
+    background-color: black;
 }
 
 .header button:hover {
@@ -444,7 +447,9 @@ progress::-moz-progress-bar {
 .backgroundExplorer {
     width: 100%;
     height: 100%;
+
     background-color: rgb(255 255 255 / 70%);
+
     position: absolute;
     transition: 0s;
 }
@@ -1204,3 +1209,164 @@ li:hover {
     display: none; /* Cette règle masquera les éléments */
 }
 /* fin masquer les elements avant de cliquer sur explorer */
+
+/* Style pour la section avec le carrousel en arrière-plan */
+.readcontext {
+    position: relative;
+    background-color: #000000;
+    padding: 60px 20px;
+    font-family: "JuliusSansOne";
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: rgb(253, 253, 253); /* Couleur du texte blanc pour contraste */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(
+        0% 10%,
+        5% 5%,
+        25% 0%,
+        50% 10%,
+        75% 0%,
+        95% 5%,
+        100% 10%,
+        100% 90%,
+        95% 95%,
+        75% 100%,
+        50% 90%,
+        25% 100%,
+        5% 95%,
+        0% 90%
+    );
+    background-size: cover;
+    background-position: center;
+    animation: backgroundCarousel 18s infinite ease-in-out;
+}
+
+/* Animation du fond dynamique */
+@keyframes backgroundCarousel {
+    0%,
+    100% {
+        background-image: url("/img/360/image1.png");
+    }
+    25% {
+        background-image: url("/img/360/image2.png");
+    }
+    50% {
+        background-image: url("/img/360/image3.png");
+    }
+    75% {
+        background-image: url("/img/360/image4.png");
+    }
+}
+
+/* Superposition pour améliorer la visibilité du texte */
+.readcontext::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        145deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.3)
+    ); /* Superposition sombre pour une meilleure lisibilité */
+    z-index: -1;
+    opacity: 0.7; /* Superposition plus forte */
+}
+
+/* Effet de transition pour les images du carrousel */
+.readcontext img {
+    transition: transform 1s ease-in-out;
+}
+
+.readcontext:hover img {
+    transform: scale(
+        1.1
+    ); /* Effet zoom au survol pour rendre l'effet plus dynamique */
+}
+
+/* Style pour le texte à l'intérieur de la section */
+.readcontext h1,
+.readcontext p {
+    position: relative;
+    z-index: 1;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* Ombre douce pour améliorer la lisibilité */
+    margin: 20px 0;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .readcontext {
+        font-size: 1rem;
+        padding: 50px 15px;
+        clip-path: polygon(
+            0% 5%,
+            5% 0%,
+            25% 0%,
+            50% 5%,
+            75% 0%,
+            95% 5%,
+            100% 10%,
+            100% 90%,
+            95% 95%,
+            75% 100%,
+            50% 90%,
+            25% 100%,
+            5% 95%,
+            0% 90%
+        );
+    }
+    .readcontext::before {
+        clip-path: polygon(
+            12% 5%,
+            88% 10%,
+            92% 30%,
+            80% 75%,
+            50% 85%,
+            20% 80%,
+            5% 30%,
+            12% 5%
+        );
+    }
+}
+
+@media (max-width: 480px) {
+    .readcontext {
+        font-size: 0.9rem;
+        padding: 30px 10px;
+        clip-path: polygon(
+            0% 5%,
+            10% 0%,
+            25% 0%,
+            50% 5%,
+            75% 0%,
+            90% 5%,
+            100% 10%,
+            100% 90%,
+            90% 95%,
+            75% 100%,
+            50% 90%,
+            25% 100%,
+            10% 95%,
+            0% 90%
+        );
+    }
+    .readcontext::before {
+        clip-path: polygon(
+            15% 5%,
+            85% 10%,
+            90% 30%,
+            75% 70%,
+            50% 80%,
+            25% 75%,
+            10% 30%,
+            15% 5%
+        );
+    }
+}

@@ -11,6 +11,7 @@ import { GLTFLoader } from "./loaders/GLTFLoader.js";
 
 // import locationsData from "./data.json" assert { type: "json" };
 
+// Utilisation de fetch pour charger le JSON
 import data from "./360.json" with { type: "json" };
 
 // masquer les elements avant de cliquer sur explorer
