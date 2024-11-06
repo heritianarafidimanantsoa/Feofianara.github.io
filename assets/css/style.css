@@ -12,6 +12,14 @@
     font-family: "DMSerifDisplay";
     src: url("./fonts/DMSerifDisplay-Regular.ttf") format("truetype");
 }
+@font-face {
+    font-family: "Montserrat2";
+    src: url("./fonts/Montserrat-Bold.otf") format("opentype");
+}
+
+strong {
+    font-family: "Montserrat2";
+}
 
 body {
     background-color: #ccc;
@@ -436,7 +444,7 @@ progress::-moz-progress-bar {
 .backgroundExplorer {
     width: 100%;
     height: 100%;
-    background-color: rgb(255 255 255 / 50%);
+    background-color: rgb(255 255 255 / 70%);
     position: absolute;
     transition: 0s;
 }
