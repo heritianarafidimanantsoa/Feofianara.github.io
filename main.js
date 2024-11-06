@@ -16,6 +16,7 @@ import data from "./360.json" with { type: "json" };
 //Modal1
 // Récupérer la modale
 var modal = document.getElementById("myModal");
+var isModal = false;
 
 // Récupérer le bouton qui ouvre la modale
 var btn = document.getElementById("submit-btn");
@@ -26,11 +27,13 @@ var span = document.getElementsByClassName("close")[0];
 // Quand l'utilisateur clique sur le bouton, ouvrir la modale
 btn.onclick = function () {
     modal.style.display = "block";
+    isModal = true;
 };
 
 // Quand l'utilisateur clique sur <span> (x), fermer la modale
 span.onclick = function () {
     modal.style.display = "none";
+    isModal = false;
 };
 
 // Quand l'utilisateur clique n'importe où en dehors de la modale, fermer la modale
@@ -53,11 +56,13 @@ var span2 = document.getElementsByClassName("close2")[0];
 // Quand l'utilisateur clique sur le bouton, ouvrir la modale
 btn2.onclick = function () {
     modal2.style.display = "block";
+    isModal = true;
 };
 
 // Quand l'utilisateur clique sur <span> (x), fermer la modale
 span2.onclick = function () {
     modal2.style.display = "none";
+    isModal = false;
 };
 
 // Quand l'utilisateur clique n'importe où en dehors de la modale, fermer la modale
@@ -175,11 +180,31 @@ fetch("360.json")
             // Créer l'en-tête de l'accordéon
             const header = document.createElement('div');
             header.className = 'accordion-header';
+            
+            // Ajouter du style flex pour positionner l'icône à droite
+            header.style.display = 'flex';
+            header.style.justifyContent = 'space-between';
+            header.style.alignItems = 'center';
+            
+            // Ajouter le nom et l'icône dans le header
             header.textContent = nom;
+            
+            const icon = document.createElement('span');
+            icon.textContent = " + ";
+            header.appendChild(icon);
+            
             header.onclick = () => {
                 const content = header.nextElementSibling;
-                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                const isVisible = content.style.display === 'block';
+                
+                // Toggle display du contenu
+                content.style.display = isVisible ? 'none' : 'block';
+                
+            
+                // Mettre à jour l'icône en fonction de l'état d'affichage
+                icon.textContent = isVisible ? " + " : " - ";
             };
+            
 
             // Créer le contenu de l'accordéon avec plusieurs divs
             const content = document.createElement('div');
@@ -213,10 +238,6 @@ fetch("360.json")
             // Ajouter l'accordéon au conteneur
             accordionContainer.appendChild(accordion);
             
-
-            
-            
-
             jsonList2.appendChild(accordionContainer);
         });
 
@@ -941,7 +962,7 @@ function onClick(event, data) {
 
     const intersects = raycaster.intersectObjects(objectsToIntersect, true);
 
-    if (intersects.length > 0) {
+    if (intersects.length > 0 && isModal === false) {
         const object = intersects[0].object;
         if (object.userData.onClick !== undefined) {
             object.userData.onClick();
@@ -1055,6 +1076,10 @@ startbutton.addEventListener("mousedown", function () {
     const tl = gsap.timeline();
 
     setTimeout(mikatona, 500);
+
+    document.getElementById("navbar").style.marginTop = 0;
+    document.getElementById("buttons-container").style.opacity = 1;
+    document.getElementById("helpSection").style.opacity = 1;
 
     document.getElementById("backgroundExplorer").style.width = 0;
     document.getElementById("backgroundExplorer").style.height = 0;
