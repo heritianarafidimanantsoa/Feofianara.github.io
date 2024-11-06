@@ -11,25 +11,7 @@ import { GLTFLoader } from "./loaders/GLTFLoader.js";
 
 // import locationsData from "./data.json" assert { type: "json" };
 
-// Utilisation de fetch pour charger le JSON
 import data from "./360.json" with { type: "json" };
-
-// masquer les elements avant de cliquer sur explorer
-const explorerBtn = document.getElementById("explorer_bt");
-const elementsToToggle = ["navbar", "buttons-container", "helpSection"];
-
-// Masquez d'abord tous les éléments lors du chargement de la page
-elementsToToggle.forEach(id => {
-  const element = document.getElementById(id);
-  element.classList.add("hidden");
-});
-
-explorerBtn.addEventListener("click", () => {
-  elementsToToggle.forEach(id => {
-    const element = document.getElementById(id);
-    element.classList.toggle("hidden"); // Bascule la classe hidden
-  });
-});
 
 //Modal1
 // Récupérer la modale
@@ -346,7 +328,7 @@ camera360.position.z = 3;
 // Ajout des contrôles de la caméra
 var controls360 = new OrbitControls(camera360, renderer.domElement);
 
-controls360.mouseButtons.RIGHT = null;
+// controls360.mouseButtons.RIGHT = null;
 controls360.enableDamping = true;
 controls360.dampingFactor = 0.05;
 controls360.enableZoom = false;
@@ -404,7 +386,7 @@ function loadModel(file, overideMaterial = null) {
             });
         }
         model.traverse((item) => {
-            // console.log(item);
+            console.log(item);
         });
         scene.add(model);
     });
@@ -430,6 +412,7 @@ function init() {
         buildings.name = "buildings";
         scene.add(buildings);
     });
+    
     // roads
     loader1.load("/Lalana.glb", async function (gltf) {
         roads = gltf.scene;
@@ -553,59 +536,30 @@ function create360(data) {
     }
 
     // Sélection de l'élément du carrousel
-const carouselList = document.getElementById("carousel-list");
-const images = data.galery;
-const delayIntervals = [5000, 6000, 5500, 7000]; // Intervalle individuel pour chaque image (en ms)
+    const carouselList = document.getElementById("carousel-list");
+    const images = data.galery;
 
-if (carouselList) {
-    let carouselHTML = "";
-    images.forEach((imageUrl, index) => {
-        const activeClass = index === 0 ? "active" : "";
-        carouselHTML += `
-            <li class="slide ${activeClass}">
-                <img src="img/galery/${imageUrl}" class="image-cliquable" alt="image carousel">
-            </li>
-        `;
-    });
-    carouselList.innerHTML = carouselHTML;
-} else {
-    console.error("L'élément carousel-list est introuvable.");
-}
+    if (carouselList) {
+        let carouselHTML = "";
+        images.forEach((imageUrl, index) => {
+            const activeClass = index === 0 ? "activ" : ""; 
+            carouselHTML += `
+                <li class="slide ${activeClass}">
+                    <img src="img/galery/${imageUrl}" class="image-cliquable" alt="image carousel">
+                </li>
+            `;
+        });
+        carouselList.innerHTML = carouselHTML;
+    } else {
+        console.error("L'élément carousel-list est introuvable.");
+    }
 
-// Sélection des boutons précédent et suivant
-const prevButton = document.getElementById("prev");
-const nextButton = document.getElementById("next");
+    // Sélection des boutons précédent et suivant
+    const prevButton = document.getElementById("prev");
+    const nextButton = document.getElementById("next");
 
-let currentIndex = 0;
-let intervalId;
-
-function changeSlide(step) {
-    const slides = document.querySelectorAll(".slide");
-    slides[currentIndex].classList.remove("active"); // Retire la classe active de l'élément actuel sans transition
-
-    currentIndex = (currentIndex + step + slides.length) % slides.length;
-    slides[currentIndex].classList.add("active"); // Ajoute la classe active au nouvel élément sans transition
-
-    resetAutoScroll();
-}
-
-function autoScroll() {
-    changeSlide(1);
-    intervalId = setTimeout(autoScroll, delayIntervals[currentIndex % delayIntervals.length]);
-}
-
-function resetAutoScroll() {
-    clearTimeout(intervalId);
-    intervalId = setTimeout(autoScroll, delayIntervals[currentIndex % delayIntervals.length]);
-}
-
-// Lancement du défilement automatique
-autoScroll();
-
-prevButton.addEventListener("click", () => changeSlide(-1));
-nextButton.addEventListener("click", () => changeSlide(1));
-
-
+    prevButton.addEventListener("click", () => changeSlide(-1));
+    nextButton.addEventListener("click", () => changeSlide(1));
 
     // Gestion du son
     var sound360 = true;
@@ -663,7 +617,7 @@ nextButton.addEventListener("click", () => changeSlide(1));
         myText.fontSize = 0.3; 
         myText.position.z = -2; 
     } else {
-        myText.fontSize = 0.6; 
+        myText.fontSize = 1; 
         myText.position.z = -4; 
     }
 
@@ -863,7 +817,7 @@ function createTextSprite(message, parameters) {
     const fontSize = parameters.fontSize || 32;
     const scaleFactor = 2; // Facteur d'échelle pour le fond
     const baseWidth = 512; // Augmentez la largeur de base
-    const baseHeight = 64; // Hauteur de base
+    const baseHeight = 128; // Hauteur de base
     canvas.width = baseWidth * scaleFactor; // Largeur doublée
     canvas.height = baseHeight * scaleFactor; // Hauteur doublée
 
@@ -889,7 +843,7 @@ function createTextSprite(message, parameters) {
     const sprite = new THREE.Sprite(spriteMaterial);
 
     // Ajuster la taille du sprite
-    sprite.scale.set(2, 0.25, 1); // Ajustez la taille selon vos besoins
+    sprite.scale.set(2, 0.5, 1); // Ajustez la taille selon vos besoins
     return sprite;
 }
 
@@ -900,7 +854,7 @@ function loadPointOfInterest(x, y, z, data) {
         const pointOfInterest = poiGltf.scene;
 
         pointOfInterest.position.set(x, y, z);
-        pointOfInterest.scale.set(0.16, 0.16, 0.16);
+        pointOfInterest.scale.set(0.15, 0.15, 0.15);
         pointOfInterest.position.y -= 0.5;
 
         // Assign unique ID and data
@@ -911,17 +865,19 @@ function loadPointOfInterest(x, y, z, data) {
         const lanternLight = new THREE.PointLight(0xffff88, 1, 0.9, 0.1);
         lanternLight.name = "lanternLight";
         lanternLight.castShadow = true;
-        //pointOfInterest.add(lanternLight);
+        // pointOfInterest.add(lanternLight);
 
         // Create a sprite with text
         const sprite = createTextSprite(data.lieu, {
             fontSize: 30,
-            backgroundColor: 'rgba(0, 0, 0, 0,5)', // Transparent black
+            backgroundColor: 'rgba(0, 0, 0, 0)', // Transparent black
             textColor: 'white',
         });
 
         // Position the sprite above the model
         sprite.position.set(x, y , z); // Adjust y offset as needed
+        // sprite.renderOrder(0)
+        sprite.userData.ignoreRaycast = true;
         scene.add(sprite);
 
         // Add the 3D model to the scene
@@ -971,6 +927,7 @@ function onClick(event, data) {
     if (data != "") {
         console.log(data);
     }
+
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
@@ -979,22 +936,21 @@ function onClick(event, data) {
 
     raycaster.setFromCamera(mouse, camera);
 
-    const intersects = raycaster.intersectObjects(scene.children, true);
+    // Récupérer tous les objets sauf ceux qu'on souhaite ignorer (par exemple, les sprites)
+    const objectsToIntersect = scene.children.filter(obj => obj.type !== "Sprite");
+
+    const intersects = raycaster.intersectObjects(objectsToIntersect, true);
 
     if (intersects.length > 0) {
         const object = intersects[0].object;
         if (object.userData.onClick !== undefined) {
             object.userData.onClick();
             console.log(intersects);
-            // Vérifier si la scène 360 a déjà été créée
+            
             if (!renderScene360) {
-                // Exécuter la fonction create360 uniquement si le clic est fait sur un GLB
                 create360(donnees);
-                // Masquer le navbar après avoir créé la scène 360
                 hideNavbarIn360();
-                // Supprimer complètement la première scène après avoir créé la deuxième scène
                 removeFirstScene();
-                // Définir renderScene360 sur true pour indiquer que la scène 360 doit être rendue
                 renderScene360 = true;
             }
         }
@@ -1002,6 +958,7 @@ function onClick(event, data) {
         console.log("Aucun GLB cliqué !");
     }
 }
+
 
 function onMouseMove(event, dat) {
     const raycaster = new THREE.Raycaster();
