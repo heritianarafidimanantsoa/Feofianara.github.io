@@ -863,7 +863,7 @@ function createTextSprite(message, parameters) {
     const fontSize = parameters.fontSize || 32;
     const scaleFactor = 2; // Facteur d'échelle pour le fond
     const baseWidth = 512; // Augmentez la largeur de base
-    const baseHeight = 128; // Hauteur de base
+    const baseHeight = 64; // Hauteur de base
     canvas.width = baseWidth * scaleFactor; // Largeur doublée
     canvas.height = baseHeight * scaleFactor; // Hauteur doublée
 
@@ -889,7 +889,7 @@ function createTextSprite(message, parameters) {
     const sprite = new THREE.Sprite(spriteMaterial);
 
     // Ajuster la taille du sprite
-    sprite.scale.set(2, 0.5, 1); // Ajustez la taille selon vos besoins
+    sprite.scale.set(2, 0.25, 1); // Ajustez la taille selon vos besoins
     return sprite;
 }
 
@@ -911,12 +911,12 @@ function loadPointOfInterest(x, y, z, data) {
         const lanternLight = new THREE.PointLight(0xffff88, 1, 0.9, 0.1);
         lanternLight.name = "lanternLight";
         lanternLight.castShadow = true;
-        pointOfInterest.add(lanternLight);
+        //pointOfInterest.add(lanternLight);
 
         // Create a sprite with text
         const sprite = createTextSprite(data.lieu, {
             fontSize: 30,
-            backgroundColor: 'rgba(0, 0, 0, 0)', // Transparent black
+            backgroundColor: 'rgba(0, 0, 0, 0,5)', // Transparent black
             textColor: 'white',
         });
 
