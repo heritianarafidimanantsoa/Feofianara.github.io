@@ -13,8 +13,7 @@ import { GLTFLoader } from "./loaders/GLTFLoader.js";
 
 // import data from "./360.json" with { type: "json" };
 
-
-var data = [
+var donnee = [
     {
         "id": 1,
         "lieu": "Lapan’ny Tanana",
@@ -456,6 +455,14 @@ var data = [
         "z": 1.6
     }
 ];
+
+
+// Step 2: Convert the array to a JSON string (for storage or transmission)
+const jsonData = JSON.stringify(donnee);
+
+// Step 3: Parse the JSON string back to a JavaScript object
+const data = JSON.parse(jsonData);
+
 
 //Modal1
 // Récupérer la modale

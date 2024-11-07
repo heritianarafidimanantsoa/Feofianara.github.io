@@ -182,11 +182,7 @@
                 "audio": "013.mp3"
             }
         ],
-<<<<<<< HEAD
         "audio": "lapany 2.mp3",
-=======
-        "audio": "Anosy.mp3",
->>>>>>> d244654b4158e53699487a395945a344e25097df
         "x": -7.1,
         "y": -0.6,
         "z": 7.5
@@ -219,11 +215,7 @@
                 "audio": "001.mp3"
             }
         ],
-<<<<<<< HEAD
         "audio": "lapany 2.mp3",
-=======
-        "audio": "Porte Vieille Ville.mp3",
->>>>>>> d244654b4158e53699487a395945a344e25097df
         "x": -5.9,
         "y": -0.1,
         "z": 4.9
@@ -254,7 +246,7 @@
                 "audio": "004.mp3"
             }
         ],
-        "audio": "Escalier mort-homme.mp3",
+        "audio": "Gare FCE.mp3",
         "x": -6,
         "y": -0.5,
         "z": 3.2
@@ -285,7 +277,7 @@
                 "audio": "008.mp3"
             }
         ],
-        "audio": "Escalier de téléphone.mp3",
+        "audio": "Gare FCE.mp3",
         "x": -4.9,
         "y": -0.5,
         "z": -2
@@ -319,11 +311,7 @@
                 "audio": "009.mp3"
             }
         ],
-<<<<<<< HEAD
         "audio": "lapany 2.mp3",
-=======
-        "audio": "Monuments du centre-ville.mp3",
->>>>>>> d244654b4158e53699487a395945a344e25097df
         "x": -3.8,
         "y": -0.5,
         "z": 2.5
@@ -356,11 +344,7 @@
                 "audio": "011.mp3"
             }
         ],
-<<<<<<< HEAD
         "audio": "lapany 2.mp3",
-=======
-        "audio": "Point de vue.mp3",
->>>>>>> d244654b4158e53699487a395945a344e25097df
         "x": -8.3,
         "y": 0.2,
         "z": 0.1
@@ -377,7 +361,7 @@
         ],
         "descriptions": [
             "À Ankazondrano, le stationnement de Fianarantsoa offre un point névralgique où convergent plusieurs coopératives reliant les routes nationales. ",
-            "Dans ce quartier universitaire, le savoir et l'innovation se croisent sans cesse, animant les lieux d'une atmosphère studieuse et inspirante. Le campus, toujours en effervescence, devient un centre d'activités intellectuelles, où les étudiants se rassemblent pour échanger, apprendre, et tisser des liens dans un cadre de rencontre et de découverte."
+            "Dans ce carrefour animé, l'agitation règne en maître, avec une foule incessante de véhicules et de passants. Le flux incessant de voitures et de piétons crée une ambiance électrique et mouvementée, faisant de cet endroit un véritable centre d'activité et de dynamisme"
         ],
         "feo": [
             {
@@ -391,30 +375,24 @@
                 "audio": "010.mp3"
             }
         ],
-        "audio": "Stationnement.mp3",
+        "audio": "Gare FCE.mp3",
         "x": -2.4,
         "y": -0.4,
         "z": -0.8
     },
 
     {
-        "id": 13,
+        "id": 11,
         "lieu": "Andrainjato",
-        "photo360": "Emit.jpg",
-        "photo": "Andrainjato.JPG",
+        "photo360": "E-atiala.jpg",
+        "photo": "Gare routière 1.JPG",
         "galery": [
-            "Andrainjato 2.JPG",
-            "Andrainjato 3.JPG",
-            "Andrainjato 5.JPG",
-            "Andrainjato 6.JPG",
-            "Andrainjato 7.JPG",
-            "Andrainjato 4.JPG",
-            "Andrainjato 8.JPG",
-            "Andrainjato 9.JPG",
-            "Andrainjato 1.JPG"
+            "Gare routière 2.JPG",
+            "Gare routière 3.JPG",
+            "Gare routière 4.JPG"
         ],
         "descriptions": [
-            "Andrainjato est le quartier où se trouve le campus universitaire. C'est un lieu d'étude, de recherche et de rencontre pour les étudiants. ",
+            "À Ankazondrano, le stationnement de Fianarantsoa offre un point névralgique où convergent plusieurs coopératives reliant les routes nationales. ",
             "Dans ce carrefour animé, l'agitation règne en maître, avec une foule incessante de véhicules et de passants. Le flux incessant de voitures et de piétons crée une ambiance électrique et mouvementée, faisant de cet endroit un véritable centre d'activité et de dynamisme"
         ],
         "feo": [
@@ -429,11 +407,7 @@
                 "audio": "015.mp3"
             }
         ],
-<<<<<<< HEAD
         "audio": "lapany 2.mp3",
-=======
-        "audio": "Andrainjato.mp3",
->>>>>>> d244654b4158e53699487a395945a344e25097df
         "x": 7.8,
         "y": -0.5,
         "z": -1.9
@@ -460,11 +434,7 @@
                 "audio": "015.mp3"
             }
         ],
-<<<<<<< HEAD
-        "audio": "lapany 2.mp3",
-=======
-        "audio": "Statue de la Vierge.mp3",
->>>>>>> d244654b4158e53699487a395945a344e25097df
+        "audio": "Gare FCE.mp3",
         "x": -7.8,
         "y": 0.2,
         "z": 1.6
