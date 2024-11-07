@@ -519,8 +519,8 @@ function create360(data) {
 
     if (is360) {
         // Création de la caméra
-        camera360.position.set(-6, 0, -1);
-        camera360.lookAt(-6, 0, -1);
+        camera360.position.set(0, 0, 0);
+        camera360.lookAt(0, 0, 0);
     }
 
     // Réinitialisation de la caméra 360
