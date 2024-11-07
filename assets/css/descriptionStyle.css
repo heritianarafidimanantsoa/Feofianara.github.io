@@ -856,18 +856,66 @@
     }
 }
 /************* responsive texte/ au dessou du Audio nom dans le description dans 360*****************/
+@media (min-width: 1536px) {
+    .conteneur_bas {
+        z-index: 12;
+        margin-top: 400px;
+        height: 800px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1284px) {
+    .conteneur_bas {
+        z-index: 12;
+        margin-top: 100px;
+        height: 800px;
+    }
+}
+
+@media (width: 1024px) {
+    .conteneur_bas {
+        z-index: 12;
+        margin-top: -60px; /* Réduction de la marge supérieure */
+        height: 800px; /* Réduction de la hauteur */
+    }
+}
+
+@media (max-width: 1024px) {
+    .conteneur_bas {
+        z-index: 12;
+        margin-top: -60px; /* Réduction de la marge supérieure */
+        height: 800px; /* Réduction de la hauteur */
+    }
+}
+
+/* @media (min-width: 768px) and (max-width: 1024px) {
+    .conteneur_bas {
+        z-index: 12;
+        margin-top: 864px;
+        height: 800px;
+    }
+} */
+
+/* @media (min-width: 820px) {
+    .conteneur_bas {
+        z-index: 12;
+        margin-top: 800px;
+        height: 800px;
+    }
+} */
+
 @media (max-width: 768px) {
     .conteneur_bas {
         z-index: 12;
-        margin-top: 870px; /* Réduction de la marge supérieure */
-        height: 800px; /* Réduction de la hauteur */
+        margin-top: 300px;
+        height: 800px;
     }
 }
 
 @media (max-width: 480px) {
     .conteneur_bas {
         z-index: 12;
-        margin-top: 400px; /* Réduction encore plus importante de la marge supérieure */
+        margin-top: 200px; /* Réduction encore plus importante de la marge supérieure */
         height: 600px; /* Hauteur ajustée pour les petits écrans */
     }
 }
@@ -878,7 +926,7 @@
     .visible {
         font-size: 18px; /* Réduction de la taille de la police */
         line-height: 30px; /* Ajustement de l'espacement des lignes */
-        padding-top: 20%; /* Réduction du padding-top pour les tablettes */
+        padding-top: 10%; /* Réduction du padding-top pour les tablettes */
     }
 }
 
@@ -999,7 +1047,7 @@
 /* Pour les tablettes et les écrans moyens */
 @media (max-width: 1024px) {
     .texte_filtre p {
-        margin-top: 120vh; /* Réduction de la marge supérieure pour les écrans plus petits */
+        margin-top: 160vh; /* Réduction de la marge supérieure pour les écrans plus petits */
         font-size: 24px; /* Taille de police légèrement réduite */
         line-height: 30px; /* Ajustement du line-height */
     }
@@ -1166,7 +1214,7 @@
     }
 }
 /************* responsive carousel *****************/
-@media (max-width: 1536px) {
+@media (min-width: 1536px) {
     .carousel {
         height: 69vh;
         width: 108vh;
@@ -1174,21 +1222,49 @@
 }
 @media (max-width: 1280px) {
     .carousel {
-        height: 40vh;
-        width: 59vh;
+        height: 86vh;
+        width: 130vh;
+        margin-top: 36vh;
     }
 }
+
+/* Plage pour les écrans entre 1024px et 1284px */
+/* @media (min-width: 1024px) and (max-width: 1284px) {
+    .carousel {
+        height: 44vh;
+        width: 59vh;
+        margin-top: 20%;
+    }
+} */
+
+/* Plage pour les écrans jusqu'à 1024px */
 @media (max-width: 1024px) {
     .carousel {
-        height: 30vh;
-        width: 51vh;
+        height: 39vh;
+        width: 54vh;
+        margin-top: 14%;
+    }
+}
+
+/* @media (min-width: 1024px) {
+    .carousel {
+        height: 39vh;
+        width: 57vh;
+        margin-top: 14%;
+    }
+} */
+
+@media (width: 1024px) {
+    .carousel {
+        height: 76vh;
+        width: 110vh;
     }
 }
 
 @media (max-width: 768px) {
     .carousel {
-        width: 56vh;
-        height: 37vh;
+        width: 63vh;
+        height: 41vh;
         margin-top: 12vh;
     }
 
@@ -1196,19 +1272,38 @@
     #next {
         font-size: 1.2rem; /* Réduis la taille des flèches de navigation */
     }
+    #prev {
+        left: -20px;
+    }
+    #next {
+        right: -20px;
+    }
 }
-@media (max-width: 480px) {
+
+@media (max-width: 440px) {
     .carousel {
-        width: 30vh;
-        height: 21vh;
+        width: 36vh;
+        height: 29vh;
         margin-top: 11vh;
+    }
+    #prev {
+        left: -20px;
+    }
+    #next {
+        right: -20px;
     }
 }
 @media (max-width: 375px) {
     .carousel {
-        width: 32vh;
-        height: 25vh;
-        margin-top: 7vh;
+        width: 39vh;
+        height: 29vh;
+        margin-top: 13vh;
+    }
+    #prev {
+        left: -20px;
+    }
+    #next {
+        right: -20px;
     }
 }
 

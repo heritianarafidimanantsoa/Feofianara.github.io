@@ -755,8 +755,8 @@ controls.maxDistance = 10;
 // controls.minPolarAngle = THREE.MathUtils.degToRad(45);
 
 // Définit les limites de déplacement sur l'axe X et Y (gauche, droite, haut, bas)
-const minPan = new THREE.Vector3(-7, -7, -7); // Limite minimum de déplacement (gauche, bas)
-const maxPan = new THREE.Vector3(7, 7, 7); // Limite maximum de déplacement (droite, haut)
+const minPan = new THREE.Vector3(-7, -7, -6); // Limite minimum de déplacement (gauche, bas)
+const maxPan = new THREE.Vector3(7, 3, 6.5); // Limite maximum de déplacement (droite, haut)
 
 // Fonction pour limiter le mouvement sur le plan
 controls.addEventListener("change", () => {
