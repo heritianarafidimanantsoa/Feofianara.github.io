@@ -53,6 +53,8 @@ body {
     display: none;
     padding: 10px;
     border-top: 1px solid #ccc;
+    overflow: hidden;
+    transition: 0.3s;
 }
 
 .accordion-content:hover {
@@ -545,6 +547,7 @@ progress::-moz-progress-bar {
 
 .bt_list {
     /* background-color: rgba(255, 0, 0, 0.363); */
+    /* opacity: 0; */
     width: 430px;
 
     /* Centrage horizontal et vertical */
@@ -557,6 +560,9 @@ progress::-moz-progress-bar {
     display: flex;
     justify-content: space-around; /* Ajoute de l'espace entre les éléments */
     align-items: center; /* Centre les éléments verticalement dans .bt_list */
+
+
+    transition: 1s;
 }
 
 .bt_m_ {
