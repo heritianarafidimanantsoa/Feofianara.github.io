@@ -856,7 +856,7 @@
     }
 }
 /************* responsive texte/ au dessou du Audio nom dans le description dans 360*****************/
-@media (max-width: 1536px) {
+@media (min-width: 1536px) {
     .conteneur_bas {
         z-index: 12;
         margin-top: 400px;
@@ -1214,7 +1214,7 @@
     }
 }
 /************* responsive carousel *****************/
-@media (max-width: 1536px) {
+@media (min-width: 1536px) {
     .carousel {
         height: 69vh;
         width: 108vh;
