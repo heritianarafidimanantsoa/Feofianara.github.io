@@ -519,12 +519,12 @@ function create360(data) {
 
     if (is360) {
         // Création de la caméra
-        camera360.position.set(0, 0, 0);
-        camera360.lookAt(0, 0, 0);
+        camera360.position.set(-6, 0, -1);
+        camera360.lookAt(-6, 0, -1);
     }
 
     // Réinitialisation de la caméra 360
-    camera360.position.set(0, 0, 0);
+    camera360.position.set(-6, 0, -1);
     camera360.lookAt(0, 0, -1); // Oriente vers l'axe Z négatif
 
     // Réinitialiser les contrôles pour prendre en compte la nouvelle position de la caméra
@@ -533,7 +533,7 @@ function create360(data) {
 
     is360 = true;
     // Création de la géométrie de la sphère
-    const geometry = new THREE.SphereGeometry(10, 30, 30);
+    const geometry = new THREE.SphereGeometry(25, 70, 70);
 
     // Chargement de la texture
     const texture = new THREE.TextureLoader().load(
@@ -672,17 +672,23 @@ nextButton.addEventListener("click", () => changeSlide(1));
     myText.text = data.lieu;
     myText.anchorX = "center";
     myText.font = "./fonts/Montserrat-Regular.otf";
-    myText.color = 0x5f9cd9;
+    myText.color = 0xffffff;
+
+    // Définir la position du texte
+    myText.position.set(10, -5, 2.5);  // Remplacez x, y, z par les valeurs de votre choix
+
+    // Si vous voulez que le texte reste fixe par rapport à la caméra (effet de texte "flottant" en 360°), vous pouvez faire en sorte que le texte suive la caméra en définissant une liaison :
+    myText.lookAt(camera.position);  // Cela permet au texte de toujours faire face à la caméra, utile pour une scène 360°
 
     if (window.innerWidth <= 768) {
-        myText.fontSize = 0.3; 
-        myText.position.z = -2; 
-    } else if (window.innerWidth <= 1024) {
-        myText.fontSize = 0.3; 
-        myText.position.z = -2; 
-    } else {
         myText.fontSize = 0.7; 
-        myText.position.z = -4; 
+        myText.position.z = 0; 
+    } else if (window.innerWidth <= 1024) {
+        myText.fontSize = 0.7; 
+        myText.position.z = 0; 
+    } else {
+        myText.fontSize = 1.2; 
+        myText.position.z = -1; 
         
     }
 
