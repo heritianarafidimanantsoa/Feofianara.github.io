@@ -918,7 +918,7 @@ function loadPointOfInterest(x, y, z, data) {
         const pointOfInterest = poiGltf.scene;
 
         pointOfInterest.position.set(x, y, z);
-        pointOfInterest.scale.set(0.15, 0.15, 0.15);
+        pointOfInterest.scale.set(0.20, 0.20, 0.20);
         pointOfInterest.position.y -= 0.5;
 
         // Assign unique ID and data
