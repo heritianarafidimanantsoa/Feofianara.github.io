@@ -87,6 +87,14 @@ helpButton.addEventListener('click', () => {
 closeButton.addEventListener('click', () => {
   popup.classList.add('hidden');
 });
+
+// Cacher la popup quand on clique en dehors
+document.addEventListener('click', (event) => {
+    // Vérifie si le clic est en dehors de la popup et du bouton
+    if (!popup.contains(event.target) && !helpButton.contains(event.target)) {
+      popup.classList.add('hidden');
+    }
+  });
 // Instruction souris
 
 const progressBar = document.getElementById("progress-bar");
@@ -519,7 +527,7 @@ function create360(data) {
 
     if (is360) {
         // Création de la caméra
-        camera360.position.set(0, 0, 0);
+        camera360.position.set(-6, 0, -1);
         camera360.lookAt(0, 0, 0);
     }
 
