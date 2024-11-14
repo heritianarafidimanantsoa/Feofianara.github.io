@@ -11,7 +11,7 @@ import { GLTFLoader } from "./loaders/GLTFLoader.js";
 
 // import locationsData from "./data.json" assert { type: "json" };
 
-// import data from "./360.json" with { type: "json" };
+import data from "./360.json" with { type: "json" };
 
 //Modal1
 // Récupérer la modale
