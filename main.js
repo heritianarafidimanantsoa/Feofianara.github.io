@@ -272,9 +272,6 @@ fetch("360.json")
                 }
             });
         }
-        for (let i = 0; i < data.length; i++) {
-            loadPointOfInterest(data[i].x, data[i].y, data[i].z, data[i]);
-        }
     })
     .catch((error) => {
         console.error("Error loading JSON:", error);
@@ -989,7 +986,9 @@ function loadPointOfInterest(x, y, z, data) {
     });
 }
 
-
+for (let i = 0; i < data.length; i++) {
+    loadPointOfInterest(data[i].x, data[i].y, data[i].z, data[i]);
+}
 
 document.addEventListener("click", function (event) {
     onClick(event, donnees);
