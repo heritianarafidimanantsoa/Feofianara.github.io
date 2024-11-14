@@ -11,7 +11,7 @@ import { GLTFLoader } from "./loaders/GLTFLoader.js";
 
 // import locationsData from "./data.json" assert { type: "json" };
 
-import data from "./360.json" with { type: "json" };
+// import data from "./360.json" with { type: "json" };
 
 //Modal1
 // Récupérer la modale
@@ -271,6 +271,9 @@ fetch("360.json")
                     renderScene360 = true;
                 }
             });
+        }
+        for (let i = 0; i < data.length; i++) {
+            loadPointOfInterest(data[i].x, data[i].y, data[i].z, data[i]);
         }
     })
     .catch((error) => {
@@ -986,9 +989,7 @@ function loadPointOfInterest(x, y, z, data) {
     });
 }
 
-for (let i = 0; i < data.length; i++) {
-    loadPointOfInterest(data[i].x, data[i].y, data[i].z, data[i]);
-}
+
 
 document.addEventListener("click", function (event) {
     onClick(event, donnees);
