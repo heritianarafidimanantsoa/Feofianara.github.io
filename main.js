@@ -251,26 +251,23 @@ fetch("360.json")
 
 
         // Récuperation de parametre de l'IRL
-        let url = window.location.href;
-        let params = url.split("?")[1];
-        if (params == undefined) {
-        }
-        let param = params.split("=")[0];
-        let value = decodeURI(params.split("=")[1]);
+       let url = window.location.href;
+let params = url.split("?")[1];
 
-        if (param == "lieu") {
-            // affichage du lieu choisi
-            data.forEach((item) => {
-                if (item.lieu == value) {
-                    create360(item);
-                    // Masquer le navbar après avoir créé la scène 360
-                    hideNavbarIn360();
-                    // Supprimer complètement la première scène après avoir créé la deuxième scène
-                    removeFirstScene();
-                    // Définir renderScene360 sur true pour indiquer que la scène 360 doit être rendue
-                    renderScene360 = true;
-                }
-            });
+if (params) {
+    let param = params.split("=")[0];
+    let value = decodeURI(params.split("=")[1]);
+
+    if (param === "lieu") {
+        data.forEach((item) => {
+            if (item.lieu === value) {
+                create360(item);
+                hideNavbarIn360();
+                removeFirstScene();
+                renderScene360 = true;
+            }
+        });
+    }
         }
     })
     .catch((error) => {
@@ -681,6 +678,15 @@ nextButton.addEventListener("click", () => changeSlide(1));
     myText.anchorX = "center";
     myText.font = "./fonts/Montserrat-Regular.otf";
     myText.color = 0xffffff;
+
+    // 🔒 Protection contre les assignations automatiques de customDepthMaterial
+    myText.isText = true;
+
+    if (!object.isText) {
+  object.customDepthMaterial = new THREE.MeshDepthMaterial();
+}
+
+
 
     // Définir la position du texte
     myText.position.set(10, -5, 2.5);  // Remplacez x, y, z par les valeurs de votre choix
