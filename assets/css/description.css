@@ -30,7 +30,7 @@
     width: 237px;
     height: 70px;
     transition: background-color 0.3s ease;
-    display: flex;
+    display: none;
     align-items: center;
 }
 
@@ -41,6 +41,10 @@
 
 .is_displayed2 {
     bottom: -10px;
+}
+
+.show_description.is_displayed2 {
+    display: flex;
 }
 
 .show_icon {
